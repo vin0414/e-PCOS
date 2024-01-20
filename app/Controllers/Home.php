@@ -18,6 +18,11 @@ class Home extends BaseController
         return view('welcome_message');
     }
 
+    public function Auth()
+    {
+        return view('auth');
+    }
+
     public function login()
     {
         return view('login');
@@ -30,7 +35,7 @@ class Home extends BaseController
 
     public function customerLogin()
     {
-        
+
     }
 
     public function createAccount()
