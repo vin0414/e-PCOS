@@ -18,6 +18,7 @@ class Home extends BaseController
         return view('welcome_message');
     }
 
+    //admin
     public function Auth()
     {
         return view('auth');
@@ -27,6 +28,17 @@ class Home extends BaseController
     {
         
     }
+
+    public function logout()
+    {
+        if(session()->has('loggedUser'))
+        {
+            session()->remove('loggedUser');
+            return redirect()->to('/auth?access=out')->with('fail', 'You are logged out!');
+        }
+    }
+
+    //customer
 
     public function login()
     {
@@ -81,7 +93,7 @@ class Home extends BaseController
                 $customerModel->save($values);
                 $email = \Config\Services::email();
                 $email->setTo($emailadd,$fullname);
-                $email->setFrom("petligo2023@gmail.com","e-PCOS");
+                $email->setFrom("pcos.system2024@gmail.com","e-PCOS");
                 $imgURL = "assets/img/logo.png";
                 $email->attach($imgURL);
                 $cid = $email->setAttachmentCID($imgURL);
@@ -92,7 +104,7 @@ class Home extends BaseController
                 <tr><td><center>Hi, ".$fullname."</center></td></tr>
                 <tr><td><p><center>Please click the link below to activate your account.</center></p></td><tr>
                 <tr><td><center><b>".anchor('activate/'.$token_code,'Activate Account')."</b></center></td></tr>
-                <tr><td><p><center>If you did not sign-up in e-PCOS Website,<br/> please ignore this message or contact us @ petligo2023@gmail.com</center></p></td></tr>
+                <tr><td><p><center>If you did not sign-up in e-PCOS Website,<br/> please ignore this message or contact us @ pcos.system2024@gmail.com</center></p></td></tr>
                 <tr><td>e-PCOS IT Support</td></tr></tbody></table></center>";
                 $subject = "Account Activation | e-PCOS";
                 $email->setSubject($subject);
@@ -107,5 +119,27 @@ class Home extends BaseController
     public function successPage()
     {
         return view('success-form');
+    }
+
+    public function activate($id)
+    {
+        $customerModel = new \App\Models\customerModel();
+        $customer = $customerModel->WHERE('Token',$id)->first();
+        $values = ['Status'=>1];
+        $customerModel->update($customer['customerID'],$values);
+        session()->set('sess_id', $customer['customerID']);
+        session()->set('sess_fullname', $customer['Fullname']);
+        session()->set('customer_email',$customer['EmailAddress']);
+        return $this->response->redirect(site_url('customer/dashboard'));
+    }
+
+    public function signOut()
+    {
+        if(session()->has('customer_email'))
+        {
+            session()->remove('customer_email');
+            session()->remove('sess_id');
+            return redirect()->to('/login?access=out')->with('fail', 'You are logged out!');
+        }
     }
 }
