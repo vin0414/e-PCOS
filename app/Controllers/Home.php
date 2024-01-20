@@ -16,6 +16,6 @@ class Home extends BaseController
 
     public function createAccount()
     {
-        
+        $customerModel = new \App\Models\customerModel();
     }
 }
