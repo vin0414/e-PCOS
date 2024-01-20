@@ -33,6 +33,7 @@
             <button type="submit" name="send2">login</button>
             <p class="message">Not registered? <a href="/register">Create an account</a>
             <br/>Forgot Password? <a href="/forgot-password">Click here</a></p>
+            <a href="/">Go to Home</a>
        </form>
       </div>
   </div>

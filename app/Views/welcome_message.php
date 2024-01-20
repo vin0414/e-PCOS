@@ -57,6 +57,7 @@
                   </li>
                   <li><a href="/blogs" class="nav__link"> Blogs</a></li>
                   <li><a href="/contacts" class="nav__link">Contact</a></li>
+                  <li><a href="/register" class="nav__link">Register</a></li>
             </div>
          </nav>
       </header>
