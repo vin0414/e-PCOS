@@ -21,19 +21,19 @@
     </div>
     <div class="background-overlay"></div>
       <div class="form">
-        <form class="register-form" method="POST">
+        <form class="register-form" method="POST" action="<?=base_url('create-account')?>">
             <h2><i class="fas fa-lock"></i> Register</h2>
-            <input type="text" placeholder="Full Name *" required/>
-            <input type="text" placeholder="Username *" required/>
-            <input type="email" placeholder="Email *" required/>
-            <input type="password" placeholder="Password *" required/>
-            <button type="submit">create</button>
+            <input type="text" placeholder="Full Name *" name="fullname" required/>
+            <input type="email" placeholder="Email *" name="email" required/>
+            <input type="password" placeholder="Password *" name="password" required/>
+            <input type="password" placeholder="Retype Password *" name="confirm_password" required/>
+            <button type="submit">Create Account</button>
             <p class="message">Already registered? <a href="javascript:void(0);" id="login-link">Sign In</a></p>
             <a href="/">Go to Home</a>
         </form>
         <form class="login-form" method="post">
             <h2><i class="fas fa-lock"></i> Login</h2>
-            <input type="text"placeholder="Username" required />
+            <input type="email" placeholder="Email" required />
             <input type="password" placeholder="Password" required/>
             <button type="submit" name="send2">login</button>
             <p class="message">Not registered? <a href="javascript:void(0);" id="register-link">Create an account</a></p>
