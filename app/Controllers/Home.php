@@ -88,4 +88,9 @@ class Home extends BaseController
             }
         }
     }
+
+    public function successPage()
+    {
+        return view('success-form');
+    }
 }

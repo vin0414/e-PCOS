@@ -16,9 +16,6 @@
 </head>
 <body>
   <div class="login-page">
-    <div class="img">
-    <img class=".img-fluid" src="assets/img/logo.png" alt="logo" style="width:100%;">
-    </div>
     <div class="background-overlay"></div>
       <div class="form">
         <?php if(!empty(session()->getFlashdata('fail'))) : ?>
@@ -26,8 +23,11 @@
                 <?= session()->getFlashdata('fail'); ?>
             </div>
         <?php endif; ?>
-        <form class="register-form" method="POST" action="<?=base_url('create-account')?>">
-            <h2><i class="fas fa-lock"></i> Register</h2>
+        <form class="login-form" method="POST" action="<?=base_url('create-account')?>">
+            <center>
+                <img class=".img-fluid" src="assets/img/logo.png" alt="logo" width="100">
+            </center>
+            <br/>
             <input type="text" placeholder="Full Name *" name="fullname" required/>
             <input type="email" placeholder="Email *" name="email" required/>
             <input type="password" placeholder="Password *" name="password" style="color:#000;" required/>

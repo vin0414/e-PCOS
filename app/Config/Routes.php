@@ -32,6 +32,7 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/login','Home::login');
 $routes->get('/register','Home::register');
+$routes->get('/success','Home::successPage');
 //action
 $routes->post('create-account','Home::createAccount');
 
