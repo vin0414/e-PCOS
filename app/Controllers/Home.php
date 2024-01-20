@@ -28,6 +28,11 @@ class Home extends BaseController
         return view('/register');
     }
 
+    public function customerLogin()
+    {
+        
+    }
+
     public function createAccount()
     {
         $customerModel = new \App\Models\customerModel();

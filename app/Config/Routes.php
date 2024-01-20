@@ -34,6 +34,7 @@ $routes->get('/login','Home::login');
 $routes->get('/register','Home::register');
 $routes->get('/success','Home::successPage');
 //action
+$routes->post('sign-in','Home::customerLogin');
 $routes->post('create-account','Home::createAccount');
 
 /*

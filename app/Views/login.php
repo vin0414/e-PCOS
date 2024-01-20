@@ -23,7 +23,7 @@
                 <?= session()->getFlashdata('fail'); ?>
             </div>
         <?php endif; ?>
-        <form class="login-form" method="post">
+        <form class="login-form" method="post" action="<?=site_url('sign-in')?>">
             <center>
                 <img class=".img-fluid" src="assets/img/logo.png" alt="logo" width="100">
             </center>
