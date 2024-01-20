@@ -36,6 +36,8 @@ $routes->get('/success','Home::successPage');
 //customer registration/login/forgot_password
 $routes->post('sign-in','Home::customerLogin');
 $routes->post('create-account','Home::createAccount');
+//admin
+$routes->post('check','Home::check');
 
 $routes->group('',['filter'=>'AuthCheck'],function($routes)
 {

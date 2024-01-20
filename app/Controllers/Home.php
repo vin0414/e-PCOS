@@ -23,6 +23,11 @@ class Home extends BaseController
         return view('auth');
     }
 
+    public function check()
+    {
+        
+    }
+
     public function login()
     {
         return view('login');
