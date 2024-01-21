@@ -44,12 +44,12 @@ $routes->get('/logout','Home::logout');
 
 $routes->group('',['filter'=>'AuthCheck'],function($routes)
 {
-
+    $routes->get('admin/dashboard','Home::Dashboard');
 });
 
 $routes->group('',['filter'=>'customerAuthCheck'],function($routes)
 {
-
+    $routes->get('customer/dashboard','Customer::Index');
 });
 
 $routes->group('',['filter'=>'AlreadyLoggedIn'],function($routes)
@@ -59,7 +59,7 @@ $routes->group('',['filter'=>'AlreadyLoggedIn'],function($routes)
 
 $routes->group('',['filter'=>'customerAlreadyLoggedIn'],function($routes)
 {
-    $routes->get('/login','Home::Login');
+    $routes->get('/login','Home::login');
 });
 
 /*

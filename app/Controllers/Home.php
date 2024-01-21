@@ -38,6 +38,11 @@ class Home extends BaseController
         }
     }
 
+    public function Dashboard()
+    {
+        return view('admin/index');
+    }
+
     //customer
 
     public function login()
