@@ -78,7 +78,7 @@ class Home extends BaseController
 
         if(!$validation)
         {
-            session()->setFlashdata('fail','Invalid! Email already exists');
+            session()->setFlashdata('fail','Sorry! Email already exists');
             return redirect()->to('/register')->withInput();
         }
         else
@@ -93,7 +93,7 @@ class Home extends BaseController
                 $token_code = random_string('alnum',20);
                 $hash_password = Hash::make($password);
                 $values = [
-                    'Email'=>$emailadd, 'Password'=>$hash_password ,'Fullname'=>$fullname,'Status'=>0,'Token'=>$token_code
+                    'EmailAddress'=>$emailadd, 'Password'=>$hash_password ,'Fullname'=>$fullname,'Status'=>0,'Token'=>$token_code
                 ];
                 $customerModel->save($values);
                 $email = \Config\Services::email();
