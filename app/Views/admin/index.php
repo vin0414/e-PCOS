@@ -31,11 +31,12 @@
       <!--=============== NAV MENU ===============-->
             <div class="nav__menu" id="nav-menu">
                <ul class="nav__list">
-                  <li><a href="<?=site_url('customer/dashboard')?>" class="nav__link">Dashboard</a></li>
+                  <li><a href="<?=site_url('admin/dashboard')?>" class="nav__link">Dashboard</a></li>
       <!--=============== DROPDOWN  ===============-->
-                  <li><a href="/blogs" class="nav__link"> Take A Test</a></li>
-                  <li><a href="/contacts" class="nav__link">Account</a></li>
-                  <li><a href="<?=site_url('/logout')?>" onclick="return confirm('Do you want to sign-out?');" class="nav__link">Sign-Out</a></li>
+                  <li><a href="admin/manage" class="nav__link"> Manage</a></li>
+                  <li><a href="admin/report" class="nav__link"> Report</a></li>
+                  <li><a href="admin/account" class="nav__link">Account</a></li>
+                  <li><a href="<?=site_url('/logout')?>" onclick="return confirm('Do you want to sign-out?');" class="nav__link">Log-out</a></li>
             </div>
          </nav>
       </header>
