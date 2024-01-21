@@ -47,9 +47,19 @@ $routes->group('',['filter'=>'AuthCheck'],function($routes)
 
 });
 
+$routes->group('',['filter'=>'customerAuthCheck'],function($routes)
+{
+
+});
+
 $routes->group('',['filter'=>'AlreadyLoggedIn'],function($routes)
 {
     $routes->get('/auth','Home::Auth');
+});
+
+$routes->group('',['filter'=>'customerAlreadyLoggedIn'],function($routes)
+{
+    $routes->get('/login','Home::Login');
 });
 
 /*
