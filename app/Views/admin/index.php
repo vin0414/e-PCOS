@@ -35,15 +35,38 @@
       <!--=============== DROPDOWN  ===============-->
                   <li><a href="admin/manage" class="nav__link"> Manage</a></li>
                   <li><a href="admin/report" class="nav__link"> Report</a></li>
-                  <li><a href="admin/account" class="nav__link">Account</a></li>
-                  <li><a href="<?=site_url('/logout')?>" onclick="return confirm('Do you want to sign-out?');" class="nav__link">Log-out</a></li>
+                  <li><a href="admin/user-account" class="nav__link"> User Account</a></li>
+                  <li class="dropdown__item">
+                     <div class="nav__link"> Profile <i class="ri-arrow-down-s-line dropdown__arrow"></i></div>
+                     <ul class="dropdown__menu">
+                        <li>
+                           <a href="<?=site_url('admin/profile')?>" class="dropdown__link">
+                            Account Setting
+                           </a>                          
+                        </li>
+                        <li>
+                           <a href="<?=site_url('/logout')?>" class="dropdown__link" onclick="return confirm('Do you want to sign-out?');" >
+                            Logout
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
             </div>
          </nav>
       </header>
 <!--=============== HOME SECTION  ===============-->
 <section class="home" id="home">
-   <div class="content">
-   </div>
+    <div class="content">
+        <div class="row g-3">
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">Total </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 
