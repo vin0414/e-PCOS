@@ -28,8 +28,8 @@
                 <img class=".img-fluid" src="assets/img/logo.png" alt="logo" width="100">
             </center>
             <br/>
-            <input type="text" placeholder="Full Name *" name="fullname" required/>
-            <input type="email" placeholder="Email *" name="email" required/>
+            <input type="text" placeholder="Full Name *" name="fullname" style="color:black;" required/>
+            <input type="email" placeholder="Email *" name="email" style="color:black;" required/>
             <input type="password" placeholder="Password *" name="password" style="color:#000;" required/>
             <input type="password" placeholder="Retype Password *" name="confirm_password"  style="color:#000;" required/>
             <button type="submit">Create Account</button>

@@ -26,7 +26,51 @@ class Home extends BaseController
 
     public function check()
     {
-        
+        $email = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
+
+        $validation = $this->validate([
+            'email'=>'required|valid_email',
+            'password'=>'min_length[8]|max_length[12]'
+        ]);
+        if(!$validation)
+        {
+            session()->setFlashdata('fail','Invalid Username or Password!');
+            return redirect()->to('/auth')->withInput();
+        }
+        else
+        {
+            $builder = $this->db->table('tblaccount');
+            $builder->select('*');
+            $builder->WHERE('EmailAddress',$email)->WHERE('Status',1);
+            $data = $builder->get();
+            if($row = $data->getRow())
+            {
+                $check_password = Hash::check($password, $row->Password);
+                if(empty($check_password) || !$check_password)
+                {
+                    session()->setFlashdata('fail','Invalid username or password');
+                    return redirect()->to('/auth')->withInput();
+                }
+                else
+                {
+                    session()->set('loggedUser', $row->accountID);
+                    session()->set('sess_fullname', $row->Fullname);
+                    session()->set('sess_role',$row->Role);
+                    //save the logs
+                    // $values = [
+                    //     'Date'=>date('Y-m-d'),'Time'=>date('h:i:s a'),'accountID'=>$row->accountID,'Activity'=>'Logged In'
+                    // ];
+                    // $logsModel->save($values);
+                    return redirect()->to('admin/dashboard');
+                }
+            }
+            else
+            {
+                session()->setFlashdata('fail','Account is disabled. Please contact the Administrator');
+                return redirect()->to('/auth')->withInput();
+            }
+        }
     }
 
     public function logout()

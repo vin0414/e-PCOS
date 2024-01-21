@@ -28,8 +28,8 @@
                 <img class=".img-fluid" src="assets/img/logo.png" alt="logo" width="100">
             </center>
             <br/>
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Password" required/>
+            <input type="email" placeholder="Email" name="email" style="color:black;" required/>
+            <input type="password" placeholder="Password" name="password" style="color:black;" required/>
             <button type="submit" name="send2">login</button>
             <p class="message"><br/>Forgot Password? <a href="/forgot-password">Click here</a></p>
        </form>
