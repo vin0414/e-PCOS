@@ -37,6 +37,7 @@ $routes->get('/success','Home::successPage');
 $routes->post('sign-in','Home::customerLogin');
 $routes->post('create-account','Home::createAccount');
 $routes->get('activate/(:any)','Home::activate/$1');
+$routes->get('forgot-password','Home::forgotPassword');
 $routes->get('/sign-out','Home::signOut');
 //admin
 $routes->post('check','Home::check');
