@@ -80,19 +80,59 @@
         <div class="row g-3">
             <div class="col-lg-8">
                 <div class="card">
+                    <div class="card-header">
+                        Account Information
+                    </div>
                     <div class="card-body">
-                        <div class="card-title">
-                            Account Information
-                        </div>
+                        <form method="POST" class="row g-3" id="frmAccount">
+                            <div class="col-12">
+                                <label>Complete Name *</label>
+                                <input type="text" class="form-control" name="fullname" required/>
+                            </div>
+                            <div class="col-12">
+                                <label>Email Address *</label>
+                                <input type="email" class="form-control" name="email" required/>
+                            </div>
+                            <div class="col-12">
+                                <div class="row g-3">
+                                    <div class="col-lg-6">
+                                        <label>System Role *</label>
+                                        <select class="form-control" style="padding:10px;" name="role" required>
+                                            <option value="">Choose</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>Account Status</label>
+                                        <input type="text" class="form-control" name="status"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary" id="btnSubmit">Save Changes</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="card">
+                    <div class="card-header">
+                        Change Password
+                    </div>
                     <div class="card-body">
-                        <div class="card-title">
-                            Change Password
-                        </div>
+                        <form method="POST" class="row g-3" id="frmChange" action="<?=base_url('change-password')?>">
+                            <div class="col-12">
+                                <label>New Password *</label>
+                                <input type="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  name="new_password" required/>
+                            </div>
+                            <div class="col-12">
+                                <label>Re-type Password *</label>
+                                <input type="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  name="retype_password" required/>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary" id="btnSave">Save Changes</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
