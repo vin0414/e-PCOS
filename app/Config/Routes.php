@@ -46,6 +46,7 @@ $routes->get('/logout','Home::logout');
 $routes->group('',['filter'=>'AuthCheck'],function($routes)
 {
     $routes->get('admin/dashboard','Home::Dashboard');
+    $routes->get('admin/profile','Home::Profile');
 });
 
 $routes->group('',['filter'=>'customerAuthCheck'],function($routes)

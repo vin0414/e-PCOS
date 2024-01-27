@@ -87,6 +87,11 @@ class Home extends BaseController
         return view('admin/index');
     }
 
+    public function Profile()
+    {
+        return view('admin/account-setting');
+    }
+
     //customer
 
     public function login()

@@ -57,11 +57,11 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link active" href="<?=site_url('admin/dashboard')?>">Dashboard</a></li>
+          <li><a class="nav-link" href="<?=site_url('admin/dashboard')?>">Dashboard</a></li>
           <li><a class="nav-link" href="<?=site_url('admin/manage')?>">Manage</a></li>
           <li><a class="nav-link" href="<?=site_url('admin/members')?>">Members</a></li>
           <li><a class="nav-link" href="<?=site_url('admin/report')?>">Report</a></li>
-          <li class="dropdown"><a href="#"><span><?php echo session()->get('sess_fullname'); ?></span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#" class="active"><span><?php echo session()->get('sess_fullname'); ?></span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="<?=site_url('admin/profile')?>">Account Settings</a></li>
               <li><a href="<?=site_url('logout')?>">Sign-out</a></li>
@@ -78,50 +78,24 @@
     <section class="why-us">
       <div class="container">
         <div class="row g-3">
-          <div class="col-12">
-            <div class="row g-3">
-              <div class="col-lg-3">
-                <div class="card bg-primary text-white">
-                  <div class="card-body">
-                    <div class="card-title">Total Patient</div>
-                    <h1>0</h1>
-                  </div>
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            Account Information
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="col-lg-3">
-                <div class="card bg-primary text-white">
-                  <div class="card-body">
-                    <div class="card-title">Registered Users</div>
-                    <h1>0</h1>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3">
-                <div class="card bg-primary text-white">
-                  <div class="card-body">
-                    <div class="card-title">Consultation</div>
-                    <h1>0</h1>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3">
-                <div class="card bg-primary text-white">
-                  <div class="card-body">
-                    <div class="card-title">Inquiries</div>
-                    <h1>0</h1>
-                  </div>
-                </div>
-              </div>
-            </div> 
-          </div>
-          <div class="col-12">
-            <div class="card">
-              <div class="card-body">
-                <div class="card-title">Poll Survey</div>
-                <div id="chartContainer" style="height:400px;width:100%;"></div>
-              </div>
             </div>
-          </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                            Change Password
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     </section><!-- End Contact Section -->
