@@ -89,7 +89,10 @@ class Home extends BaseController
 
     public function Settings()
     {
-        return view('admin/settings');
+        $accountModel = new \App\Models\accountModel();
+        $user = $accountModel->findAll();
+        $data = ['user'=>$user];
+        return view('admin/settings',$data);
     }
 
     public function Manage()

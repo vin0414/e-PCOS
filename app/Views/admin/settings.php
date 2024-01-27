@@ -91,7 +91,9 @@
             </div>
         <?php endif; ?>
         <div class="card">
-            <div class="card-header">Settings</div>
+            <div class="card-header">System Settings
+                <button type="button" class="btn btn-primary btn-sm add" style="float:right"><span class="bi bi-plus"></span>&nbsp;Add User</button>
+            </div>
             <div class="card-body">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
@@ -113,6 +115,36 @@
                                     <th class="bg-primary text-white">Status</th>
                                     <th class="bg-primary text-white">Action</th>
                                 </thead>
+                                <tbody>
+                                    <?php foreach($user as $row): ?>
+                                        <tr>
+                                            <td><?php echo $row['Fullname'] ?></td>
+                                            <td><?php echo $row['EmailAddress'] ?></td>
+                                            <td><?php echo $row['Role'] ?></td>
+                                            <td>
+                                                <?php if($row['Status']==1){ ?>
+                                                    <span class="badge bg-success">Active</span>
+                                                <?php }else { ?>
+                                                    <span class="badge bg-danger">Inactive</span>
+                                                <?php } ?>
+                                            </td>
+                                            <td>
+                                                <?php if($row['Status']==1){ ?>
+                                                    <button type="button" class="btn btn-primary btn-sm reset">
+                                                        <span class="fa fa-refresh"></span>&nbsp;Reset
+                                                    </button>
+                                                    <a class="btn btn-primary btn-sm" href="<?=site_url('admin/edit/')?><?php echo $row['accountID'] ?>">
+                                                        <span class="fa fa-edit"></span>&nbsp;Edit
+                                                    </a>
+                                                <?php }else { ?>
+                                                    <button type="button" class="btn btn-primary btn-sm reset">
+                                                        <span class="fa fa-refresh"></span>&nbsp;Reset
+                                                    </button>
+                                                <?php } ?>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach;?>
+                                </tbody>
                             </table>
                         </div>
                     </div>
