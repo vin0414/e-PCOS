@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Administrator Dashbboard</title>
+  <title>My Profile</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -77,6 +77,16 @@
     <!-- ======= Contact Section ======= -->
     <section class="why-us">
       <div class="container">
+        <?php if(!empty(session()->getFlashdata('fail'))) : ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <?= session()->getFlashdata('fail'); ?>
+            </div>
+        <?php endif; ?>
+        <?php if(!empty(session()->getFlashdata('success'))) : ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?= session()->getFlashdata('success'); ?>
+            </div>
+        <?php endif; ?>
         <div class="row g-3">
             <div class="col-lg-8">
                 <div class="card">
@@ -87,11 +97,11 @@
                         <form method="POST" class="row g-3" id="frmAccount">
                             <div class="col-12">
                                 <label>Complete Name *</label>
-                                <input type="text" class="form-control" name="fullname" required/>
+                                <input type="text" class="form-control" name="fullname" value="<?=$account['Fullname']?>" required/>
                             </div>
                             <div class="col-12">
                                 <label>Email Address *</label>
-                                <input type="email" class="form-control" name="email" required/>
+                                <input type="email" class="form-control" name="email" value="<?=$account['EmailAddress']?>" required/>
                             </div>
                             <div class="col-12">
                                 <div class="row g-3">
@@ -99,11 +109,13 @@
                                         <label>System Role *</label>
                                         <select class="form-control" style="padding:10px;" name="role" required>
                                             <option value="">Choose</option>
+                                            <option <?php if($account['Role']=="Administrator") echo 'selected="selected"'; ?>>Administrator</option>
+                                            <option <?php if($account['Role']=="Standard User") echo 'selected="selected"'; ?>>Standard User</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Account Status</label>
-                                        <input type="text" class="form-control" name="status"/>
+                                        <input type="text" class="form-control" value="<?php if($account['Status']==1){echo "Active";}else{echo "Inactive";}?>"/>
                                     </div>
                                 </div>
                             </div>

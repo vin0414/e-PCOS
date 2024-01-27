@@ -89,7 +89,11 @@ class Home extends BaseController
 
     public function Profile()
     {
-        return view('admin/account-setting');
+        $accountModel = new \App\Models\accountModel();
+        $user = session()->get('loggedUser');
+        $account = $accountModel->WHERE('accountID',$user)->first();
+        $data = ['account'=>$account];
+        return view('admin/account-setting',$data);
     }
 
     //customer
