@@ -42,10 +42,13 @@ $routes->get('/sign-out','Home::signOut');
 //admin
 $routes->post('check','Home::check');
 $routes->get('/logout','Home::logout');
+$routes->post('change-password','Home::updatePassword');
 
 $routes->group('',['filter'=>'AuthCheck'],function($routes)
 {
     $routes->get('admin/dashboard','Home::Dashboard');
+    $routes->get('admin/manage','Home::Manage');
+    $routes->get('admin/settings','Home::Settings');
     $routes->get('admin/profile','Home::Profile');
 });
 

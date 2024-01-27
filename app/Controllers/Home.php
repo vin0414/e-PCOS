@@ -87,6 +87,16 @@ class Home extends BaseController
         return view('admin/index');
     }
 
+    public function Settings()
+    {
+        return view('admin/settings');
+    }
+
+    public function Manage()
+    {
+        return view('admin/manage');
+    }
+
     public function Profile()
     {
         $accountModel = new \App\Models\accountModel();
@@ -94,6 +104,42 @@ class Home extends BaseController
         $account = $accountModel->WHERE('accountID',$user)->first();
         $data = ['account'=>$account];
         return view('admin/account-setting',$data);
+    }
+
+    public function updatePassword()
+    {
+        $accountModel = new \App\Models\accountModel();
+        $user = session()->get('loggedUser');
+        $new_pass = $this->request->getPost('new_password');
+        $retype = $this->request->getPost('retype_password');
+
+        $validation = $this->validate([
+            'new_password'=>'required',
+            'retype_password'=>'required'
+        ]);
+
+        if(!$validation)
+        {
+            session()->setFlashdata('fail','Invalid! Please fill in the form to continue');
+            return redirect()->to('admin/profile')->withInput();
+        }
+        else
+        {
+            if($new_pass!=$retype)
+            {
+                session()->setFlashdata('fail','Error! Password mismatched. Try again');
+                return redirect()->to('admin/profile')->withInput();
+            }
+            else
+            {
+                $defaultPassword = Hash::make($new_pass);
+                $values = ['Password'=>$defaultPassword,];
+                $accountModel->update($user,$values);
+
+                session()->setFlashdata('success','Great! Password has successfully updated');
+                return redirect()->to('admin/profile')->withInput();
+            }
+        }
     }
 
     //customer
