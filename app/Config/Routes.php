@@ -46,6 +46,8 @@ $routes->post('change-password','Home::updatePassword');
 $routes->post('update-account','Home::updateAccount');
 $routes->post('save-account','Home::saveAccount');
 $routes->post('reset-account','Home::resetAccount');
+$routes->get('reservation','Home::Reservation');
+$routes->get('search-reservation','Home::searchReservation');
 
 $routes->group('',['filter'=>'AuthCheck'],function($routes)
 {

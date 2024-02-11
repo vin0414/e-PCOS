@@ -187,7 +187,78 @@ class Home extends BaseController
 
     public function Reservation()
     {
-        
+        $builder = $this->db->table('tblreservation a');
+        $builder->select('a.reservationID,a.Date,a.Time,a.Event_Name,a.Status,b.Fullname');
+        $builder->join('tblcustomer b','b.customerID=a.customerID','LEFT');
+        $builder->groupBy('a.reservationID');
+        $builder->orderBy('a.reservationID','DESC');
+        $data = $builder->get();
+        foreach($data->getResult() as $row)
+        {
+            ?>
+            <tr>
+                <td><?php echo $row->Date ?></td>
+                <td><?php echo $row->Time ?></td>
+                <td><?php echo $row->Fullname ?></td>
+                <td><?php echo $row->Event_Name ?></td>
+                <td>
+                    <?php if($row->Status==1){ ?>
+                        <span class="btn btn-primary text-white btn-sm">Reserved</span>
+                    <?php }else if($row->Status==2){?>
+                        <span class="btn btn-danger text-white btn-sm">Cancelled</span>
+                    <?php }else { ?>
+                        <span class="btn btn-success text-white btn-sm">Completed</span>
+                    <?php } ?>
+                </td>
+                <td>
+                    <?php if($row->Status==1){ ?>
+                        <button type="button" class="btn btn-primary btn-sm tag" value="<?php echo $row->reservationID ?>"><span class="bi bi-check"></span> Tag as Done</button>
+                    <?php }else if($row->Status==2) { ?>
+                        <button type="button" class="btn btn-primary btn-sm book" value="<?php echo $row->reservationID ?>"><span class="bi bi-arrow-repeat"></span> Book Again</button>
+                    <?php } ?>
+                </td>
+            </tr>
+            <?php
+        }
+    }
+
+    public function searchReservation()
+    {
+        $text = "%".$this->request->getGet('keyword')."%";
+        $builder = $this->db->table('tblreservation a');
+        $builder->select('a.reservationID,a.Date,a.Time,a.Event_Name,a.Status,b.Fullname');
+        $builder->join('tblcustomer b','b.customerID=a.customerID','LEFT');
+        $builder->LIKE('b.Fullname',$text);
+        $builder->groupBy('a.reservationID');
+        $builder->orderBy('a.reservationID','DESC');
+        $data = $builder->get();
+        foreach($data->getResult() as $row)
+        {
+            ?>
+            <tr>
+                <td><?php echo $row->Date ?></td>
+                <td><?php echo $row->Time ?></td>
+                <td><?php echo $row->Fullname ?></td>
+                <td><?php echo $row->Event_Name ?></td>
+                <td>
+                    <?php if($row->Status==1){ ?>
+                        <span class="btn btn-primary text-white btn-sm">Reserved</span>
+                    <?php }else if($row->Status==2){?>
+                        <span class="btn btn-danger text-white btn-sm">Cancelled</span>
+                    <?php }else { ?>
+                        <span class="btn btn-success text-white btn-sm">Completed</span>
+                    <?php } ?>
+                </td>
+                <td>
+                    <?php if($row->Status==1){ ?>
+                        <button type="button" class="btn btn-primary btn-sm tag" value="<?php echo $row->reservationID ?>"><span class="bi bi-check"></span> Tag as Done</button>
+                    <?php }else if($row->Status==2) { ?>
+                        <button type="button" class="btn btn-primary btn-sm book" value="<?php echo $row->reservationID ?>"><span class="bi bi-arrow-repeat"></span> Book Again</button>
+                    <?php } ?>
+                </td>
+            </tr>
+            <?php
+        }
     }
 
     public function Profile()

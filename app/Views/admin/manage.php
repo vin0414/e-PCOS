@@ -15,7 +15,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- Vendor CSS Files -->
   <link href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.min.css')?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/vendor/animate.css/animate.min.css')?>" rel="stylesheet">
@@ -125,7 +125,7 @@
                 <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Consultation</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Transactions</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Poll Survey</a>
             </li>
         </ul>
         <div class="tab-content">
@@ -149,6 +149,7 @@
                       <th>Status</th>
                       <th>Action</th>
                     </thead>
+                    <tbody id="tblconsultation"></tbody>
                   </table>
                 </div>
               </div>
@@ -173,7 +174,48 @@
   <!-- Template Main JS File -->
   <script src="<?php echo base_url('assets/js/main.js')?>"></script>
   <script>
-       
+    $(document).ready(function()
+    {
+      loadRecords();
+    });
+    function loadRecords()
+    {
+      $('#tblconsultation').html("<tr><td colspan='6'><center>Loading data...</center></td></tr>");
+      $.ajax({
+        url:"<?=site_url('reservation')?>",method:"GET",
+        success:function(response)
+        {
+          if(response==="")
+          {
+            $('#tblconsultation').html("<tr><td colspan='6'><center>No Record(s)</center></td></tr>");
+          }
+          else
+          {
+            $('#tblconsultation').html(response);
+          }
+        }
+      });
+    } 
+    $('#search').keyup(function()
+    {
+      var val = $(this).val();
+      $('#tblconsultation').html("<tr><td colspan='6'><center>Searching data...</center></td></tr>");
+      $.ajax({
+        url:"<?=site_url('search-reservation')?>",method:"GET",
+        data:{keyword:val},
+        success:function(response)
+        {
+          if(response==="")
+          {
+            $('#tblconsultation').html("<tr><td colspan='6'><center>No Record(s)</center></td></tr>");
+          }
+          else
+          {
+            $('#tblconsultation').html(response);
+          }
+        }
+      });
+    });   
   </script>
 </body>
 
