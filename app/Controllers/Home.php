@@ -95,6 +95,14 @@ class Home extends BaseController
         return view('admin/settings',$data);
     }
 
+    public function editUser($id)
+    {
+        $accountModel = new \App\Models\accountModel();
+        $account = $accountModel->WHERE('accountID',$id)->first();
+        $data = ['account'=>$account];
+        return view('admin/edit-user',$data);
+    }
+
     public function Manage()
     {
         return view('admin/manage');

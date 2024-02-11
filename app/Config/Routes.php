@@ -49,6 +49,7 @@ $routes->group('',['filter'=>'AuthCheck'],function($routes)
     $routes->get('admin/dashboard','Home::Dashboard');
     $routes->get('admin/manage','Home::Manage');
     $routes->get('admin/settings','Home::Settings');
+    $routes->get('admin/edit/(:any)','Home::editUser/$1');
     $routes->get('admin/profile','Home::Profile');
 });
 
