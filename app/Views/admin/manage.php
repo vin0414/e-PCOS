@@ -25,12 +25,40 @@
   <link href="<?php echo base_url('assets/vendor/glightbox/css/glightbox.min.css')?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/vendor/remixicon/remixicon.css')?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/vendor/swiper/swiper-bundle.min.css')?>" rel="stylesheet">
-
   <!-- Template Main CSS File -->
   <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
-  <style>
-    input[type='text'],input[type='email'],input[type='password']{padding:10px;}
-  </style>
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
+  <script>
+      <?php $eventData = array();?>
+		  <?php 
+        $db;
+        $this->db = db_connect();
+        $builder = $this->db->table('tblreservation');
+        $builder->select('*');
+        $builder->WHERE('Status',1);
+        $data = $builder->get();
+        foreach($data->getResult() as $row)
+        {
+            $tempArray = array( "title" => $row->Event_Name,"description" =>'Consultation',"start" => $row->Date." ". $row->Time,"end" => $row->Date);
+            array_push($eventData, $tempArray);
+        }
+        ?>
+      const jsonData = <?php echo json_encode($eventData); ?>;
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+          },
+          events:jsonData
+        });
+        calendar.render();
+      });
+
+    </script>
 </head>
 
 <body>
@@ -91,6 +119,8 @@
         </ul>
         <div class="tab-content">
             <div class="tab-pane active show" id="tab-1">
+              <br/>
+              <div id="calendar"></div>
             </div>
             <div class="tab-pane" id="tab-2">
             </div>
@@ -113,7 +143,9 @@
 
   <!-- Template Main JS File -->
   <script src="<?php echo base_url('assets/js/main.js')?>"></script>
-
+  <script>
+       
+  </script>
 </body>
 
 </html>
