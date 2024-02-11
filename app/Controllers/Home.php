@@ -131,6 +131,16 @@ class Home extends BaseController
         }
     }
 
+    public function resetAccount()
+    {
+        $accountModel = new \App\Models\accountModel();
+        $id = $this->request->getPost('value');
+        $password = "Qwerty1234";
+        $values = ['Password'=>Hash::make($password)];
+        $accountModel->update($id,$values);
+        echo "success";
+    }
+
     public function editUser($id)
     {
         $accountModel = new \App\Models\accountModel();

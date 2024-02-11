@@ -130,7 +130,7 @@
                                             </td>
                                             <td>
                                                 <?php if($row['Status']==1){ ?>
-                                                    <button type="button" class="btn btn-primary btn-sm reset">
+                                                    <button type="button" class="btn btn-primary btn-sm reset" value="<?php echo $row['accountID'] ?>">
                                                         <span class="fa fa-refresh"></span>&nbsp;Reset
                                                     </button>
                                                     <a class="btn btn-primary btn-sm" href="<?=site_url('admin/edit/')?><?php echo $row['accountID'] ?>">
@@ -174,6 +174,31 @@
   <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
   <script>
     new DataTable('#table1');
+  </script>
+  <script>
+    $(document).on('click','.reset',function()
+    {
+      var confirmation = confirm("Do you want to reset this selected account?");
+      if(confirmation)
+      {
+        var val = $(this).val();
+        $.ajax({
+          url:"<?=site_url('reset-account')?>",method:"POST",
+          data:{value:val},
+          success:function(response)
+          {
+            if(response==="success")
+            {
+              alert("Great! Successfully reset");
+            }
+            else
+            {
+              alert(response);
+            }
+          }
+        });
+      }
+    });
   </script>
 </body>
 
