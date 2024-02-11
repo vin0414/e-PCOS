@@ -185,6 +185,11 @@ class Home extends BaseController
         return view('admin/manage');
     }
 
+    public function createPoll()
+    {
+        return view('admin/create-poll');
+    }
+
     public function Reservation()
     {
         $builder = $this->db->table('tblreservation a');
