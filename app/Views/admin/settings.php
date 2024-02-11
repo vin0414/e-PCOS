@@ -103,6 +103,9 @@
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Poll Survey</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Questionnaires</a>
+                    </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active show" id="tab-1">
@@ -161,6 +164,8 @@
                                 </thead>
                             </table>
                         </div>
+                    </div>
+                    <div class="tab-pane" id="tab-3">
                     </div>
                 </div>
             </div>

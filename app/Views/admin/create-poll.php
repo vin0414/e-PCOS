@@ -79,56 +79,38 @@
     <section class="why-us">
       <div class="container">
         <div class="row g-3">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-              <?php if(!empty(session()->getFlashdata('fail'))) : ?>
-                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                      <?= session()->getFlashdata('fail'); ?>
-                  </div>
-              <?php endif; ?>
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
                 <div class="card">
-                    <div class="card-header">
-                        New Account
-                        <a href="<?=site_url('admin/settings')?>" class="btn btn-primary btn-sm" style="float:right;">Back</a>
+                    <div class="card-header">Create live polls
+                    <a href="<?=site_url('admin/settings')?>" class="btn btn-primary btn-sm" style="float:right;">Back</a>
                     </div>
                     <div class="card-body">
-                        <form method="POST" class="row g-3" id="frmAccount" action="<?=base_url('save-account')?>">
-                            <div class="col-12">
-                                <label>Complete Name *</label>
-                                <input type="text" class="form-control" name="fullname" required/>
+                        <form method="post" class="row g-3" id="frmPoll">
+                            <div class="col-12 form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" name="title_poll" required/>
                             </div>
-                            <div class="col-12">
-                                <label>Email Address *</label>
-                                <input type="email" class="form-control" name="email" required/>
+                            <div class="col-12 form-group">
+                                <label>Description (Optional)</label>
+                                <textarea class="form-control" name="description" style="height:120px;" required></textarea>
                             </div>
-                            <div class="col-12">
-                                <div class="row g-3">
-                                    <div class="col-lg-6">
-                                        <label>System Role *</label>
-                                        <select class="form-control" style="padding:10px;" name="role" required>
-                                            <option value="">Choose</option>
-                                            <option>Administrator</option>
-                                            <option>Standard User</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label>Status</label>
-                                        <select class="form-control" style="padding:10px;" name="status" required>
-                                            <option value="">Choose</option>
-                                            <option value="1">Active</option>
-                                            <option value="0">Inactive</option>
-                                        </select>
-                                    </div>
-                                </div>
+                            <div class="col-12 form-group">
+                                <label>Poll Type</label>
+                                <select class="form-control" name="poll_type" required>
+                                    <option value="">Choose</option>
+                                    <option>Multiple Choice</option>
+                                    <option>Ranking Poll</option>
+                                </select>
                             </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary" id="btnSubmit">Save Account</button>
+                            <div class="col-12 form-group">
+                                <button type="submit" class="form-control btn btn-primary" id="btnSave">Create Poll</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2"></div>
+            <div class="col-lg-3"></div>
         </div>
       </div>
     </section><!-- End Contact Section -->
