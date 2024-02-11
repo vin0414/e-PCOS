@@ -185,6 +185,11 @@ class Home extends BaseController
         return view('admin/manage');
     }
 
+    public function Reservation()
+    {
+        
+    }
+
     public function Profile()
     {
         $accountModel = new \App\Models\accountModel();

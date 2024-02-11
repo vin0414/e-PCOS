@@ -28,6 +28,17 @@
   <!-- Template Main CSS File -->
   <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
+  <style>
+    .tableFixHead thead th { position: sticky; top: 0; z-index: 1;color:#fff;background-color: #0275d8;}
+
+    /* Just common table stuff. Really. */
+    table  { border-collapse: collapse; width: 100%; }
+    th, td { padding: 8px 16px;color:#000; }
+    tbody{color:#000;}
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
   <script>
       <?php $eventData = array();?>
 		  <?php 
@@ -123,6 +134,24 @@
               <div id="calendar"></div>
             </div>
             <div class="tab-pane" id="tab-2">
+              <br/>
+              <div class="row g-3">
+                <div class="col-12 form-group">
+                  <input type="search" class="form-control" id="search" placeholder="Search here"/>
+                </div>
+                <div class="col-12 form-group tableFixHead table-responsive" style="height:600px;overflow-y:auto;">
+                  <table class="table-striped table-bordered">
+                    <thead>
+                      <th>Date</th>
+                      <th>Time</th>
+                      <th>Patient's Complete Name</th>
+                      <th>Details</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </thead>
+                  </table>
+                </div>
+              </div>
             </div>
             <div class="tab-pane" id="tab-3">
             </div>
