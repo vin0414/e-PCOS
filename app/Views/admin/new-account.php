@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Edit Account</title>
+  <title>New Account</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -61,7 +61,7 @@
           <li><a class="nav-link" href="<?=site_url('admin/manage')?>">Manage</a></li>
           <li><a class="nav-link" href="<?=site_url('admin/members')?>">Members</a></li>
           <li><a class="nav-link" href="<?=site_url('admin/report')?>">Report</a></li>
-          <li><a class="nav-link active" href="javascript:void(0);">Edit Account</a></li>
+          <li><a class="nav-link active" href="javascript:void(0);">New Account</a></li>
           <li class="dropdown"><a href="#"><span><?php echo session()->get('sess_fullname'); ?></span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="<?=site_url('admin/profile')?>">Account Settings</a></li>
@@ -88,19 +88,18 @@
               <?php endif; ?>
                 <div class="card">
                     <div class="card-header">
-                        Edit Account
+                        New Account
                         <a href="<?=site_url('admin/settings')?>" class="btn btn-primary btn-sm" style="float:right;">Back</a>
                     </div>
                     <div class="card-body">
-                        <form method="POST" class="row g-3" id="frmAccount" action="<?=base_url('update-account')?>">
-                            <input type="hidden" name="accountID" value="<?=$account['accountID']?>"/>
+                        <form method="POST" class="row g-3" id="frmAccount" action="<?=base_url('save-account')?>">
                             <div class="col-12">
                                 <label>Complete Name *</label>
-                                <input type="text" class="form-control" name="fullname" value="<?=$account['Fullname']?>" required/>
+                                <input type="text" class="form-control" name="fullname" required/>
                             </div>
                             <div class="col-12">
                                 <label>Email Address *</label>
-                                <input type="email" class="form-control" name="email" value="<?=$account['EmailAddress']?>" required/>
+                                <input type="email" class="form-control" name="email" required/>
                             </div>
                             <div class="col-12">
                                 <div class="row g-3">
@@ -108,22 +107,22 @@
                                         <label>System Role *</label>
                                         <select class="form-control" style="padding:10px;" name="role" required>
                                             <option value="">Choose</option>
-                                            <option <?php if($account['Role']=="Administrator") echo 'selected="selected"'; ?>>Administrator</option>
-                                            <option <?php if($account['Role']=="Standard User") echo 'selected="selected"'; ?>>Standard User</option>
+                                            <option>Administrator</option>
+                                            <option>Standard User</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Status</label>
                                         <select class="form-control" style="padding:10px;" name="status" required>
                                             <option value="">Choose</option>
-                                            <option <?php if($account['Status']=="1") echo 'selected="selected"'; ?> value="1">Active</option>
-                                            <option <?php if($account['Status']=="0") echo 'selected="selected"'; ?> value="0">Inactive</option>
+                                            <option value="1">Active</option>
+                                            <option value="0">Inactive</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="submit" class="btn btn-primary" id="btnSubmit">Save Changes</button>
+                                <button type="submit" class="btn btn-primary" id="btnSubmit">Save Account</button>
                             </div>
                         </form>
                     </div>

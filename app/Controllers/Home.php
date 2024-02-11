@@ -95,12 +95,48 @@ class Home extends BaseController
         return view('admin/settings',$data);
     }
 
+    public function newAccount()
+    {
+        return view('admin/new-account');
+    }
+
     public function editUser($id)
     {
         $accountModel = new \App\Models\accountModel();
         $account = $accountModel->WHERE('accountID',$id)->first();
         $data = ['account'=>$account];
         return view('admin/edit-user',$data);
+    }
+
+    public function updateAccount()
+    {
+        $accountModel = new \App\Models\accountModel();
+        //data
+        $id = $this->request->getPost('accountID');
+        $fullname = $this->request->getPost('fullname');
+        $email = $this->request->getPost('email');
+        $role = $this->request->getPost('role');
+        $status = $this->request->getPost('status');
+
+        $validation = $this->validate([
+            'fullname'=>'required',
+            'email'=>'required|valid_email',
+            'role'=>'required',
+            'status'=>'required'
+        ]);
+
+        if(!$validation)
+        {
+            session()->setFlashdata('fail','Invalid! Please fill in the fieled');
+            return redirect()->to('admin/edit/'.$id)->withInput();
+        }
+        else
+        {
+            $values = ['EmailAddress'=>$email,'Fullname'=>$fullname,'Status'=>$status,'Role'=>$role];
+            $accountModel->update($id,$values);
+            session()->setFlashdata('success','Great! Successfully updated');
+            return redirect()->to('admin/settings')->withInput();
+        }
     }
 
     public function Manage()

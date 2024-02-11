@@ -43,6 +43,7 @@ $routes->get('/sign-out','Home::signOut');
 $routes->post('check','Home::check');
 $routes->get('/logout','Home::logout');
 $routes->post('change-password','Home::updatePassword');
+$routes->post('update-account','Home::updateAccount');
 
 $routes->group('',['filter'=>'AuthCheck'],function($routes)
 {
@@ -50,6 +51,7 @@ $routes->group('',['filter'=>'AuthCheck'],function($routes)
     $routes->get('admin/manage','Home::Manage');
     $routes->get('admin/settings','Home::Settings');
     $routes->get('admin/edit/(:any)','Home::editUser/$1');
+    $routes->get('admin/new','Home::newAccount');
     $routes->get('admin/profile','Home::Profile');
 });
 

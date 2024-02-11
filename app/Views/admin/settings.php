@@ -92,7 +92,7 @@
         <?php endif; ?>
         <div class="card">
             <div class="card-header">System Settings
-                <button type="button" class="btn btn-primary btn-sm add" style="float:right"><span class="bi bi-plus"></span>&nbsp;Add User</button>
+                <a href="<?=site_url('admin/new')?>" class="btn btn-primary btn-sm add" style="float:right"><span class="bi bi-plus"></span>&nbsp;Add User</a>
             </div>
             <div class="card-body">
                 <ul class="nav nav-tabs">
@@ -137,9 +137,9 @@
                                                         <span class="fa fa-edit"></span>&nbsp;Edit
                                                     </a>
                                                 <?php }else { ?>
-                                                    <button type="button" class="btn btn-primary btn-sm reset">
-                                                        <span class="fa fa-refresh"></span>&nbsp;Reset
-                                                    </button>
+                                                    <a class="btn btn-primary btn-sm" href="<?=site_url('admin/edit/')?><?php echo $row['accountID'] ?>">
+                                                        <span class="fa fa-edit"></span>&nbsp;Edit
+                                                    </a>
                                                 <?php } ?>
                                             </td>
                                         </tr>
