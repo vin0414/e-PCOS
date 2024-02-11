@@ -100,6 +100,37 @@ class Home extends BaseController
         return view('admin/new-account');
     }
 
+    public function saveAccount()
+    {
+        $accountModel = new \App\Models\accountModel();
+        //data
+        $fullname = $this->request->getPost('fullname');
+        $email = $this->request->getPost('email');
+        $role = $this->request->getPost('role');
+        $status = $this->request->getPost('status');
+        $password = "Qwerty1234";
+
+        $validation = $this->validate([
+            'fullname'=>'required',
+            'email'=>'required|valid_email',
+            'role'=>'required',
+            'status'=>'required'
+        ]);
+
+        if(!$validation)
+        {
+            session()->setFlashdata('fail','Invalid! Please fill in the fieled');
+            return redirect()->to('admin/new')->withInput();
+        }
+        else
+        {
+            $values = ['EmailAddress'=>$email,'Password'=>Hash::make($password),'Fullname'=>$fullname,'Status'=>$status,'Role'=>$role];
+            $accountModel->save($values);
+            session()->setFlashdata('success','Great! Successfully updated');
+            return redirect()->to('admin/settings')->withInput();
+        }
+    }
+
     public function editUser($id)
     {
         $accountModel = new \App\Models\accountModel();
