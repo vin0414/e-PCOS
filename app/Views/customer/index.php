@@ -3,7 +3,7 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>PCOS AWARENESS!</title>
+      <title>Dashboard</title>
       <!-- Favicons -->
       <link href="../assets/img/logo.png" rel="icon">
       <link href="../assets/img/logo.png" rel="apple-touch-icon">
@@ -20,9 +20,40 @@
       <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
       <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
       <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+      <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
       <!-- Template Main CSS File -->
       <link href="../assets/css/style.css" rel="stylesheet">
+      <script>
+      <?php $eventData = array();?>
+		  <?php 
+        $db;
+        $this->db = db_connect();
+        $builder = $this->db->table('tblreservation');
+        $builder->select('*');
+        $builder->WHERE('Status',1);
+        $data = $builder->get();
+        foreach($data->getResult() as $row)
+        {
+            $tempArray = array( "title" => $row->Event_Name,"description" =>'Consultation',"start" => $row->Date." ". $row->Time,"end" => $row->Date);
+            array_push($eventData, $tempArray);
+        }
+        ?>
+      const jsonData = <?php echo json_encode($eventData); ?>;
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+          },
+          events:jsonData
+        });
+        calendar.render();
+      });
+
+    </script>
    </head>
    <body>
    <div id="topbar" class="d-flex align-items-center fixed-top">
@@ -67,7 +98,7 @@
     <!-- ======= Contact Section ======= -->
     <section class="why-us">
       <div class="container">
-         
+      <div id="calendar"></div>
       </div>
     </section><!-- End Contact Section -->
 

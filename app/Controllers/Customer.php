@@ -21,4 +21,14 @@ class Customer extends BaseController
     {
         return view('customer/take-a-test');
     }
+
+    public function Consultation()
+    {
+        return view('customer/consult');
+    }
+
+    public function Profile()
+    {
+        return view('customer/account-setting');
+    }
 }
