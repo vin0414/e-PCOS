@@ -9,7 +9,6 @@ class Customer extends BaseController
     private $db;
     public function __construct()
     {
-        helper('text');
         $this->db = db_connect();
     }
 

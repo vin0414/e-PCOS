@@ -325,7 +325,49 @@ class Home extends BaseController
 
     public function customerLogin()
     {
+        $customerModel = new \App\Models\customerModel();
+        //data
+        $email = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
 
+        $validation = $this->validate([
+            'email'=>'required|valid_email',
+            'password'=>'required'
+        ]);
+
+        if(!$validation)
+        {
+            session()->setFlashdata('fail','Invalid email or password');
+            return redirect()->to('/login')->withInput();
+        }
+        else
+        {
+            $builder = $this->db->table('tblcustomer');
+            $builder->select('*');
+            $builder->WHERE('EmailAddress',$email)->WHERE('Status',1);
+            $data = $builder->get();
+            if($row = $data->getRow())
+            {
+                $check_password = Hash::check($password, $row->Password);
+                if(empty($check_password) || !$check_password)
+                {
+                    session()->setFlashdata('fail','Invalid email or password');
+                    return redirect()->to('/login')->withInput();
+                }
+                else
+                {
+                    session()->set('sess_id', $row->customerID);
+                    session()->set('sess_fullname', $row->Fullname);
+                    session()->set('customer_email',$row->EmailAddress);
+                    return $this->response->redirect(site_url('customer/dashboard'));
+                }
+            }
+            else
+            {
+                session()->setFlashdata('fail','Account is disabled. Please contact the Administrator');
+                return redirect()->to('/login')->withInput();
+            }
+        }
     }
 
     public function forgotPassword()
