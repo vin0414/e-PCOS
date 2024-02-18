@@ -16,4 +16,9 @@ class Customer extends BaseController
     {
         return view('customer/index');
     }
+
+    public function takeATest()
+    {
+        return view('customer/take-a-test');
+    }
 }
