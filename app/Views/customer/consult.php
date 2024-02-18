@@ -67,6 +67,64 @@
     <!-- ======= Contact Section ======= -->
     <section class="why-us">
       <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Patient's Information</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">List of Consultation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Prescription</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active show" id="tab-1">
+              <br/>
+              <form method="POST" class="row g-3" id="frmPatient">
+                <div class="col-12 form-group">
+                  <div class="row g-3">
+                    <div class="col-lg-5">
+                      <label>Lastname</label>
+                      <input type="text" class="form-control" name="surname" required/>
+                    </div>
+                    <div class="col-lg-5">
+                      <label>Firstname</label>
+                      <input type="text" class="form-control" name="firstname" required/>
+                    </div>
+                    <div class="col-lg-2">
+                      <label>Middle Initial</label>
+                      <input type="text" class="form-control" name="mi" required/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 form-group">
+                  <div class="row g-3">
+                    <div class="col-lg-4">
+                      <label>BirthDate</label>
+                      <input type="date" class="form-control" name="bdate" required/>
+                    </div>
+                    <div class="col-lg-4">
+                      <label>Tel/Cell #</label>
+                      <input type="phone" class="form-control" name="phone" required/>
+                    </div>
+                    <div class="col-lg-4">
+                      <label>Gender</label>
+                      <input type="text" class="form-control" name="gender" required/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 form-group">
+                  <label>Complete Address</label>
+                  <textarea name="address" class="form-control" style="height:120px;"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="tab-pane" id="tab-2">
+            </div>
+            <div class="tab-pane" id="tab-3">
+            </div>
+        </div>
       </div>
     </section><!-- End Contact Section -->
 
