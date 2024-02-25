@@ -21,8 +21,7 @@
       <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
       <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
       <!-- Template Main CSS File -->
-      <link href="../assets/css/style.css" rel="stylesheet">
-         
+      <link href="../assets/css/style.css" rel="stylesheet">  
    </head>
    <body>
    <div id="topbar" class="d-flex align-items-center fixed-top">
@@ -81,7 +80,7 @@
         <div class="tab-content">
             <div class="tab-pane active show" id="tab-1">
               <br/>
-              <form method="POST" class="row g-3" id="frmPatient">
+              <form method="POST" class="row g-3" id="frmPatient" action="<?=base_url('save')?>">
                 <div class="col-12 form-group">
                   <div class="row g-3">
                     <div class="col-lg-5">
@@ -117,6 +116,9 @@
                 <div class="col-12 form-group">
                   <label>Complete Address</label>
                   <textarea name="address" class="form-control" style="height:120px;"></textarea>
+                </div>
+                <div class="col-12 form-group">
+                  <button type="submit" class="btn btn-primary" id="btnSend" name="btnSend">Submit</button>
                 </div>
               </form>
             </div>

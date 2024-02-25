@@ -31,4 +31,10 @@ class Customer extends BaseController
     {
         return view('customer/account-setting');
     }
+
+    //functions
+    public function Save()
+    {
+        
+    }
 }
