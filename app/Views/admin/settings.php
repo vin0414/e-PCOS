@@ -96,7 +96,7 @@
                 <a href="<?=site_url('admin/create-poll')?>" class="btn btn-primary btn-sm add" style="float:right;"><span class="bi bi-plus"></span>&nbsp;Create Survey</a>
             </div>
             <div class="card-body">
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-pills">
                     <li class="nav-item">
                         <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">User Management</a>
                     </li>

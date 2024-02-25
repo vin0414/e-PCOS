@@ -71,7 +71,7 @@
     <!-- ======= Contact Section ======= -->
     <section class="why-us">
       <div class="container">
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-pills">
             <li class="nav-item">
                 <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Patient's Information</a>
             </li>
