@@ -35,6 +35,35 @@ class Customer extends BaseController
     //functions
     public function Save()
     {
-        
+        $date = $this->request->getPost('date');
+        $time = $this->request->getPost('time');
+        $surname = $this->request->getPost('surname');
+        $firstname = $this->request->getPost('firstname');
+        $mi = $this->request->getPost('mi');
+        $bdate  = $this->request->getPost('bdate');
+        $phone = $this->request->getPost('phone');
+        $gender = $this->request->getPost('gender');
+        $address = $this->request->getPost('address');
+
+        $validation = $this->validate([
+            'date'=>'required',
+            'time'=>'required',
+            'surname'=>'required',
+            'firstname'=>'required',
+            'mi'=>'required',
+            'bdate'=>'required',
+            'phone'=>'required',
+            'gender'=>'required',
+            'address'=>'required'
+        ]);
+
+        if(!$validation)
+        {
+            echo "Fill in the fields to continue";
+        }
+        else
+        {
+
+        }
     }
 }
