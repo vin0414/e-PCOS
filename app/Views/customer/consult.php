@@ -85,16 +85,16 @@
         <div class="tab-content">
             <div class="tab-pane active show" id="tab-1">
               <br/>
-              <form method="POST" class="row g-3" id="frmPatient" action="<?=base_url('save')?>">
+              <form method="POST" class="row g-3" id="frmPatient">
               <div class="col-12 form-group">
                   <div class="row g-3">
                     <div class="col-lg-6">
                       <label>Date Consultation</label>
-                      <input type="date" class="form-control" name="date" required/>
+                      <input type="date" class="form-control" name="date" id="date" required/>
                     </div>
                     <div class="col-lg-6">
                       <label>Time</label>
-                      <select class="form-control" name="time" required>
+                      <select class="form-control" name="time" style="padding:10px;" required>
                         <option value="">Choose</option>
                         <option>08:00:00</option>
                         <option>10:00:00</option>
@@ -142,7 +142,7 @@
                   <textarea name="address" class="form-control" style="height:120px;"></textarea>
                 </div>
                 <div class="col-12 form-group">
-                  <button type="submit" class="btn btn-primary form-control" id="btnSend" name="btnSend">Submit</button>
+                  <input type="submit" class="btn btn-primary form-control" id="btnSend" name="btnSend" value="Submit"/>
                 </div>
               </form>
             </div>
@@ -182,8 +182,61 @@
       <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
       <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
       <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
       <script>
         new DataTable('#table1');
+      </script>
+      <script>
+        $(document).ready(function()
+        {
+          today();
+        });
+        function today()
+        {
+          var date = new Date(); // Now
+          date.setDate(date.getDate());
+          $('#date').attr('min',convert(date));
+          document.getElementById('date').value=convert(date);
+        }
+        function convert(str) 
+        {
+          var date = new Date(str),
+          mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+          day = ("0" + date.getDate()).slice(-2);
+          return [date.getFullYear(), mnth, day].join("-");
+        }
+
+        $('#btnSend').on('click',function(e)
+        {
+          e.preventDefault();
+          $(this).attr("value","Submitting...");
+          var data = $('#frmPatient').serialize();
+          $.ajax({
+            url:"<?=site_url('save')?>",method:"POST",
+            data:data,
+            success:function(response)
+            {
+              if(response==="Success")
+              {
+                Swal.fire({
+										title: "Great!",
+										text: "Successfully submitted",
+										icon: "success"
+										});
+                location.reload();
+              }
+              else
+              {
+                Swal.fire({
+										title: "Invalid",
+										text: response,
+										icon: "warning"
+										});
+              }
+              $('#btnSend').attr("value","Submit");
+            }
+          });
+        });
       </script>
    </body>
 </html>
