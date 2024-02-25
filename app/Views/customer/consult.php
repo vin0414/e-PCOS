@@ -20,6 +20,8 @@
       <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
       <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
       <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+      <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
       <!-- Template Main CSS File -->
       <link href="../assets/css/style.css" rel="stylesheet">  
       <style>
@@ -145,6 +147,19 @@
               </form>
             </div>
             <div class="tab-pane" id="tab-2">
+              <br/>
+              <div class="table-responsive">
+                  <table class="table table-striped table-bordered" id="table1">
+                      <thead>
+                          <th class="bg-primary text-white">Date</th>
+                          <th class="bg-primary text-white">Time</th>
+                          <th class="bg-primary text-white">Patient's Name</th>
+                          <th class="bg-primary text-white">Status</th>
+                          <th class="bg-primary text-white">Action</th>
+                      </thead>
+                      <tbody></tbody>
+                  </table>
+              </div>
             </div>
             <div class="tab-pane" id="tab-3">
             </div>
@@ -164,5 +179,11 @@
 
       <!-- Template Main JS File -->
       <script src="../assets/js/main.js"></script>
+      <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+      <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+      <script>
+        new DataTable('#table1');
+      </script>
    </body>
 </html>
