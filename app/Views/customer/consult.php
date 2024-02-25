@@ -22,6 +22,9 @@
       <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
       <!-- Template Main CSS File -->
       <link href="../assets/css/style.css" rel="stylesheet">  
+      <style>
+        input[type='text'],input[type='phone'],input[type='date'],select{padding:10px;}
+      </style>
    </head>
    <body>
    <div id="topbar" class="d-flex align-items-center fixed-top">
@@ -81,6 +84,25 @@
             <div class="tab-pane active show" id="tab-1">
               <br/>
               <form method="POST" class="row g-3" id="frmPatient" action="<?=base_url('save')?>">
+              <div class="col-12 form-group">
+                  <div class="row g-3">
+                    <div class="col-lg-6">
+                      <label>Date Consultation</label>
+                      <input type="date" class="form-control" name="date" required/>
+                    </div>
+                    <div class="col-lg-6">
+                      <label>Time</label>
+                      <select class="form-control" name="time" required>
+                        <option value="">Choose</option>
+                        <option>08:00:00</option>
+                        <option>10:00:00</option>
+                        <option>12:00:00</option>
+                        <option>14:00:00</option>
+                        <option>16:00:00</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
                 <div class="col-12 form-group">
                   <div class="row g-3">
                     <div class="col-lg-5">
@@ -100,7 +122,7 @@
                 <div class="col-12 form-group">
                   <div class="row g-3">
                     <div class="col-lg-4">
-                      <label>BirthDate</label>
+                      <label>Birth Date</label>
                       <input type="date" class="form-control" name="bdate" required/>
                     </div>
                     <div class="col-lg-4">
@@ -118,7 +140,7 @@
                   <textarea name="address" class="form-control" style="height:120px;"></textarea>
                 </div>
                 <div class="col-12 form-group">
-                  <button type="submit" class="btn btn-primary" id="btnSend" name="btnSend">Submit</button>
+                  <button type="submit" class="btn btn-primary form-control" id="btnSend" name="btnSend">Submit</button>
                 </div>
               </form>
             </div>
