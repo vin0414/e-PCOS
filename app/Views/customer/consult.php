@@ -3,7 +3,7 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>Consult Now</title>
+      <title>Appointment</title>
       <!-- Favicons -->
       <link href="../assets/img/logo.png" rel="icon">
       <link href="../assets/img/logo.png" rel="apple-touch-icon">
@@ -54,7 +54,7 @@
         <ul>
           <li><a class="nav-link" href="<?=site_url('customer/dashboard')?>">Dashboard</a></li>
           <li><a class="nav-link" href="<?=site_url('customer/take-a-test')?>">Take A Test</a></li>
-          <li><a class="nav-link active" href="<?=site_url('customer/consult-now')?>">Consult Now</a></li>
+          <li><a class="nav-link active" href="<?=site_url('customer/consult-now')?>">Appointment</a></li>
           <li class="dropdown"><a href="#"><span><?php echo session()->get('sess_fullname'); ?></span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="<?=site_url('customer/profile')?>">Account Settings</a></li>
@@ -76,20 +76,17 @@
                 <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Patient's Information</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">List of Consultation</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Prescription</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">List of Appointment</a>
             </li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane active show" id="tab-1">
+            <div class="tab-pane active show" id="tab-1" style="margin-left:50px;margin-right:50px;">
               <br/>
               <form method="POST" class="row g-3" id="frmPatient">
               <div class="col-12 form-group">
                   <div class="row g-3">
                     <div class="col-lg-6">
-                      <label>Date Consultation</label>
+                      <label>Date Appointment</label>
                       <input type="date" class="form-control" name="date" id="date" required/>
                     </div>
                     <div class="col-lg-6">
@@ -161,8 +158,6 @@
                   </table>
               </div>
             </div>
-            <div class="tab-pane" id="tab-3">
-            </div>
         </div>
       </div>
     </section><!-- End Contact Section -->
@@ -194,7 +189,7 @@
         function today()
         {
           var date = new Date(); // Now
-          date.setDate(date.getDate());
+          date.setDate(date.getDate()+1);
           $('#date').attr('min',convert(date));
           document.getElementById('date').value=convert(date);
         }

@@ -50,7 +50,7 @@
         <ul>
           <li><a class="nav-link" href="<?=site_url('customer/dashboard')?>">Dashboard</a></li>
           <li><a class="nav-link" href="<?=site_url('customer/take-a-test')?>">Take A Test</a></li>
-          <li><a class="nav-link" href="<?=site_url('customer/consult-now')?>">Consult Now</a></li>
+          <li><a class="nav-link" href="<?=site_url('customer/consult-now')?>">Appointment</a></li>
           <li class="dropdown"><a href="#" class="active"><span><?php echo session()->get('sess_fullname'); ?></span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="<?=site_url('customer/profile')?>">Account Settings</a></li>
