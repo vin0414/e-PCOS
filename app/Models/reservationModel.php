@@ -14,7 +14,7 @@ class reservationModel extends Model
     protected $returnType = 'array';
     protected $userSoftDelete = false;
     protected $protectFields = true;
-    protected $allowedFields = ['Date', 'Time','Event_Name','Status','customerID'];
+    protected $allowedFields = ['Date', 'Time','Event_Name','Surname','Firstname','MiddleName','Contact','BirthDate','Gender','Address','Status','customerID'];
 
     protected $validationRules = [];
     protected $validationMessages = [];

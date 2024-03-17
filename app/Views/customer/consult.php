@@ -90,7 +90,7 @@
                       <input type="date" class="form-control" name="date" id="date" required/>
                     </div>
                     <div class="col-lg-6">
-                      <label>Time</label>
+                      <label>Time of Appointment</label>
                       <select class="form-control" name="time" style="padding:10px;" required>
                         <option value="">Choose</option>
                         <option>08:00:00</option>
@@ -104,16 +104,16 @@
                 </div>
                 <div class="col-12 form-group">
                   <div class="row g-3">
-                    <div class="col-lg-5">
-                      <label>Lastname</label>
+                    <div class="col-lg-4">
+                      <label>Surname</label>
                       <input type="text" class="form-control" name="surname" required/>
                     </div>
-                    <div class="col-lg-5">
-                      <label>Firstname</label>
+                    <div class="col-lg-4">
+                      <label>First Name</label>
                       <input type="text" class="form-control" name="firstname" required/>
                     </div>
-                    <div class="col-lg-2">
-                      <label>Middle Initial</label>
+                    <div class="col-lg-4">
+                      <label>Middle Name</label>
                       <input type="text" class="form-control" name="mi" required/>
                     </div>
                   </div>
@@ -121,16 +121,20 @@
                 <div class="col-12 form-group">
                   <div class="row g-3">
                     <div class="col-lg-4">
-                      <label>Birth Date</label>
+                      <label>Date of Birth</label>
                       <input type="date" class="form-control" name="bdate" required/>
                     </div>
                     <div class="col-lg-4">
-                      <label>Tel/Cell #</label>
-                      <input type="phone" class="form-control" name="phone" required/>
+                      <label>Contact No</label>
+                      <input type="phone" class="form-control" name="phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="11" minlength="11" required/>
                     </div>
                     <div class="col-lg-4">
                       <label>Gender</label>
-                      <input type="text" class="form-control" name="gender" required/>
+                      <select class="form-control" name="gender" style="padding:10px;" required>
+                        <option value="">Choose</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                      </select>
                     </div>
                   </div>
                 </div>
