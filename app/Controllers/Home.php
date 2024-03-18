@@ -472,6 +472,7 @@ class Home extends BaseController
         {
             session()->remove('customer_email');
             session()->remove('sess_id');
+            session()->destroy();
             return redirect()->to('/login?access=out')->with('fail', 'You are logged out!');
         }
     }

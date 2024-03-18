@@ -71,13 +71,17 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <?php if(empty(session()->get('sess_fullname'))){?>
           <li><a class="nav-link scrollto" href="<?=site_url('login')?>">Log-In</a></li>
+          <?php }else { ?>
+          <li><a class="nav-link scrollto" href="<?=site_url('customer/dashboard')?>"><?php echo session()->get('sess_fullname'); ?></li>
+          <?php } ?>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
+      <?php if(empty(session()->get('sess_fullname'))){?>
       <a href="<?=site_url('register')?>" class="appointment-btn scrollto"><span class="d-none d-md-inline">Register</a>
-
+      <?php } ?>
     </div>
   </header><!-- End Header -->
 
