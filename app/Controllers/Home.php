@@ -187,7 +187,10 @@ class Home extends BaseController
 
     public function Members()
     {
-        return view('admin/members');
+        $customerModel = new \App\Models\customerModel();
+        $customer = $customerModel->findAll();
+        $data = ['customer'=>$customer];
+        return view('admin/members',$data);
     }
 
     public function Report()

@@ -82,7 +82,7 @@
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
                 <div class="card">
-                    <div class="card-header">Create live polls
+                    <div class="card-header"><span class="fa fa-list"></span>&nbsp;Create live polls
                     <a href="<?=site_url('admin/settings')?>" class="btn btn-primary btn-sm" style="float:right;">Back</a>
                     </div>
                     <div class="card-body">

@@ -39,37 +39,6 @@
       background-color: #f2f2f2;
     }
   </style>
-  <script>
-      <?php $eventData = array();?>
-		  <?php 
-        $db;
-        $this->db = db_connect();
-        $builder = $this->db->table('tblreservation');
-        $builder->select('*');
-        $builder->WHERE('Status',1);
-        $data = $builder->get();
-        foreach($data->getResult() as $row)
-        {
-            $tempArray = array( "title" => $row->Event_Name,"description" =>'Consultation',"start" => $row->Date." ". $row->Time,"end" => $row->Date);
-            array_push($eventData, $tempArray);
-        }
-        ?>
-      const jsonData = <?php echo json_encode($eventData); ?>;
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
-          headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay'
-          },
-          events:jsonData
-        });
-        calendar.render();
-      });
-
-    </script>
 </head>
 
 <body>

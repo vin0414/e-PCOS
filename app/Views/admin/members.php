@@ -27,49 +27,8 @@
   <link href="<?php echo base_url('assets/vendor/swiper/swiper-bundle.min.css')?>" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
-  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
-  <style>
-    .tableFixHead thead th { position: sticky; top: 0; z-index: 1;color:#fff;background-color: #0275d8;}
-
-    /* Just common table stuff. Really. */
-    table  { border-collapse: collapse; width: 100%; }
-    th, td { padding: 8px 16px;color:#000; }
-    tbody{color:#000;}
-    tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-  </style>
-  <script>
-      <?php $eventData = array();?>
-		  <?php 
-        $db;
-        $this->db = db_connect();
-        $builder = $this->db->table('tblreservation');
-        $builder->select('*');
-        $builder->WHERE('Status',1);
-        $data = $builder->get();
-        foreach($data->getResult() as $row)
-        {
-            $tempArray = array( "title" => $row->Event_Name,"description" =>'Consultation',"start" => $row->Date." ". $row->Time,"end" => $row->Date);
-            array_push($eventData, $tempArray);
-        }
-        ?>
-      const jsonData = <?php echo json_encode($eventData); ?>;
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
-          headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay'
-          },
-          events:jsonData
-        });
-        calendar.render();
-      });
-
-    </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -117,7 +76,40 @@
     <!-- ======= Contact Section ======= -->
     <section class="why-us">
       <div class="container">
-        
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered" id="table1">
+            <thead>
+                <th class="bg-primary text-white">Fullname</th>
+                <th class="bg-primary text-white">Email Address</th>
+                <th class="bg-primary text-white">Token</th>
+                <th class="bg-primary text-white">Status</th>
+                <th class="bg-primary text-white">Action</th>
+            </thead>
+            <tbody>
+              <?php foreach($customer as $row): ?>
+                <tr>
+                  <td><?php echo $row['Fullname'] ?></td>
+                  <td><?php echo $row['EmailAddress'] ?></td>
+                  <td><?php echo $row['Token'] ?></td>
+                  <td>
+                    <?php if($row['Status']==1){ ?>
+                        <span class="badge bg-success">Active</span>
+                    <?php }else { ?>
+                        <span class="badge bg-danger">Inactive</span>
+                    <?php } ?>
+                  </td>
+                  <td>
+                    <?php if($row['Status']==1){ ?>
+                      <button type="button" class="btn btn-primary btn-sm deactivate" value="<?php echo $row['customerID'] ?>">Deactivate</button>
+                    <?php }else { ?>
+                      <button type="button" class="btn btn-primary btn-sm activate" value="<?php echo $row['customerID'] ?>">Activate</button>
+                    <?php } ?>
+                  </td>
+                </tr>
+              <?php endforeach; ?> 
+            </tbody>
+        </table>
+        </div>
       </div>
     </section><!-- End Contact Section -->
 
@@ -134,6 +126,12 @@
 
   <!-- Template Main JS File -->
   <script src="<?php echo base_url('assets/js/main.js')?>"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+  <script>
+    new DataTable('#table1');
+  </script>
 </body>
 
 </html>
