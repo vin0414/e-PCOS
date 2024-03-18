@@ -185,6 +185,16 @@ class Home extends BaseController
         return view('admin/manage');
     }
 
+    public function Members()
+    {
+        return view('admin/members');
+    }
+
+    public function Report()
+    {
+        return view('admin/report');
+    }
+
     public function createPoll()
     {
         return view('admin/create-poll');

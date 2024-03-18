@@ -122,7 +122,7 @@
                 <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Calendar</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Consultation</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Appointment</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Poll Survey</a>
