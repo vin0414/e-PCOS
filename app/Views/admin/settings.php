@@ -91,10 +91,7 @@
             </div>
         <?php endif; ?>
         <div class="card">
-            <div class="card-header"><span class="bi bi-gear"></span>&nbsp;System Settings
-                <a href="<?=site_url('admin/new')?>" class="btn btn-primary btn-sm add" style="float:right;margin-left:5px;"><span class="bi bi-plus"></span>&nbsp;Add User</a>
-                <a href="<?=site_url('admin/create-poll')?>" class="btn btn-primary btn-sm add" style="float:right;"><span class="bi bi-plus"></span>&nbsp;Create Survey</a>
-            </div>
+            <div class="card-header"><span class="bi bi-gear"></span>&nbsp;System Settings</div>
             <div class="card-body">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
@@ -157,6 +154,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        <a href="<?=site_url('admin/new')?>" class="btn btn-primary btn-sm add"><span class="bi bi-plus"></span>&nbsp;Add User</a>
                     </div>
                     <div class="tab-pane" id="tab-2">
                         <br/>
@@ -174,6 +172,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        <a href="<?=site_url('admin/create-poll')?>" class="btn btn-primary btn-sm"><span class="bi bi-plus"></span>&nbsp;Create Survey</a>
                     </div>
                     <div class="tab-pane" id="tab-3">
                         <br/>
@@ -190,6 +189,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        <a href="<?=site_url('admin/create-question')?>" class="btn btn-primary btn-sm"><span class="bi bi-plus"></span>&nbsp;Create Question</a>
                     </div>
                     <div class="tab-pane" id="tab-4">
                         <br/>
@@ -207,6 +207,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        <button type="button" class="btn btn-primary btn-sm add_doctor"><span class="bi bi-plus"></span>&nbsp;Add Doctor</button>
                     </div>
                     <div class="tab-pane" id="tab-5">
                         <br/>
@@ -225,6 +226,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        <a href="<?=site_url('admin/create-blog')?>" class="btn btn-primary btn-sm"><span class="bi bi-plus"></span>&nbsp;Create Blog</a>
                     </div>
                 </div>
             </div>
