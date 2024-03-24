@@ -106,6 +106,12 @@
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Questionnaires</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Blogs</a>
+                    </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active show" id="tab-1">
@@ -158,14 +164,67 @@
                             <table class="table table-striped table-bordered" id="table2">
                                 <thead>
                                     <th class="bg-primary text-white">Title</th>
+                                    <th class="bg-primary text-white">Details</th>
                                     <th class="bg-primary text-white">Type of Survey</th>
                                     <th class="bg-primary text-white">Status</th>
                                     <th class="bg-primary text-white">Action</th>
                                 </thead>
+                                <tbody>
+
+                                </tbody>
                             </table>
                         </div>
                     </div>
                     <div class="tab-pane" id="tab-3">
+                        <br/>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered" id="table3">
+                                <thead>
+                                    <th class="bg-primary text-white">Title</th>
+                                    <th class="bg-primary text-white">Type of Survey</th>
+                                    <th class="bg-primary text-white">Questions</th>
+                                    <th class="bg-primary text-white">Action</th>
+                                </thead>
+                                <tbody>
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab-4">
+                        <br/>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered" id="table4">
+                                <thead>
+                                    <th class="bg-primary text-white">Image</th>
+                                    <th class="bg-primary text-white">Physician's Name</th>
+                                    <th class="bg-primary text-white">Specialty</th>
+                                    <th class="bg-primary text-white">Status</th>
+                                    <th class="bg-primary text-white">Action</th>
+                                </thead>
+                                <tbody>
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab-5">
+                        <br/>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered" id="table5">
+                                <thead>
+                                    <th class="bg-primary text-white">Image</th>
+                                    <th class="bg-primary text-white">Title</th>
+                                    <th class="bg-primary text-white">Description</th>
+                                    <th class="bg-primary text-white">Author</th>
+                                    <th class="bg-primary text-white">Date</th>
+                                    <th class="bg-primary text-white">Action</th>
+                                </thead>
+                                <tbody>
+                                  
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -190,7 +249,11 @@
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
   <script>
-    new DataTable('#table1');new DataTable('#table2');
+    new DataTable('#table1');
+    new DataTable('#table2');
+    new DataTable('#table3');
+    new DataTable('#table4');
+    new DataTable('#table5');
   </script>
   <script>
     $(document).on('click','.reset',function()
