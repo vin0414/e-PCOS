@@ -203,6 +203,16 @@ class Home extends BaseController
         return view('admin/create-poll');
     }
 
+    public function createQuestion()
+    {
+        return view('admin/create-question');
+    }
+
+    public function createBlog()
+    {
+        return view('admin/create-blog');
+    }
+
     public function Reservation()
     {
         $builder = $this->db->table('tblreservation a');
