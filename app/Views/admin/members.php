@@ -76,39 +76,44 @@
     <!-- ======= Contact Section ======= -->
     <section class="why-us">
       <div class="container">
-        <div class="table-responsive">
-          <table class="table table-striped table-bordered" id="table1">
-            <thead>
-                <th class="bg-primary text-white">Fullname</th>
-                <th class="bg-primary text-white">Email Address</th>
-                <th class="bg-primary text-white">Token</th>
-                <th class="bg-primary text-white">Status</th>
-                <th class="bg-primary text-white">Action</th>
-            </thead>
-            <tbody>
-              <?php foreach($customer as $row): ?>
-                <tr>
-                  <td><?php echo $row['Fullname'] ?></td>
-                  <td><?php echo $row['EmailAddress'] ?></td>
-                  <td><?php echo $row['Token'] ?></td>
-                  <td>
-                    <?php if($row['Status']==1){ ?>
-                        <span class="badge bg-success">Active</span>
-                    <?php }else { ?>
-                        <span class="badge bg-danger">Inactive</span>
-                    <?php } ?>
-                  </td>
-                  <td>
-                    <?php if($row['Status']==1){ ?>
-                      <button type="button" class="btn btn-primary btn-sm deactivate" value="<?php echo $row['customerID'] ?>">Deactivate</button>
-                    <?php }else { ?>
-                      <button type="button" class="btn btn-primary btn-sm activate" value="<?php echo $row['customerID'] ?>">Activate</button>
-                    <?php } ?>
-                  </td>
-                </tr>
-              <?php endforeach; ?> 
-            </tbody>
-        </table>
+        <div class="card">
+          <div class="card-header"><span class="bi bi-people"></span>&nbsp;Members</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered" id="table1">
+                <thead>
+                    <th class="bg-primary text-white">Fullname</th>
+                    <th class="bg-primary text-white">Email Address</th>
+                    <th class="bg-primary text-white">Token</th>
+                    <th class="bg-primary text-white">Status</th>
+                    <th class="bg-primary text-white">Action</th>
+                </thead>
+                <tbody>
+                  <?php foreach($customer as $row): ?>
+                    <tr>
+                      <td><?php echo $row['Fullname'] ?></td>
+                      <td><?php echo $row['EmailAddress'] ?></td>
+                      <td><?php echo $row['Token'] ?></td>
+                      <td>
+                        <?php if($row['Status']==1){ ?>
+                            <span class="badge bg-success">Active</span>
+                        <?php }else { ?>
+                            <span class="badge bg-danger">Inactive</span>
+                        <?php } ?>
+                      </td>
+                      <td>
+                        <?php if($row['Status']==1){ ?>
+                          <button type="button" class="btn btn-primary btn-sm deactivate" value="<?php echo $row['customerID'] ?>">Deactivate</button>
+                        <?php }else { ?>
+                          <button type="button" class="btn btn-primary btn-sm activate" value="<?php echo $row['customerID'] ?>">Activate</button>
+                        <?php } ?>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?> 
+                </tbody>
+            </table>
+            </div>
+          </div>
         </div>
       </div>
     </section><!-- End Contact Section -->

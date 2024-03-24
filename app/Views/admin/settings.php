@@ -91,7 +91,7 @@
             </div>
         <?php endif; ?>
         <div class="card">
-            <div class="card-header">System Settings
+            <div class="card-header"><span class="bi bi-gear"></span>&nbsp;System Settings
                 <a href="<?=site_url('admin/new')?>" class="btn btn-primary btn-sm add" style="float:right;margin-left:5px;"><span class="bi bi-plus"></span>&nbsp;Add User</a>
                 <a href="<?=site_url('admin/create-poll')?>" class="btn btn-primary btn-sm add" style="float:right;"><span class="bi bi-plus"></span>&nbsp;Create Survey</a>
             </div>
