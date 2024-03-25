@@ -36,10 +36,10 @@
 </head>
 
 <body>
-   <div id="topbar" class="d-flex align-items-center fixed-top">
+  <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">contact@example.com</a>
+        <i class="bi bi-envelope"></i> <a href="mailto:pcos-system2024@gmail.com">pcos-system2024@gmail.com</a>
         <i class="bi bi-phone"></i> +1 5589 55488 55
       </div>
       <div class="d-none d-lg-flex social-links align-items-center">
@@ -168,7 +168,27 @@
                                     <th class="bg-primary text-white">Action</th>
                                 </thead>
                                 <tbody>
-
+                                      <?php foreach($survey as $row): ?>
+                                        <tr>
+                                            <td><?php echo $row['Title'] ?></td>
+                                            <td><?php echo $row['Details'] ?></td>
+                                            <td><?php echo $row['Type_Survey'] ?></td>
+                                            <td> 
+                                              <?php if($row['Status']==1){ ?>
+                                                <span class="badge bg-success">Active</span>
+                                              <?php }else { ?>
+                                              <?php } ?>
+                                            </td>
+                                            <td>
+                                              <button type="button" class="btn btn-primary btn-sm end" value="<?php echo $row['surveyID'] ?>">
+                                                <span class="bi bi-trash"></span>&nbsp;Deactivate
+                                              </button>
+                                              <a class="btn btn-primary btn-sm" href="<?=site_url('admin/edit-survey/')?><?php echo $row['surveyID'] ?>">
+                                                  <span class="fa fa-edit"></span>&nbsp;Edit
+                                              </a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach;?>
                                 </tbody>
                             </table>
                         </div>

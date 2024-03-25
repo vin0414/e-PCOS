@@ -38,4 +38,19 @@ class ManageController extends BaseController
             return redirect()->to('admin/settings')->withInput();
         }
     }
+
+    public function saveQuestion()
+    {
+        
+    }
+
+    public function saveDoctor()
+    {
+
+    }
+
+    public function saveBlog()
+    {
+
+    }
 }

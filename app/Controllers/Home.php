@@ -92,7 +92,9 @@ class Home extends BaseController
     {
         $accountModel = new \App\Models\accountModel();
         $user = $accountModel->findAll();
-        $data = ['user'=>$user];
+        $surveyModel = new \App\Models\surveyModel();
+        $survey = $surveyModel->findAll();
+        $data = ['user'=>$user,'survey'=>$survey];
         return view('admin/settings',$data);
     }
 
