@@ -30,9 +30,6 @@
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
-  <style>
-    input[type='text'],input[type='email'],input[type='password']{padding:10px;}
-  </style>
 </head>
 
 <body>
@@ -242,7 +239,16 @@
                                     <th class="bg-primary text-white">Action</th>
                                 </thead>
                                 <tbody>
-                                  
+                                <?php foreach($blog as $row): ?>
+                                  <tr>
+                                    <td><img src="/Blogs/<?php echo $row->Image ?>" width="50"/></td>
+                                    <td><?php echo $row->Title ?></td>
+                                    <td><?php echo substr($row->Details,0,25) ?>...</td>
+                                    <td><?php echo $row->Fullname ?></td>
+                                    <td><?php echo $row->Date ?></td>
+                                    <td></td>
+                                  </tr>
+                                <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
