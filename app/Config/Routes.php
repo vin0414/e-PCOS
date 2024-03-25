@@ -50,6 +50,8 @@ $routes->post('save-account','Home::saveAccount');
 $routes->post('reset-account','Home::resetAccount');
 $routes->get('reservation','Home::Reservation');
 $routes->get('search-reservation','Home::searchReservation');
+//function
+$routes->post('save-poll','ManageController::savePoll');
 
 $routes->group('',['filter'=>'AuthCheck'],function($routes)
 {

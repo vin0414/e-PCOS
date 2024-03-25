@@ -86,7 +86,7 @@
                     <a href="<?=site_url('admin/settings')?>" class="btn btn-primary btn-sm" style="float:right;">Back</a>
                     </div>
                     <div class="card-body">
-                        <form method="post" class="row g-3" id="frmPoll">
+                        <form method="post" class="row g-3" id="frmPoll" action="<?=base_url('save-poll')?>">
                             <div class="col-12 form-group">
                                 <label>Title</label>
                                 <input type="text" class="form-control" name="title_poll" required/>
