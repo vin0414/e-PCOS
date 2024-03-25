@@ -41,7 +41,7 @@ class ManageController extends BaseController
 
     public function saveQuestion()
     {
-        
+
     }
 
     public function saveDoctor()
@@ -51,6 +51,25 @@ class ManageController extends BaseController
 
     public function saveBlog()
     {
+        $blogModel = new \App\Models\blogModel();
+        //data
+        $title_blog = $this->request->getPost('title_blog');
+        $description = $this->request->getPost('description');
+        $file = $this->request->getFile('file');
+        $originalName = $file->getClientName();
+        
+        $validation = $this->validate([
+            'title_blog'=>'required',
+            'description'=>'required',
+        ]);
 
+        if(!$validation)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 }

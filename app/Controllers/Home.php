@@ -213,7 +213,14 @@ class Home extends BaseController
 
     public function createBlog()
     {
-        return view('admin/create-blog');
+        //get the recent blogs at least 5
+        $builder = $this->db->table('tblblogs a');
+        $builder->select('a.*,b.Fullname');
+        $builder->join('tblaccount b','b.accountID=a.accountID','LEFT');
+        $builder->orderBy('a.blogsID','DESC')->limit(5);
+        $blog = $builder->get()->getResult();
+        $data = ['blog'=>$blog];
+        return view('admin/create-blog',$data);
     }
 
     public function Reservation()

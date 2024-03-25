@@ -85,14 +85,14 @@
                     <a href="<?=site_url('admin/settings')?>" class="btn btn-primary btn-sm" style="float:right;">Back</a>
                     </div>
                     <div class="card-body">
-                        <form method="post" class="row g-3" id="frmBlog" enctype="multipart/form-data">
+                        <form method="post" class="row g-3" id="frmBlog" enctype="multipart/form-data" action="<?=base_url('save-blog') ?>">
                             <div class="col-12 form-group">
                                 <label>Title</label>
                                 <input type="text" class="form-control" name="title_blog" required/>
                             </div>
                             <div class="col-12 form-group">
                                 <label>Details</label>
-                                <textarea class="form-control" name="description" style="height:300px;" required></textarea>
+                                <textarea class="form-control" name="description" style="height:250px;" required></textarea>
                             </div>
                             <div class="col-12 form-group">
                                 <label>Attachment</label>
@@ -108,7 +108,21 @@
             <div class="col-lg-3 form-group">
                 <div class="card">
                     <div class="card-header">Recent Blogs</div>
-                    <div class="card-body"></div>
+                    <div class="card-body">
+                      <ul>
+                        <?php foreach($blog as $row): ?>
+                          <?php if(empty($row->Title)){ ?>
+                            <li>No Recent Blog(s)</li>
+                          <?php }else{ ?>
+                          <li>
+                            <h3><?php echo $row->Title ?></h3>
+                            <p><?php echo $row->Fullname ?></p>
+                            <p><?php echo $row->Date ?></p>
+                          </li>
+                          <?php } ?>
+                        <?php endforeach; ?>
+                      </ul>
+                    </div>
                 </div>
             </div>
         </div>
