@@ -37,7 +37,7 @@
    <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">contact@example.com</a>
+        <i class="bi bi-envelope"></i> <a href="mailto:pcos-system2024@gmail.com">pcos-system2024@gmail.com</a>>
         <i class="bi bi-phone"></i> +1 5589 55488 55
       </div>
       <div class="d-none d-lg-flex social-links align-items-center">
@@ -85,6 +85,11 @@
                     <a href="<?=site_url('admin/settings')?>" class="btn btn-primary btn-sm" style="float:right;">Back</a>
                     </div>
                     <div class="card-body">
+                        <?php if(!empty(session()->getFlashdata('fail'))) : ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <?= session()->getFlashdata('fail'); ?>
+                            </div>
+                        <?php endif; ?>
                         <form method="post" class="row g-3" id="frmBlog" enctype="multipart/form-data" action="<?=base_url('save-blog') ?>">
                             <div class="col-12 form-group">
                                 <label>Title</label>
@@ -109,19 +114,18 @@
                 <div class="card">
                     <div class="card-header">Recent Blogs</div>
                     <div class="card-body">
-                      <ul>
+                      <div>
                         <?php foreach($blog as $row): ?>
                           <?php if(empty($row->Title)){ ?>
-                            <li>No Recent Blog(s)</li>
+                            <p>No Recent Blog(s)</p>
                           <?php }else{ ?>
-                          <li>
-                            <h3><?php echo $row->Title ?></h3>
-                            <p><?php echo $row->Fullname ?></p>
-                            <p><?php echo $row->Date ?></p>
-                          </li>
+                          <p>
+                            <div style="font-size:25px;"><?php echo $row->Title ?></div>
+                            <b><?php echo $row->Fullname ?></b><i style="float:right;"><?php echo $row->Date ?></i>
+                          </p>
                           <?php } ?>
                         <?php endforeach; ?>
-                      </ul>
+                      </div>
                     </div>
                 </div>
             </div>

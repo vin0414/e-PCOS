@@ -51,6 +51,7 @@ class ManageController extends BaseController
 
     public function saveBlog()
     {
+        date_default_timezone_set('Asia/Manila');
         $blogModel = new \App\Models\blogModel();
         //data
         $title_blog = $this->request->getPost('title_blog');
@@ -65,11 +66,17 @@ class ManageController extends BaseController
 
         if(!$validation)
         {
-
+            session()->setFlashdata('fail','Invalid! Please fill in the form');
+            return redirect()->to('admin/create-poll')->withInput();
         }
         else
         {
-
+            $values = ['Title'=>$title_blog, 'Details'=>$description,
+            'accountID'=>session()->get('loggedUser'),'Date'=>date('Y-m-d'),'Image'=>$originalName];
+            $blogModel->save($values);
+            $file->move('Blogs/',$originalName);
+            session()->setFlashdata('success','Great! Successfully created a poll survey');
+            return redirect()->to('admin/settings')->withInput();
         }
     }
 }
