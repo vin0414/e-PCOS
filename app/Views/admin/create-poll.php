@@ -86,6 +86,11 @@
                     <a href="<?=site_url('admin/settings')?>" class="btn btn-primary btn-sm" style="float:right;">Back</a>
                     </div>
                     <div class="card-body">
+                        <?php if(!empty(session()->getFlashdata('fail'))) : ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <?= session()->getFlashdata('fail'); ?>
+                            </div>
+                        <?php endif; ?>
                         <form method="post" class="row g-3" id="frmPoll" action="<?=base_url('save-poll')?>">
                             <div class="col-12 form-group">
                                 <label>Title</label>
@@ -93,7 +98,7 @@
                             </div>
                             <div class="col-12 form-group">
                                 <label>Description (Optional)</label>
-                                <textarea class="form-control" name="description" style="height:120px;" required></textarea>
+                                <textarea class="form-control" name="description" style="height:120px;"></textarea>
                             </div>
                             <div class="col-12 form-group">
                                 <label>Poll Type</label>
