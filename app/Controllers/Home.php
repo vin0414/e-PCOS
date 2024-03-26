@@ -222,7 +222,10 @@ class Home extends BaseController
 
     public function createQuestion()
     {
-        return view('admin/create-question');
+        $surveyModel = new \App\Models\surveyModel();
+        $survey = $surveyModel->findAll();
+        $data = ['survey'=>$survey];
+        return view('admin/create-question',$data);
     }
 
     public function newDoctor()

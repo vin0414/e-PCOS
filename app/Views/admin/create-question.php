@@ -79,36 +79,37 @@
     <section class="why-us">
       <div class="container">
         <div class="row g-3">
-            <div class="col-lg-9 form-group">
+            <div class="col-lg-3 form-group"></div>
+            <div class="col-lg-6 form-group">
                 <div class="card">
                     <div class="card-header"><span class="fa fa-pencil"></span>&nbsp;New Question
                     <a href="<?=site_url('admin/settings')?>" class="btn btn-primary btn-sm" style="float:right;">Back</a>
                     </div>
                     <div class="card-body">
-                        <form method="post" class="row g-3" id="frmBlog" enctype="multipart/form-data">
+                        <?php if(!empty(session()->getFlashdata('fail'))) : ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <?= session()->getFlashdata('fail'); ?>
+                            </div>
+                        <?php endif; ?>
+                        <form method="post" class="row g-3" id="frmQuestion" action="<?=base_url('save-question')?>">
                             <div class="col-12 form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control" name="title_blog" required/>
+                                <label>Category</label>
+                                <select class="form-control" name="category" required>
+                                  <option value="">Choose</option>
+                                  <?php foreach($survey as $row): ?>
+                                    <option value="<?php echo $row['surveyID'] ?>"><?php echo $row['Title'] ?></option>
+                                  <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="col-12 form-group">
-                                <label>Details</label>
-                                <textarea class="form-control" name="description" style="height:300px;" required></textarea>
-                            </div>
-                            <div class="col-12 form-group">
-                                <label>Attachment</label>
-                                <input type="file" class="form-control" name="file" required/>
+                              <label>Question</label>
+                              <textarea class="form-control" name="question" style="height:250px;" required></textarea>
                             </div>
                             <div class="col-12 form-group">
                                 <button type="submit" class="form-control btn btn-primary" id="btnSave">Save Entry</button>
                             </div>
                         </form>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-3 form-group">
-                <div class="card">
-                    <div class="card-header">Recent Questions</div>
-                    <div class="card-body"></div>
                 </div>
             </div>
         </div>
