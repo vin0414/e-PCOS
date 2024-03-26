@@ -75,7 +75,28 @@ class ManageController extends BaseController
 
     public function saveQuestion()
     {
+        date_default_timezone_set('Asia/Manila');
+        $questionModel = new \App\Models\questionModel();
+        //data
+        $category = $this->request->getPost('category');
+        $question = $this->request->getPost('question');
+        $validation = $this->validate([
+            'category'=>'required',
+            'question'=>'required|is_unique[tblquestion.Question]'
+        ]);
 
+        if(!$validation)
+        {
+            session()->setFlashdata('fail','Invalid! Please fill in the form');
+            return redirect()->to('admin/create-question')->withInput();
+        }
+        else
+        {
+            $values = ['surveyID'=>$category,'Question'=>$question,'Date'=>date('Y-m-d')];
+            $questionModel->save($values);
+            session()->setFlashdata('success','Great! Successfully added');
+            return redirect()->to('admin/settings')->withInput();
+        }
     }
 
     public function saveEntry()

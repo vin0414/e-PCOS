@@ -92,15 +92,23 @@ class Home extends BaseController
     {
         $accountModel = new \App\Models\accountModel();
         $user = $accountModel->findAll();
+        //survey
         $surveyModel = new \App\Models\surveyModel();
         $survey = $surveyModel->findAll();
+        //doctors
         $doctorsModel = new \App\Models\doctorsModel();
         $doctors = $doctorsModel->findAll();
         $builder = $this->db->table('tblblogs a');
         $builder->select('a.*,b.Fullname');
         $builder->join('tblaccount b','b.accountID=a.accountID','LEFT');
         $blog  = $builder->get()->getResult();
-        $data = ['user'=>$user,'survey'=>$survey,'blog'=>$blog,'doctors'=>$doctors];
+        //question
+        $builder = $this->db->table('tblquestion a');
+        $builder->select('a.*');
+        $builder->join('tblsurvey b','b.surveyID=a.surveyID','LEFT');
+        $list = $builder->get()->getResult();
+
+        $data = ['user'=>$user,'survey'=>$survey,'blog'=>$blog,'doctors'=>$doctors,'list'=>$list];
         return view('admin/settings',$data);
     }
 
