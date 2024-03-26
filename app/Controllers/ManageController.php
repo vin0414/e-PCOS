@@ -44,10 +44,11 @@ class ManageController extends BaseController
 
     }
 
-    public function saveDoctor()
+    public function saveEntry()
     {
 
     }
+    
 
     public function saveBlog()
     {

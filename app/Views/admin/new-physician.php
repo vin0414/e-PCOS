@@ -91,25 +91,29 @@
                                 <?= session()->getFlashdata('fail'); ?>
                             </div>
                         <?php endif; ?>
-                        <form method="post" class="row g-3" id="frmPoll" action="<?=base_url('save-poll')?>">
+                        <form method="post" class="row g-3" id="frmEntry" enctype="multipart/form-data" action="<?=base_url('save-entry')?>">
                             <div class="col-12 form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control" name="title_poll" required/>
+                                <label>Physician's Name</label>
+                                <input type="text" class="form-control" name="name" required/>
                             </div>
                             <div class="col-12 form-group">
-                                <label>Description (Optional)</label>
-                                <textarea class="form-control" name="description" style="height:120px;"></textarea>
+                                <label>Specialty</label>
+                                <input type="text" class="form-control" name="specialty" required/>
                             </div>
                             <div class="col-12 form-group">
-                                <label>Poll Type</label>
-                                <select class="form-control" name="poll_type" required>
-                                    <option value="">Choose</option>
-                                    <option>Multiple Choice</option>
-                                    <option>Ranking Poll</option>
-                                </select>
+                                <div class="row">
+                                    <div class="col-lg-6 form-group">
+                                        <label>Contact No</label>
+                                        <input type="phone" class="form-control" name="phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="11" minlength="11" required/>
+                                    </div>
+                                    <div class="col-lg-6 form-group">
+                                        <label>Image</label>
+                                        <input type="file" class="form-control" name="file" required/>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-12 form-group">
-                                <button type="submit" class="form-control btn btn-primary" id="btnSave">Create Poll</button>
+                                <button type="submit" class="form-control btn btn-primary" id="btnSave">Save Entry</button>
                             </div>
                         </form>
                     </div>

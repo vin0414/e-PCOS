@@ -54,7 +54,7 @@ $routes->get('search-reservation','Home::searchReservation');
 $routes->post('save-poll','ManageController::savePoll');
 $routes->post('save-question','ManageController::saveQuestion');
 $routes->post('save-blog','ManageController::saveBlog');
-$routes->post('save-doctor','ManageController::saveDoctor');
+$routes->post('save-entry','ManageController::saveEntry');
 
 $routes->group('',['filter'=>'AuthCheck'],function($routes)
 {
