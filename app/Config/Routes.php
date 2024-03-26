@@ -53,6 +53,8 @@ $routes->get('search-reservation','Home::searchReservation');
 //function
 $routes->post('save-poll','ManageController::savePoll');
 $routes->post('update-poll','ManageController::updatePoll');
+$routes->post('close','ManageController::closeSurvey');
+$routes->post('activate','ManageController::activateSurvey');
 $routes->post('save-question','ManageController::saveQuestion');
 $routes->post('save-blog','ManageController::saveBlog');
 $routes->post('update-blog','ManageController::updateBlog');

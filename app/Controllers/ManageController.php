@@ -53,6 +53,26 @@ class ManageController extends BaseController
         return redirect()->to('admin/settings')->withInput();
     }
 
+    public function activateSurvey()
+    {
+        $surveyModel = new \App\Models\surveyModel();
+        //data
+        $id = $this->request->getPost('value');
+        $values = ['Status'=>1];
+        $surveyModel->update($id,$values);
+        echo "success";
+    }
+
+    public function closeSurvey()
+    {
+        $surveyModel = new \App\Models\surveyModel();
+        //data
+        $id = $this->request->getPost('value');
+        $values = ['Status'=>0];
+        $surveyModel->update($id,$values);
+        echo "success";
+    }
+
     public function saveQuestion()
     {
 
@@ -60,7 +80,33 @@ class ManageController extends BaseController
 
     public function saveEntry()
     {
+        $doctorsModel = new \App\Models\doctorsModel();
+        //data
+        $name = $this->request->getPost('name');
+        $specialty = $this->request->getPost('specialty');
+        $phone = $this->request->getPost('phone');
+        $file = $this->request->getFile('file');
+        $originalName = $file->getClientName();
 
+        $validation = $this->validate([
+            'name'=>'required',
+            'specialty'=>'required',
+            'phone'=>'required',
+        ]);
+
+        if(!$validation)
+        {
+            session()->setFlashdata('fail','Invalid! Please fill in the form');
+            return redirect()->to('admin/new-physician')->withInput();
+        }
+        else
+        {
+            $values = ['Name'=>$name,'Specialty'=>$specialty,'Contact'=>$phone,'Image'=>$originalName,'Status'=>1];
+            $doctorsModel->save($values);
+            $file->move('Doctors/',$originalName);
+            session()->setFlashdata('success','Great! Successfully added');
+            return redirect()->to('admin/settings')->withInput();
+        }
     }
     
 

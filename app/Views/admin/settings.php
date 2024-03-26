@@ -174,12 +174,19 @@
                                               <?php if($row['Status']==1){ ?>
                                                 <span class="badge bg-success">Active</span>
                                               <?php }else { ?>
+                                                <span class="badge bg-danger">Inactive</span>
                                               <?php } ?>
                                             </td>
                                             <td>
-                                              <button type="button" class="btn btn-primary btn-sm end" value="<?php echo $row['surveyID'] ?>">
-                                                <span class="bi bi-trash"></span>&nbsp;Deactivate
-                                              </button>
+                                              <?php if($row['Status']==1){ ?>
+                                                <button type="button" class="btn btn-primary btn-sm end" value="<?php echo $row['surveyID'] ?>">
+                                                  <span class="bi bi-trash"></span>&nbsp;Deactivate
+                                                </button>
+                                              <?php }else { ?>
+                                                <button type="button" class="btn btn-primary btn-sm start" value="<?php echo $row['surveyID'] ?>">
+                                                  <span class="bi bi-check"></span>&nbsp;Activate
+                                                </button>
+                                              <?php } ?>
                                               <a class="btn btn-primary btn-sm" href="<?=site_url('admin/edit-survey/')?><?php echo $row['surveyID'] ?>">
                                                   <span class="fa fa-edit"></span>&nbsp;Edit
                                               </a>
@@ -302,6 +309,56 @@
             if(response==="success")
             {
               alert("Great! Successfully reset");
+            }
+            else
+            {
+              alert(response);
+            }
+          }
+        });
+      }
+    });
+
+    $(document).on('click','.end',function()
+    {
+      var confirmation = confirm("Do you want to close this selected survey?");
+      if(confirmation)
+      {
+        var val = $(this).val();
+        $.ajax({
+          url:"<?=site_url('close')?>",method:"POST",
+          data:{value:val},
+          success:function(response)
+          {
+            if(response==="success")
+            {
+              alert("Great! Successfully close the survey");
+              location.reload();
+            }
+            else
+            {
+              alert(response);
+            }
+          }
+        });
+      }
+    });
+
+    $(document).on('click','.start',function()
+    {
+      var confirmation = confirm("Do you want to activate this selected survey?");
+      if(confirmation)
+      {
+        var val = $(this).val();
+        $.ajax({
+          url:"<?=site_url('activate')?>",method:"POST",
+          data:{value:val},
+          success:function(response)
+          {
+            if(response==="success")
+            {
+              alert("Great! Successfully activate the survey");
+              location.reload();
             }
             else
             {
