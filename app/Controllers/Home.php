@@ -215,6 +215,11 @@ class Home extends BaseController
         return view('admin/create-question');
     }
 
+    public function newDoctor()
+    {
+        return view('admin/new-physician');
+    }
+
     public function createBlog()
     {
         //get the recent blogs at least 5

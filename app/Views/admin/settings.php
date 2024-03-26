@@ -224,7 +224,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <button type="button" class="btn btn-primary btn-sm add_doctor"><span class="bi bi-plus"></span>&nbsp;Add Doctor</button>
+                        <a href="<?=site_url('admin/new-physician')?>" class="btn btn-primary btn-sm"><span class="bi bi-plus"></span>&nbsp;New Entry</a>
                     </div>
                     <div class="tab-pane" id="tab-5">
                         <br/>
