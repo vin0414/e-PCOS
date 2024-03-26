@@ -76,6 +76,7 @@ $routes->group('',['filter'=>'AuthCheck'],function($routes)
     $routes->get('admin/create-blog','Home::createBlog');
     $routes->get('admin/edit-blog/(:any)','Home::editBlog/$1');
     $routes->get('admin/new-physician','Home::newDoctor');
+    $routes->get('admin/edit-info/(:any)','Home::editInfo/$1');
 });
 
 $routes->group('',['filter'=>'customerAuthCheck'],function($routes)

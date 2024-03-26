@@ -230,6 +230,14 @@ class Home extends BaseController
         return view('admin/new-physician');
     }
 
+    public function editInfo($id)
+    {
+        $doctorsModel = new \App\Models\doctorsModel();
+        $info = $doctorsModel->WHERE('doctorID',$id)->first();
+        $data = ['info'=>$info];
+        return view('admin/edit-info',$data);
+    }
+
     public function createBlog()
     {
         //get the recent blogs at least 5
