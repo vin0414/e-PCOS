@@ -121,9 +121,13 @@
                       <label>First Name</label>
                       <input type="text" class="form-control" name="firstname" required/>
                     </div>
-                    <div class="col-lg-4">
-                      <label>Middle Name</label>
+                    <div class="col-lg-2">
+                      <label>Middle Initial</label>
                       <input type="text" class="form-control" name="mi" required/>
+                    </div>
+                    <div class="col-lg-2">
+                      <label>Suffix</label>
+                      <input type="text" class="form-control" name="suffix" required/>
                     </div>
                   </div>
                 </div>
