@@ -108,6 +108,35 @@ class ManageController extends BaseController
             return redirect()->to('admin/settings')->withInput();
         }
     }
+
+    public function editEntry()
+    {
+        $doctorsModel = new \App\Models\doctorsModel();
+        //data
+        $id = $this->request->getPost('id');
+        $name = $this->request->getPost('name');
+        $specialty = $this->request->getPost('specialty');
+        $phone = $this->request->getPost('phone');
+
+        $validation = $this->validate([
+            'name'=>'required',
+            'specialty'=>'required',
+            'phone'=>'required',
+        ]);
+
+        if(!$validation)
+        {
+            session()->setFlashdata('fail','Invalid! Please fill in the form');
+            return redirect()->to('admin/edit-info/'.$id)->withInput();
+        }
+        else
+        {
+            $values = ['Name'=>$name,'Specialty'=>$specialty,'Contact'=>$phone];
+            $doctorsModel->update($id,$values);
+            session()->setFlashdata('success','Great! Successfully updated');
+            return redirect()->to('admin/settings')->withInput();
+        }
+    }
     
 
     public function saveBlog()

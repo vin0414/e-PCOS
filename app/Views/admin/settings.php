@@ -232,7 +232,7 @@
                                   <tr>
                                     <td><img src="/Doctors/<?php echo $row['Image'] ?>" width="50"/></td>
                                     <td><?php echo $row['Name'] ?></td>
-                                    <td><?php echo $row['Specialty']?>...</td>
+                                    <td><?php echo $row['Specialty']?></td>
                                     <td><?php echo $row['Contact'] ?></td>
                                     <td>
                                       <?php if($row['Status']==1){ ?>

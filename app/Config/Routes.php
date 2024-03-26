@@ -59,6 +59,7 @@ $routes->post('save-question','ManageController::saveQuestion');
 $routes->post('save-blog','ManageController::saveBlog');
 $routes->post('update-blog','ManageController::updateBlog');
 $routes->post('save-entry','ManageController::saveEntry');
+$routes->post('edit-entry','ManageController::editEntry');
 
 $routes->group('',['filter'=>'AuthCheck'],function($routes)
 {
