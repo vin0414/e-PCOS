@@ -240,6 +240,14 @@ class Home extends BaseController
         return view('admin/create-blog',$data);
     }
 
+    public function editBlog($id)
+    {
+        $blogModel = new \App\Models\blogModel();
+        $blog = $blogModel->WHERE('blogsID',$id)->first();
+        $data = ['blog'=>$blog];
+        return view('admin/edit-blog',$data);
+    }
+
     public function Reservation()
     {
         $builder = $this->db->table('tblreservation a');

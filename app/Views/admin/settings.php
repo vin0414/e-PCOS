@@ -246,7 +246,11 @@
                                     <td><?php echo substr($row->Details,0,25) ?>...</td>
                                     <td><?php echo $row->Fullname ?></td>
                                     <td><?php echo $row->Date ?></td>
-                                    <td></td>
+                                    <td>
+                                      <a class="btn btn-primary btn-sm" href="<?=site_url('admin/edit-blog/')?><?php echo $row->blogsID ?>">
+                                          <span class="fa fa-edit"></span>&nbsp;Edit
+                                      </a>
+                                    </td>
                                   </tr>
                                 <?php endforeach; ?>
                                 </tbody>

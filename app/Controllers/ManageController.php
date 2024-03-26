@@ -90,7 +90,45 @@ class ManageController extends BaseController
             'accountID'=>session()->get('loggedUser'),'Date'=>date('Y-m-d'),'Image'=>$originalName];
             $blogModel->save($values);
             $file->move('Blogs/',$originalName);
-            session()->setFlashdata('success','Great! Successfully created a poll survey');
+            session()->setFlashdata('success','Great! Successfully posted');
+            return redirect()->to('admin/settings')->withInput();
+        }
+    }
+
+    public function updateBlog()
+    {
+        $blogModel = new \App\Models\blogModel();
+        //data
+        $id = $this->request->getPost('id');
+        $title_blog = $this->request->getPost('title_blog');
+        $description = $this->request->getPost('description');
+        $file = $this->request->getFile('file');
+        $originalName = $file->getClientName();
+        
+        $validation = $this->validate([
+            'title_blog'=>'required',
+            'description'=>'required',
+        ]);
+
+        if(!$validation)
+        {
+            session()->setFlashdata('fail','Invalid! Please fill in the form');
+            return redirect()->to('admin/create-poll')->withInput();
+        }
+        else
+        {
+            if(empty($originalName))
+            {
+                $values = ['Title'=>$title_blog, 'Details'=>$description,];
+                $blogModel->update($id,$values);
+            }
+            else
+            {
+                $values = ['Title'=>$title_blog, 'Details'=>$description,'Image'=>$originalName];
+                $blogModel->update($id,$values);
+                $file->move('Blogs/',$originalName);
+            }
+            session()->setFlashdata('success','Great! Successfully updated');
             return redirect()->to('admin/settings')->withInput();
         }
     }
