@@ -39,6 +39,20 @@ class ManageController extends BaseController
         }
     }
 
+    public function updatePoll()
+    {
+        $surveyModel = new \App\Models\surveyModel();
+        //data
+        $id = $this->request->getPost('id');
+        $title_poll = $this->request->getPost('title_poll');
+        $description = $this->request->getPost('description');
+        $poll_type =  $this->request->getPost('poll_type');
+        $values = ['Title'=>$title_poll, 'Details'=>$description,'Type_Survey'=>$poll_type,'Status'=>1];
+        $surveyModel->update($id,$values);
+        session()->setFlashdata('success','Great! Successfully updated');
+        return redirect()->to('admin/settings')->withInput();
+    }
+
     public function saveQuestion()
     {
 
