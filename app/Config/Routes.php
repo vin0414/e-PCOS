@@ -56,6 +56,7 @@ $routes->post('update-poll','ManageController::updatePoll');
 $routes->post('close','ManageController::closeSurvey');
 $routes->post('activate','ManageController::activateSurvey');
 $routes->post('save-question','ManageController::saveQuestion');
+$routes->post('delete-question','ManageController::deleteQuestion');
 $routes->post('save-blog','ManageController::saveBlog');
 $routes->post('update-blog','ManageController::updateBlog');
 $routes->post('save-entry','ManageController::saveEntry');

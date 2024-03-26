@@ -99,6 +99,15 @@ class ManageController extends BaseController
         }
     }
 
+    public function deleteQuestion()
+    {
+        $val = $this->request->getPost('value');
+        $builder = $this->db->table('tblquestion');
+        $builder->WHERE('questionID',$val);
+        $builder->delete();
+        echo "success";
+    }
+
     public function saveEntry()
     {
         $doctorsModel = new \App\Models\doctorsModel();

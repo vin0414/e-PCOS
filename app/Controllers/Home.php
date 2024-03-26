@@ -104,7 +104,7 @@ class Home extends BaseController
         $blog  = $builder->get()->getResult();
         //question
         $builder = $this->db->table('tblquestion a');
-        $builder->select('a.*');
+        $builder->select('a.*,b.Title,b.Type_Survey');
         $builder->join('tblsurvey b','b.surveyID=a.surveyID','LEFT');
         $list = $builder->get()->getResult();
 

@@ -209,7 +209,18 @@
                                     <th class="bg-primary text-white">Action</th>
                                 </thead>
                                 <tbody>
-                                  
+                                  <?php foreach($list as $row): ?>
+                                    <tr>
+                                      <td><?php echo $row->Title ?></td>
+                                      <td><?php echo $row->Type_Survey ?></td>
+                                      <td><?php echo $row->Question ?></td>
+                                      <td>
+                                        <button type="button" class="btn btn-primary btn-sm delete" value="<?php echo $row->questionID ?>">
+                                          <span class="bi bi-trash"></span>&nbsp;Delete
+                                        </button>
+                                      </td>
+                                    </tr>
+                                  <?php endforeach; ?> 
                                 </tbody>
                             </table>
                         </div>
@@ -378,6 +389,31 @@
             if(response==="success")
             {
               alert("Great! Successfully activate the survey");
+              location.reload();
+            }
+            else
+            {
+              alert(response);
+            }
+          }
+        });
+      }
+    });
+
+    $(document).on('click','.delete',function()
+    {
+      var confirmation = confirm("Do you want to remove this selected question?");
+      if(confirmation)
+      {
+        var val = $(this).val();
+        $.ajax({
+          url:"<?=site_url('delete-question')?>",method:"POST",
+          data:{value:val},
+          success:function(response)
+          {
+            if(response==="success")
+            {
+              alert("Great! Successfully deleted");
               location.reload();
             }
             else
