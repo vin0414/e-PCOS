@@ -52,6 +52,7 @@ $routes->get('reservation','Home::Reservation');
 $routes->get('search-reservation','Home::searchReservation');
 //function
 $routes->post('save-poll','ManageController::savePoll');
+$routes->post('update-poll','ManageController::updatePoll');
 $routes->post('save-question','ManageController::saveQuestion');
 $routes->post('save-blog','ManageController::saveBlog');
 $routes->post('save-entry','ManageController::saveEntry');
@@ -67,6 +68,7 @@ $routes->group('',['filter'=>'AuthCheck'],function($routes)
     $routes->get('admin/new','Home::newAccount');
     $routes->get('admin/profile','Home::Profile');
     $routes->get('admin/create-poll','Home::createPoll');
+    $routes->get('admin/edit-survey/(:any)','Home::editSurvey/$1');
     $routes->get('admin/create-question','Home::createQuestion');
     $routes->get('admin/create-blog','Home::createBlog');
     $routes->get('admin/new-physician','Home::newDoctor');

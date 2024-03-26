@@ -210,6 +210,14 @@ class Home extends BaseController
         return view('admin/create-poll');
     }
 
+    public function editSurvey($id)
+    {
+        $surveyModel = new \App\Models\surveyModel();
+        $survey = $surveyModel->WHERE('surveyID',$id)->first();
+        $data = ['survey'=>$survey];
+        return view('admin/edit-survey',$data);
+    }
+
     public function createQuestion()
     {
         return view('admin/create-question');
