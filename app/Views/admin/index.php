@@ -28,9 +28,6 @@
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
-  <style>
-    input[type='text'],input[type='email'],input[type='password']{padding:10px;}
-  </style>
 </head>
 
 <body>
@@ -85,7 +82,7 @@
                 <div class="card bg-primary text-white">
                   <div class="card-body">
                     <div class="card-title">Total Patient</div>
-                    <h1>0</h1>
+                    <h1><?php foreach($patient as $row): ?><?php echo $row->total; ?><?php endforeach; ?></h1>
                   </div>
                 </div>
               </div>
@@ -93,14 +90,14 @@
                 <div class="card bg-primary text-white">
                   <div class="card-body">
                     <div class="card-title">Registered Users</div>
-                    <h1>0</h1>
+                    <h1><?php foreach($customer as $row): ?><?php echo $row->total; ?><?php endforeach; ?></h1>
                   </div>
                 </div>
               </div>
               <div class="col-lg-3">
                 <div class="card bg-primary text-white">
                   <div class="card-body">
-                    <div class="card-title">Consultation</div>
+                    <div class="card-title">Appointment</div>
                     <h1>0</h1>
                   </div>
                 </div>
@@ -116,10 +113,22 @@
             </div> 
           </div>
           <div class="col-12">
-            <div class="card">
-              <div class="card-body">
-                <div class="card-title">Poll Survey</div>
-                <div id="chartContainer" style="height:400px;width:100%;"></div>
+            <div class="row">
+              <div class="col-lg-6 form-group">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Poll Survey</div>
+                    <div id="chartContainer" style="height:400px;width:100%;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 form-group">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Daily Patients</div>
+                    <div id="patientContainer" style="height:400px;width:100%;"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

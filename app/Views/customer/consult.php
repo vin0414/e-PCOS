@@ -85,11 +85,11 @@
               <form method="POST" class="row g-3" id="frmPatient">
               <div class="col-12 form-group">
                   <div class="row g-3">
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                       <label>Date Appointment</label>
                       <input type="date" class="form-control" name="date" id="date" required/>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                       <label>Time of Appointment</label>
                       <select class="form-control" name="time" style="padding:10px;" required>
                         <option value="">Choose</option>
@@ -98,6 +98,15 @@
                         <option>12:00:00</option>
                         <option>14:00:00</option>
                         <option>16:00:00</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-4">
+                      <label>Type of Appointment</label>
+                      <select class="form-control" name="type_appointment" style="padding:10px;" required>
+                        <option value="">Choose</option>
+                        <option>Gynecology</option>
+                        <option>Obstetrics</option>
+                        <option>Obstetrics and Gynecology</option>
                       </select>
                     </div>
                   </div>
@@ -154,6 +163,7 @@
                       <thead>
                           <th class="bg-primary text-white">Date</th>
                           <th class="bg-primary text-white">Time</th>
+                          <th class="bg-primary text-white">Type of Appointment</th>
                           <th class="bg-primary text-white">Patient's Name</th>
                           <th class="bg-primary text-white">Status</th>
                           <th class="bg-primary text-white">Action</th>

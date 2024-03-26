@@ -85,7 +85,18 @@ class Home extends BaseController
 
     public function Dashboard()
     {
-        return view('admin/index');
+        //customer
+        $builder = $this->db->table('tblcustomer');
+        $builder->select('COUNT(*)total');
+        $builder->WHERE('Status',1);
+        $customer = $builder->get()->getResult();
+        //patient
+        $builder = $this->db->table('tblreservation');
+        $builder->select('COUNT(*)total');
+        $patient = $builder->get()->getResult();
+
+        $data = ['customer'=>$customer,'patient'=>$patient];
+        return view('admin/index',$data);
     }
 
     public function Settings()
