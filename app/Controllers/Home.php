@@ -15,7 +15,17 @@ class Home extends BaseController
 
     public function index()
     {
-        return view('welcome_message');
+        //doctors
+        $doctorsModel = new \App\Models\doctorsModel();
+        $doctors = $doctorsModel->findAll();
+        //blogs
+        $builder = $this->db->table('tblblogs a');
+        $builder->select('a.*,b.Fullname');
+        $builder->join('tblaccount b','b.accountID=a.accountID','LEFT');
+        $blog  = $builder->get()->getResult();
+
+        $data = ['doctors'=>$doctors,'blog'=>$blog];
+        return view('welcome_message',$data);
     }
 
     //admin

@@ -120,9 +120,10 @@
                             <p>No Recent Blog(s)</p>
                           <?php }else{ ?>
                           <p>
-                            <div style="font-size:25px;"><?php echo $row->Title ?></div>
+                            <div style="font-size:20px;"><?php echo $row->Title ?></div>
                             <b><?php echo $row->Fullname ?></b><i style="float:right;"><?php echo $row->Date ?></i>
                           </p>
+                          <hr/>
                           <?php } ?>
                         <?php endforeach; ?>
                       </div>
