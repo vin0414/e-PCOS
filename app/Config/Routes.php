@@ -30,20 +30,22 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/login','Home::login');
-$routes->get('/register','Home::register');
-$routes->get('/success','Home::successPage');
+$routes->get('login','Home::login');
+$routes->get('register','Home::register');
+$routes->get('success','Home::successPage');
+$routes->get('blog/(:any)','Home::readBlog/$1');
 //customer registration/login/forgot_password
 $routes->post('sign-in','Home::customerLogin');
 $routes->post('create-account','Home::createAccount');
 $routes->get('activate/(:any)','Home::activate/$1');
 $routes->get('forgot-password','Home::forgotPassword');
-$routes->get('/sign-out','Home::signOut');
-$routes->post('/update-password','Home::updatePassword');
-$routes->post('/save','Customer::Save');
+$routes->get('sign-out','Home::signOut');
+$routes->post('update-password','Home::updatePassword');
+$routes->post('save','Customer::Save');
+$routes->post('save-inquiry','Home::saveInquiry');
 //admin
 $routes->post('check','Home::check');
-$routes->get('/logout','Home::logout');
+$routes->get('logout','Home::logout');
 $routes->post('change-password','Home::updatePassword');
 $routes->post('update-account','Home::updateAccount');
 $routes->post('save-account','Home::saveAccount');

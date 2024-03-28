@@ -251,7 +251,7 @@
                 <div class="testimonial-item">
                   <h3><?php echo $row->Title ?></h3>
                   <p><?php echo substr($row->Details,0,50) ?>...</p>
-                  <a href="blog/<?php echo $row->Title ?>">Read more</a>
+                  <small><a href="blog/<?php echo $row->Title ?>">Read more</a></small>
                   <h3><?php echo $row->Fullname ?></h3>
                   <h4><?php echo $row->Date ?></h4>
                 </div>
@@ -292,7 +292,7 @@
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>pcos-system2024@gmail.com</p>
               </div>
 
               <div class="phone">
@@ -307,7 +307,7 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="<?=base_url('send-inquiry')?>" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -323,9 +323,16 @@
                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
               </div>
               <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+              <?php if(!empty(session()->getFlashdata('fail'))) : ?>
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <?= session()->getFlashdata('fail'); ?>
+                  </div>
+              <?php endif; ?>
+              <?php if(!empty(session()->getFlashdata('success'))) : ?>
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <?= session()->getFlashdata('success'); ?>
+                  </div>
+              <?php endif; ?>
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>

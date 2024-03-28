@@ -11,6 +11,22 @@ class Home extends BaseController
     {
         helper('text');
         $this->db = db_connect();
+    } 
+
+    public function saveInquiry()
+    {
+
+    }
+
+    public function readBlog($id)
+    {
+        $builder = $this->db->table('tblblogs a');
+        $builder->select('a.*,b.Fullname');
+        $builder->join('tblaccount b','b.accountID=a.accountID','LEFT');
+        $builder->WHERE('a.Title',$id)->limit(1);
+        $blog = $builder->get()->getResult();
+        $data = ['blog'=>$blog,'id'=>$id];
+        return view('read-blog',$data);
     }
 
     public function index()
