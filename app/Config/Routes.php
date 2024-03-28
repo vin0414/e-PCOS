@@ -42,7 +42,7 @@ $routes->get('forgot-password','Home::forgotPassword');
 $routes->get('sign-out','Home::signOut');
 $routes->post('update-password','Home::updatePassword');
 $routes->post('save','Customer::Save');
-$routes->post('save-inquiry','Home::saveInquiry');
+$routes->post('send-inquiry','Home::sendInquiry');
 //admin
 $routes->post('check','Home::check');
 $routes->get('logout','Home::logout');

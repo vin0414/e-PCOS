@@ -13,9 +13,34 @@ class Home extends BaseController
         $this->db = db_connect();
     } 
 
-    public function saveInquiry()
+    public function sendInquiry()
     {
+        $inquiryModel = new \App\Models\inquiryModel();
+        //data
+        $name = $this->request->getPost('name');
+        $email = $this->request->getPost('email');
+        $subject = $this->request->getPost('subject');
+        $message = $this->request->getPost('message');
 
+        $validation = $this->validate([
+            'name'=>'required',
+            'email'=>'required|valid_email',
+            'subject'=>'required',
+            'message'=>'required'
+        ]);
+
+        if(!$validation)
+        {
+            session()->setFlashdata('fail','Invalid! Please fill in the fields and enter valid email address');
+            return redirect()->to('/')->withInput();
+        }
+        else
+        {
+            $values = ['Name'=>$name, 'Email'=>$email,'Subject'=>$subject,'Message'=>$message,'Status'=>0];
+            $inquiryModel->save($values);
+            session()->setFlashdata('success','Great! Successfully sent your message');
+            return redirect()->to('/')->withInput();
+        }
     }
 
     public function readBlog($id)
