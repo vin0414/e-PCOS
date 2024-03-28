@@ -98,7 +98,7 @@
                 <div class="card bg-primary text-white">
                   <div class="card-body">
                     <div class="card-title">Appointment</div>
-                    <h1>0</h1>
+                    <h1><?php foreach($appointment as $row): ?><?php echo $row->total; ?><?php endforeach; ?></h1>
                   </div>
                 </div>
               </div>

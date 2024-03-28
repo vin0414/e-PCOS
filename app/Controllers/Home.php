@@ -104,8 +104,13 @@ class Home extends BaseController
         $builder = $this->db->table('tblreservation');
         $builder->select('COUNT(*)total');
         $patient = $builder->get()->getResult();
+        //appointment
+        $builder = $this->db->table('tblreservation');
+        $builder->select('COUNT(*)total');
+        $builder->WHERE('Status',0);
+        $appointment = $builder->get()->getResult();
 
-        $data = ['customer'=>$customer,'patient'=>$patient];
+        $data = ['customer'=>$customer,'patient'=>$patient,'appointment'=>$appointment];
         return view('admin/index',$data);
     }
 

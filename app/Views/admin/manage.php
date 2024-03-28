@@ -125,7 +125,7 @@
                 <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Appointment</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Poll Survey</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Inquiries</a>
             </li>
         </ul>
         <div class="tab-content">
