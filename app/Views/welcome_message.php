@@ -250,10 +250,9 @@
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
                   <h3><?php echo $row->Title ?></h3>
-                  <p><?php echo substr($row->Details,0,50) ?>...</p>
+                  <h4><?php echo $row->Fullname ?>&nbsp;|&nbsp;<?php echo $row->Date ?></h4>
+                  <p><?php echo substr($row->Details,0,150) ?>...</p>
                   <small><a href="blog/<?php echo $row->Title ?>">Read more</a></small>
-                  <h3><?php echo $row->Fullname ?></h3>
-                  <h4><?php echo $row->Date ?></h4>
                 </div>
               </div>
             </div><!-- End testimonial item -->
