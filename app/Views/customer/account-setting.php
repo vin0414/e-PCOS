@@ -28,7 +28,7 @@
    <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">contact@example.com</a>
+        <i class="bi bi-envelope"></i> <a href="mailto:pcos-system2024@gmail.com">pcos-system2024@gmail.com</a>
         <i class="bi bi-phone"></i> +1 5589 55488 55
       </div>
       <div class="d-none d-lg-flex social-links align-items-center">
@@ -85,13 +85,14 @@
                     </div>
                     <div class="card-body">
                         <form method="POST" class="row g-3" id="frmAccount">
+                            <input type="hidden" name="userID" value="<?php echo session()->get('sess_id') ?>"/>
                             <div class="col-12">
                                 <label>Complete Name *</label>
-                                <input type="text" class="form-control" name="fullname" value="" required/>
+                                <input type="text" class="form-control" name="fullname" value="<?php echo session()->get('sess_fullname') ?>" required/>
                             </div>
                             <div class="col-12">
                                 <label>Email Address *</label>
-                                <input type="email" class="form-control" name="email" value="" required/>
+                                <input type="email" class="form-control" name="email" value="<?php echo session()->get('customer_email') ?>" required/>
                             </div>
                             
                             <div class="col-12">
@@ -139,5 +140,33 @@
 
       <!-- Template Main JS File -->
       <script src="../assets/js/main.js"></script>
+      <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+      <script>
+        $('#btnSubmit').on('click',function(e)
+        {
+          e.preventDefault();
+          var confirmation  = confirm('Do you want to update your information');
+          if(confirmation)
+          {
+            var data = $('#frmAccount').serialize();
+            $.ajax({
+              url:"<?=site_url('update-information')?>",
+              method:"POST",data:data,
+              success:function(response)
+              {
+                if(response==="success")
+                {
+                  alert("Great! Successfully update the information");
+                  location.reload();
+                }
+                else
+                {
+                  alert(response);
+                }
+              }
+            });
+            }
+        });
+      </script>
    </body>
 </html>

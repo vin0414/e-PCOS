@@ -63,6 +63,8 @@ $routes->post('save-blog','ManageController::saveBlog');
 $routes->post('update-blog','ManageController::updateBlog');
 $routes->post('save-entry','ManageController::saveEntry');
 $routes->post('edit-entry','ManageController::editEntry');
+//customer controller
+$routes->post('update-information','Customer::updateInformation');
 
 $routes->group('',['filter'=>'AuthCheck'],function($routes)
 {

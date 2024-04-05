@@ -32,6 +32,31 @@ class Customer extends BaseController
         return view('customer/account-setting');
     }
 
+    public function updateInformation()
+    {
+        $customerModel = new \App\Models\customerModel();
+        //data
+        $userID = $this->request->getPost('userID');
+        $fullname = $this->request->getPost('fullname');
+        $email = $this->request->getPost('email');
+
+        $validation = $this->validate([
+            'fullname'=>'required',
+            'email'=>'valid_email|required',
+        ]);
+
+        if(!$validation)
+        {
+            echo "Invalid! Please try again";
+        }
+        else
+        {
+            $values = ['EmailAddress'=>$email,'Fullname'=>$fullname];
+            $customerModel->update($userID,$values);
+            echo "success";
+        }
+    }
+
     //functions
     public function Save()
     {
