@@ -60,11 +60,15 @@ class Customer extends BaseController
     //functions
     public function Save()
     {
+        $reservationModel = new \App\Models\reservationModel();
+        $customerID = session()->get('sess_id');
         $date = $this->request->getPost('date');
         $time = $this->request->getPost('time');
+        $type_appointment = $this->request->getPost('type_appointment');
         $surname = $this->request->getPost('surname');
         $firstname = $this->request->getPost('firstname');
         $mi = $this->request->getPost('mi');
+        $suffix = $this->request->getPost('suffix');
         $bdate  = $this->request->getPost('bdate');
         $phone = $this->request->getPost('phone');
         $gender = $this->request->getPost('gender');
@@ -73,6 +77,7 @@ class Customer extends BaseController
         $validation = $this->validate([
             'date'=>'required',
             'time'=>'required',
+            'type_appointment'=>'required',
             'surname'=>'required',
             'firstname'=>'required',
             'mi'=>'required',
@@ -88,7 +93,12 @@ class Customer extends BaseController
         }
         else
         {
-
+            $values = ['Date'=>$date, 'Time'=>$time,'Event_Name'=>$type_appointment,
+            'Surname'=>$surname,'Firstname'=>$firstname,'MiddleName'=>$mi,'Suffix'=>$suffix,
+            'Contact'=>$phone,'BirthDate'=>$bdate,'Gender'=>$gender,
+            'Address'=>$address,'Status'=>0,'customerID'=>$customerID];
+            $reservationModel->save($values);
+            echo "Success";
         }
     }
 }
