@@ -172,7 +172,28 @@
                           <th class="bg-primary text-white">Status</th>
                           <th class="bg-primary text-white">Action</th>
                       </thead>
-                      <tbody></tbody>
+                      <tbody>
+                        <?php foreach($reservation as $row): ?>
+                          <tr>
+                            <td><?php echo $row['Date'] ?></td>
+                            <td><?php echo $row['Time'] ?></td>
+                            <td><?php echo $row['Event_Name'] ?></td>
+                            <td><?php echo $row['Surname'] ?> <?php echo $row['Suffix'] ?>,<?php echo $row['Firstname'] ?> <?php echo $row['MiddleName'] ?></td>
+                            <td>
+                              <?php if($row['Status']==0){ ?>
+                                <span class="badge bg-warning">PENDING</span>
+                              <?php }else if($row['Status']==1){?>
+                                <span class="badge bg-primary">RESERVED</span>
+                              <?php }else if($row['Status']==3){?>
+                                <span class="badge bg-success">COMPLETED</span>
+                              <?php }else{ ?>
+                                <span class="badge bg-danger">CANCELLED</span>
+                              <?php } ?>
+                            </td>
+                            <td></td>
+                          </tr>
+                        <?php endforeach; ?>
+                      </tbody>
                   </table>
               </div>
             </div>

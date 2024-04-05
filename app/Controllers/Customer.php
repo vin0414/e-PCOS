@@ -24,7 +24,11 @@ class Customer extends BaseController
 
     public function Consultation()
     {
-        return view('customer/consult');
+        $reservationModel = new \App\Models\reservationModel();
+        $customerID = session()->get('sess_id');
+        $reservation = $reservationModel->WHERE('customerID',$customerID)->findAll();
+        $data = ['reservation'=>$reservation];
+        return view('customer/consult',$data);
     }
 
     public function Profile()
