@@ -14,7 +14,7 @@ class inquiryModel extends Model
     protected $returnType = 'array';
     protected $userSoftDelete = false;
     protected $protectFields = true;
-    protected $allowedFields = ['Name', 'Email','Subject','Message','Status'];
+    protected $allowedFields = ['DateTime','Name', 'Email','Subject','Message','Status'];
 
     protected $validationRules = [];
     protected $validationMessages = [];

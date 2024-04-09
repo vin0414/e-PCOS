@@ -123,7 +123,7 @@ class Customer extends BaseController
         $numbers = array();
         $builder = $this->db->table('tblreservation');
         $builder->select('Time');
-        $builder->WHERE('Date',$date);
+        $builder->WHERE('Date',$date)->WHERE('Status<>',2);
         $datas = $builder->get();
         foreach($datas->getResult() as $row)
         {

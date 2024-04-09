@@ -160,20 +160,25 @@
               <br/>
               <table class="table table-striped table-bordered" id="tblinquiry">
                 <thead>
+                  <th class="bg-primary text-white">Date & Time</th>
                   <th class="bg-primary text-white">Name</th>
                   <th class="bg-primary text-white">Email</th>
                   <th class="bg-primary text-white">Subject</th>
                   <th class="bg-primary text-white">Message</th>
-                  <th class="bg-primary text-white">Action</th>
                 </thead>
                 <tbody>
                   <?php foreach($inquire as $row): ?>
                     <tr>
+                      <td>
+                        <?php if($row['Status']==0){ ?>
+                          <span class="badge bg-warning text-danger">NEW</span>
+                        <?php } ?>
+                        <?php echo $row['DateTime'] ?>
+                      </td>
                       <td><?php echo $row['Name'] ?></td>
                       <td><?php echo $row['Email'] ?></td>
                       <td><?php echo $row['Subject'] ?></td>
                       <td><?php echo substr($row['Message'],0,50) ?>...</td>
-                      <td></td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>
@@ -206,6 +211,52 @@
     $(document).ready(function()
     {
       loadRecords();
+    });
+    $(document).on('click','.accept',function()
+    {
+      var confirmation = confirm('Do you want to accept this reservation?');
+      if(confirmation)
+      {
+        var val = $(this).val();
+        $.ajax({
+          url:"<?=site_url('accept-reservation')?>",method:"POST",
+          data:{value:val},
+          success:function(response)
+          {
+            if(response==="success")
+            {
+              location.reload();
+            }
+            else
+            {
+              alert(response);
+            }
+          }
+        });
+      }
+    });
+    $(document).on('click','.cancel',function()
+    {
+      var confirmation = confirm("Do you want to cancel this reservation?");
+      if(confirmation)
+      {
+        var val = $(this).val();
+        $.ajax({
+          url:"<?=site_url('cancel-reservation')?>",method:"POST",
+          data:{value:val},
+          success:function(response)
+          {
+            if(response==="success")
+            {
+              location.reload();
+            }
+            else
+            {
+              alert(response);
+            }
+          }
+        });
+      }
     });
     function loadRecords()
     {

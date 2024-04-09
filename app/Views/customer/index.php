@@ -29,7 +29,7 @@
         $db;
         $this->db = db_connect();
         $builder = $this->db->table('tblreservation');
-        $builder->select('*');
+        $builder->select("Event_Name,str_to_date(Date,'%l:%i %p')Date,Time");
         $builder->WHERE('Status',1);
         $data = $builder->get();
         foreach($data->getResult() as $row)
