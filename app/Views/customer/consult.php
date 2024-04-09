@@ -91,13 +91,8 @@
                     </div>
                     <div class="col-lg-4">
                       <label>Time of Appointment</label>
-                      <select class="form-control" name="time" style="padding:10px;" required>
+                      <select class="form-control" name="time" id="time" style="padding:10px;" required>
                         <option value="">Choose</option>
-                        <option>08:00:00</option>
-                        <option>10:00:00</option>
-                        <option>12:00:00</option>
-                        <option>14:00:00</option>
-                        <option>16:00:00</option>
                       </select>
                     </div>
                     <div class="col-lg-4">
@@ -190,7 +185,13 @@
                                 <span class="badge bg-danger">CANCELLED</span>
                               <?php } ?>
                             </td>
-                            <td></td>
+                            <td>
+                              <?php if($row['Status']==0){ ?>
+                                <button type="button" class="btn btn-danger btn-sm cancel" value="<?php echo $row['reservationID'] ?>"><span class="bi bi-x"></span>&nbsp;Cancel</button>
+                              <?php }else{ ?>
+                                -
+                              <?php } ?>  
+                            </td>
                           </tr>
                         <?php endforeach; ?>
                       </tbody>
@@ -225,6 +226,29 @@
         {
           today();
         });
+        $(document).on('click','.cancel',function()
+        {
+          var confirmation = confirm("Do you want to cancel this reservation?");
+          if(confirmation)
+          {
+            var val = $(this).val();
+            $.ajax({
+              url:"<?=site_url('cancel-reservation')?>",method:"POST",
+              data:{value:val},
+              success:function(response)
+              {
+                if(response==="success")
+                {
+                  location.reload();
+                }
+                else
+                {
+                  alert(response);
+                }
+              }
+            });
+          }
+        });
         function today()
         {
           var date = new Date(); // Now
@@ -239,6 +263,30 @@
           day = ("0" + date.getDate()).slice(-2);
           return [date.getFullYear(), mnth, day].join("-");
         }
+        $('#date').change(function()
+        {
+          $('#time').find('option').not(':first').remove();
+          var date = $(this).val();
+          $.ajax({
+            url:"<?=site_url('get-available-time')?>",method:"GET",
+            data:{date:date},
+            success:function(response)
+            {
+              if(response==="")
+              {
+                Swal.fire({
+                  title: "Sorry",
+                  text: "Full booked, Please select other dates",
+                  icon: "info"
+                  });
+              }
+              else
+              {
+                $('#time').append(response);
+              }
+            }
+          });
+        });
 
         $('#btnSend').on('click',function(e)
         {

@@ -65,6 +65,8 @@ $routes->post('save-entry','ManageController::saveEntry');
 $routes->post('edit-entry','ManageController::editEntry');
 //customer controller
 $routes->post('update-information','Customer::updateInformation');
+$routes->post('cancel-reservation','Customer::cancelReservation');
+$routes->get('get-available-time','Customer::getTime');
 
 $routes->group('',['filter'=>'AuthCheck'],function($routes)
 {
