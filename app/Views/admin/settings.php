@@ -281,7 +281,7 @@
                                   <tr>
                                     <td><img src="/Blogs/<?php echo $row->Image ?>" width="50"/></td>
                                     <td><?php echo $row->Title ?></td>
-                                    <td><?php echo substr($row->Details,0,25) ?>...</td>
+                                    <td><?php echo substr($row->Details,0,50) ?>...</td>
                                     <td><?php echo $row->Fullname ?></td>
                                     <td><?php echo $row->Date ?></td>
                                     <td>

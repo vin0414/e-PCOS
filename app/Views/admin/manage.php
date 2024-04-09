@@ -25,6 +25,8 @@
   <link href="<?php echo base_url('assets/vendor/glightbox/css/glightbox.min.css')?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/vendor/remixicon/remixicon.css')?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/vendor/swiper/swiper-bundle.min.css')?>" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
   <!-- Template Main CSS File -->
   <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
@@ -119,13 +121,13 @@
       <div class="container">
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Calendar</a>
+                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1"><span class="bi bi-calendar"></span>&nbsp;Calendar</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Appointment</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-2"><span class="bi bi-calendar-plus"></span>&nbsp;Appointment</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Inquiries</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-3"><span class="bi bi-envelope"></span>&nbsp;Inquiries</a>
             </li>
         </ul>
         <div class="tab-content">
@@ -155,6 +157,27 @@
               </div>
             </div>
             <div class="tab-pane" id="tab-3">
+              <br/>
+              <table class="table table-striped table-bordered" id="tblinquiry">
+                <thead>
+                  <th class="bg-primary text-white">Name</th>
+                  <th class="bg-primary text-white">Email</th>
+                  <th class="bg-primary text-white">Subject</th>
+                  <th class="bg-primary text-white">Message</th>
+                  <th class="bg-primary text-white">Action</th>
+                </thead>
+                <tbody>
+                  <?php foreach($inquire as $row): ?>
+                    <tr>
+                      <td><?php echo $row['Name'] ?></td>
+                      <td><?php echo $row['Email'] ?></td>
+                      <td><?php echo $row['Subject'] ?></td>
+                      <td><?php echo substr($row['Message'],0,50) ?>...</td>
+                      <td></td>
+                    </tr>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
             </div>
         </div>
       </div>
@@ -173,6 +196,12 @@
 
   <!-- Template Main JS File -->
   <script src="<?php echo base_url('assets/js/main.js')?>"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+  <script>
+    new DataTable('#tblinquiry');
+  </script>
   <script>
     $(document).ready(function()
     {

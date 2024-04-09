@@ -224,8 +224,31 @@
       <script>
         $(document).ready(function()
         {
-          today();
+          today();availableTime();
         });
+        function availableTime()
+        {
+          var date = $('#date').val();
+          $.ajax({
+            url:"<?=site_url('get-available-time')?>",method:"GET",
+            data:{date:date},
+            success:function(response)
+            {
+              if(response==="")
+              {
+                Swal.fire({
+                  title: "Sorry",
+                  text: "Full booked, Please select other dates",
+                  icon: "info"
+                  });
+              }
+              else
+              {
+                $('#time').append(response);
+              }
+            }
+          });
+        }
         $(document).on('click','.cancel',function()
         {
           var confirmation = confirm("Do you want to cancel this reservation?");

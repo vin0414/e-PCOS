@@ -266,7 +266,10 @@ class Home extends BaseController
 
     public function Manage()
     {
-        return view('admin/manage');
+        $inquiryModel = new \App\Models\inquiryModel();
+        $inquiry = $inquiryModel->findAll();
+        $data = ['inquire'=>$inquiry];
+        return view('admin/manage',$data);
     }
 
     public function Members()
@@ -365,7 +368,7 @@ class Home extends BaseController
                     <?php if($row->Status==1){ ?>
                         <button type="button" class="btn btn-primary btn-sm tag" value="<?php echo $row->reservationID ?>"><span class="bi bi-check"></span> Tag as Done</button>
                     <?php }else if($row->Status==2) { ?>
-                        <button type="button" class="btn btn-primary btn-sm book" value="<?php echo $row->reservationID ?>"><span class="bi bi-arrow-repeat"></span> Book Again</button>
+                        <button type="button" class="btn btn-primary btn-sm book" value="<?php echo $row->reservationID ?>"><span class="bi bi-arrow-repeat"></span> Re-Book</button>
                     <?php } ?>
                 </td>
             </tr>
@@ -404,7 +407,7 @@ class Home extends BaseController
                     <?php if($row->Status==1){ ?>
                         <button type="button" class="btn btn-primary btn-sm tag" value="<?php echo $row->reservationID ?>"><span class="bi bi-check"></span> Tag as Done</button>
                     <?php }else if($row->Status==2) { ?>
-                        <button type="button" class="btn btn-primary btn-sm book" value="<?php echo $row->reservationID ?>"><span class="bi bi-arrow-repeat"></span> Book Again</button>
+                        <button type="button" class="btn btn-primary btn-sm book" value="<?php echo $row->reservationID ?>"><span class="bi bi-arrow-repeat"></span> Re-Book</button>
                     <?php } ?>
                 </td>
             </tr>
