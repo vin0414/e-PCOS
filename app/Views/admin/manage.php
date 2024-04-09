@@ -52,7 +52,11 @@
         $data = $builder->get();
         foreach($data->getResult() as $row)
         {
-            $tempArray = array( "title" => $row->Event_Name,"description" =>'Consultation',"start" => $row->Date." ". $row->Time,"end" => $row->Date);
+            $time;
+            if($row->Time=="08:00 AM"){$time = "08:00:00";}else if($row->Time=="10:00 AM"){$time="10:00:00";}
+            else if($row->Time=="12:00 PM"){$time="12:00:00";}else if($row->Time=="02:00 PM"){$time="14:00:00";}
+            else if($row->Time=="04:00 PM"){$time="16:00:00";}
+            $tempArray = array( "title" => $row->Event_Name,"description" =>'Consultation',"start" => $row->Date." ". $time,"end" => $row->Date);
             array_push($eventData, $tempArray);
         }
         ?>
