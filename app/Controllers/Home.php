@@ -358,7 +358,7 @@ class Home extends BaseController
     public function Reservation()
     {
         $builder = $this->db->table('tblreservation a');
-        $builder->select('a.reservationID,a.Date,a.Time,a.Event_Name,a.Status,b.Fullname');
+        $builder->select('a.reservationID,a.Date,a.Time,a.Event_Name,a.Status,a.Firstname,a.Surname,a.MiddleName,a.Suffix');
         $builder->join('tblcustomer b','b.customerID=a.customerID','LEFT');
         $builder->groupBy('a.reservationID');
         $builder->orderBy('a.reservationID','DESC');
@@ -369,7 +369,7 @@ class Home extends BaseController
             <tr>
                 <td><?php echo $row->Date ?></td>
                 <td><?php echo $row->Time ?></td>
-                <td><?php echo $row->Fullname ?></td>
+                <td><?php echo $row->Surname ?> <?php echo $row->Suffix ?>, <?php echo $row->Firstname ?> <?php echo $row->MiddleName ?></td>
                 <td><?php echo $row->Event_Name ?></td>
                 <td>
                     <?php if($row->Status==1){ ?>
@@ -401,7 +401,7 @@ class Home extends BaseController
     {
         $text = "%".$this->request->getGet('keyword')."%";
         $builder = $this->db->table('tblreservation a');
-        $builder->select('a.reservationID,a.Date,a.Time,a.Event_Name,a.Status,b.Fullname');
+        $builder->select('a.reservationID,a.Date,a.Time,a.Event_Name,a.Status,a.Firstname,a.Surname,a.MiddleName,a.Suffix');
         $builder->join('tblcustomer b','b.customerID=a.customerID','LEFT');
         $builder->LIKE('b.Fullname',$text);
         $builder->groupBy('a.reservationID');
@@ -413,7 +413,7 @@ class Home extends BaseController
             <tr>
                 <td><?php echo $row->Date ?></td>
                 <td><?php echo $row->Time ?></td>
-                <td><?php echo $row->Fullname ?></td>
+                <td><?php echo $row->Surname ?> <?php echo $row->Suffix ?>, <?php echo $row->Firstname ?> <?php echo $row->MiddleName ?></td>
                 <td><?php echo $row->Event_Name ?></td>
                 <td>
                     <?php if($row->Status==1){ ?>

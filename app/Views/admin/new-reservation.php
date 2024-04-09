@@ -265,7 +265,7 @@
                     text: "Successfully submitted",
                     icon: "success"
                     });
-                location.reload();
+                $('#frmPatient')[0].reset();
               }
               else
               {

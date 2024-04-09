@@ -153,7 +153,7 @@
                   </div>
                 </div>
                 <div class="col-12">
-                  <label>Record/s : </label>&nbsp;<span id="total"></span>
+                  <label>Record(s) : </label>&nbsp;<span id="total"></span>
                 </div>
                 <div class="col-12 form-group tableFixHead table-responsive" style="height:600px;overflow-y:auto;">
                   <table class="table-striped table-bordered">
