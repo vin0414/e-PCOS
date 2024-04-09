@@ -143,7 +143,17 @@
               <br/>
               <div class="row g-3">
                 <div class="col-12 form-group">
-                  <input type="search" class="form-control" id="search" placeholder="Search here"/>
+                  <div class="row g-3">
+                    <div class="col-lg-11 form-group">
+                    <input type="search" class="form-control" id="search" placeholder="Search here"/>
+                    </div>
+                    <div class="col-lg-1 form-group">
+                      <a href="<?=site_url('admin/new-reservation')?>" class="btn btn-primary"><span class="bi bi-calendar-plus"></span>&nbsp;New</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label>Record/s : </label>&nbsp;<span id="total"></span>
                 </div>
                 <div class="col-12 form-group tableFixHead table-responsive" style="height:600px;overflow-y:auto;">
                   <table class="table-striped table-bordered">
@@ -277,6 +287,7 @@
           {
             $('#tblconsultation').html(response);
           }
+          var count = $('#tblconsultation').children('tr').length;$('#total').html(count);
         }
       });
     } 
@@ -297,6 +308,7 @@
           {
             $('#tblconsultation').html(response);
           }
+          var count = $('#tblconsultation').children('tr').length;$('#total').html(count);
         }
       });
     });   

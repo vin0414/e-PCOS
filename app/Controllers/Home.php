@@ -340,6 +340,11 @@ class Home extends BaseController
         return view('admin/edit-blog',$data);
     }
 
+    public function newReservation()
+    {
+        return view('admin/new-reservation');
+    }
+
     public function acceptReservation()
     {
         $reservationModel = new \App\Models\reservationModel();
