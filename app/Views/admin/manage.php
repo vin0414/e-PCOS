@@ -189,7 +189,7 @@
                         <?php } ?>
                         <?php echo $row['DateTime'] ?>
                       </td>
-                      <td><?php echo $row['Name'] ?></td>
+                      <td><button type="button" class="btn btn-link btn-sm view" value="<?php echo $row['inquiryID']?>"><?php echo $row['Name'] ?></button></td>
                       <td><?php echo $row['Email'] ?></td>
                       <td><?php echo $row['Subject'] ?></td>
                       <td><?php echo substr($row['Message'],0,50) ?>...</td>
@@ -203,6 +203,21 @@
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
+  <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Inquiry</h5>
+          <button type="button" class="btn btn-default close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="result"></div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -225,6 +240,22 @@
     $(document).ready(function()
     {
       loadRecords();
+    });
+    $(document).on('click','.close',function()
+    {
+      $('#viewModal').modal('hide');
+    });
+    $(document).on('click','.view',function()
+    {
+      var val = $(this).val();
+      $.ajax({
+        url:"<?=site_url('view-message')?>",method:"GET",
+        data:{value:val},success:function(response)
+        {
+          $('#result').html(response);
+          $('#viewModal').modal('show');
+        }
+      });
     });
     $(document).on('click','.tag',function()
     {

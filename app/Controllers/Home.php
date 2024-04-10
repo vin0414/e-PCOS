@@ -365,6 +365,44 @@ class Home extends BaseController
         echo "success";
     }
 
+    public function viewMessage()
+    {
+        $inquiryModel = new \App\Models\inquiryModel();
+        $val = $this->request->getGet('value');
+        $inquire = $inquiryModel->WHERE('inquiryID',$val)->first();
+        //update before view
+        $values = ['Status'=>1];
+        $inquiryModel->update($val,$values);
+        //view
+        ?>
+        <div class="row g-3">
+            <div class="col-12 form-group">
+                <div class="row g-3">
+                    <div class="col-lg-6">
+                        <label><b>Complete Name</b></label>
+                        <input type="text" class="form-control" value="<?php echo $inquire['Name'] ?>"/>
+                    </div>
+                    <div class="col-lg-6">
+                        <label><b>Email Address</b></label>
+                        <input type="text" class="form-control" value="<?php echo $inquire['Email'] ?>"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 form-group">
+                <label><b>Subject</b></label>
+                <input type="text" class="form-control" value="<?php echo $inquire['Subject'] ?>"/>
+            </div>
+            <div class="col-12 form-group">
+                <label><b>Message</b></label>
+                <div style="height:150px;overflow-y:auto;"><?php echo $inquire['Message'] ?></div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-danger close">
+            Close
+        </button>
+        <?php
+    }
+
     public function Reservation()
     {
         $builder = $this->db->table('tblreservation a');
