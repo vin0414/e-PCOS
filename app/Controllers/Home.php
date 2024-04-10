@@ -151,8 +151,14 @@ class Home extends BaseController
         $builder->select('COUNT(*)total');
         $builder->WHERE('Status',0);
         $appointment = $builder->get()->getResult();
+        //patient
+        $builder = $this->db->table('tblreservation');
+        $builder->select('Date,count(reservationID)total');
+        $builder->WHERE('Status<>',2);
+        $builder->groupBy('Date')->orderBy('Date','ASC');
+        $query = $builder->get()->getResult();
 
-        $data = ['customer'=>$customer,'patient'=>$patient,'appointment'=>$appointment];
+        $data = ['customer'=>$customer,'patient'=>$patient,'appointment'=>$appointment,'query'=>$query];
         return view('admin/index',$data);
     }
 

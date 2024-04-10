@@ -25,9 +25,14 @@
   <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
+  <script type="text/javascript">
+    google.charts.load('visualization', "1", {
+      packages: ['corechart']
+    });
+  </script>
 </head>
 
 <body>
@@ -149,7 +154,31 @@
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+  <script>
+    google.charts.setOnLoadCallback(patientChart);
+    function patientChart() 
+			{
+	
+				/* Define the chart to be drawn.*/
+				var data = google.visualization.arrayToDataTable([
+					["Date", "Patient"],
+					<?php 
+					foreach ($query as $row){
+					echo "['".$row->Date."',".$row->total."],";
+					}
+					?>
+				]);
 
+				var options = {
+				title: '',
+				curveType: 'function',
+				legend: { position: 'bottom' }
+				};
+				/* Instantiate and draw the chart.*/
+				var chart = new google.visualization.LineChart(document.getElementById('patientContainer'));
+				chart.draw(data, options);
+			}
+  </script>
 </body>
 
 </html>
