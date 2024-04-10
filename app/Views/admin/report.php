@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Members</title>
+  <title>Data Analytics</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -86,7 +86,29 @@
     <!-- ======= Contact Section ======= -->
     <section class="why-us">
       <div class="container">
-        
+        <div class="row g-3">
+          <div class="col-12 form-group">
+            <div class="card">
+              <div class="card-header bg-primary text-white"><span class="bi bi-bar-chart"></span>&nbsp;Generate Analytics</div>
+              <div class="card-body">
+                <form method="GET" class="row g-3" id="frmReport">
+                  <div class="col-lg-3 form-group">
+                    <label>From</label>
+                    <input type="date" class="form-control" name="fromdate"/>
+                  </div>
+                  <div class="col-lg-3 form-group">
+                    <label>To</label>
+                    <input type="date" class="form-control" name="todate"/>
+                  </div>
+                  <div class="col-lg-2 form-group">
+                    <label>&nbsp;</label>
+                    <input type="submit" class="btn btn-primary text-white form-control" value="Generate" id="btnGenerate"/>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section><!-- End Contact Section -->
 
