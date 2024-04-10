@@ -287,6 +287,24 @@ class Home extends BaseController
         return view('admin/members',$data);
     }
 
+    public function activateAccount()
+    {
+        $customerModel = new \App\Models\customerModel();
+        $val = $this->request->getPost('value');
+        $values = ['Status'=>1];
+        $customerModel->update($val,$values);
+        echo "success";
+    }
+
+    public function deactivateAccount()
+    {
+        $customerModel = new \App\Models\customerModel();
+        $val = $this->request->getPost('value');
+        $values = ['Status'=>0];
+        $customerModel->update($val,$values);
+        echo "success";
+    }
+
     public function Report()
     {
         return view('admin/report');

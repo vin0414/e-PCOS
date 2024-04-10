@@ -141,6 +141,53 @@
   <script>
     new DataTable('#table1');
   </script>
+  <script>
+    $(document).on('click','.deactivate',function()
+    {
+      var confirmation = confirm("Do you want to deactivate this account?");
+      if(confirmation)
+      {
+        var val = $(this).val();
+        $.ajax({
+          url:"<?=site_url('deactivate-account')?>",method:"POST",
+          data:{value:val},success:function(response)
+          {
+            if(response==="success")
+            {
+              location.reload();
+            }
+            else
+            {
+              alert(response);
+            }
+          }
+        });
+      }
+    });
+
+    $(document).on('click','.activate',function()
+    {
+      var confirmation = confirm("Do you want to activate this account?");
+      if(confirmation)
+      {
+        var val = $(this).val();
+        $.ajax({
+          url:"<?=site_url('activate-account')?>",method:"POST",
+          data:{value:val},success:function(response)
+          {
+            if(response==="success")
+            {
+              location.reload();
+            }
+            else
+            {
+              alert(response);
+            }
+          }
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
