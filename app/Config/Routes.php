@@ -53,6 +53,7 @@ $routes->post('reset-account','Home::resetAccount');
 $routes->get('reservation','Home::Reservation');
 $routes->get('search-reservation','Home::searchReservation');
 $routes->post('accept-reservation','Home::acceptReservation');
+$routes->post('complete-reservation','Home::completeReservation');
 //function
 $routes->post('save-poll','ManageController::savePoll');
 $routes->post('update-poll','ManageController::updatePoll');

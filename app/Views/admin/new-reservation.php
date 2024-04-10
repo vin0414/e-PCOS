@@ -266,6 +266,7 @@
                     icon: "success"
                     });
                 $('#frmPatient')[0].reset();
+                today();availableTime();
               }
               else
               {

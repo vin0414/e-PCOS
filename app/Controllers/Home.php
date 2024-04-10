@@ -355,6 +355,16 @@ class Home extends BaseController
         echo "success";
     }
 
+    public function completeReservation()
+    {
+        $reservationModel = new \App\Models\reservationModel();
+        //data
+        $val = $this->request->getPost('value');
+        $values = ['Status'=>3];
+        $reservationModel->update($val,$values);
+        echo "success";
+    }
+
     public function Reservation()
     {
         $builder = $this->db->table('tblreservation a');
@@ -384,12 +394,12 @@ class Home extends BaseController
                 </td>
                 <td>
                     <?php if($row->Status==1){ ?>
-                        <button type="button" class="btn btn-primary btn-sm tag" value="<?php echo $row->reservationID ?>"><span class="bi bi-clipboard-check"></span></button>
+                        <button type="button" class="btn btn-primary btn-sm tag" value="<?php echo $row->reservationID ?>"><span class="bi bi-clipboard-check"></span>&nbsp;Done</button>
                     <?php }else if($row->Status==2) { ?>
-                        <button type="button" class="btn btn-primary btn-sm book" value="<?php echo $row->reservationID ?>"><span class="bi bi-arrow-repeat"></span></button>
+                        <button type="button" class="btn btn-primary btn-sm book" value="<?php echo $row->reservationID ?>"><span class="bi bi-arrow-repeat"></span>&nbsp;Re-Book</button>
                     <?php }else if($row->Status==0) { ?>
-                        <button type="button" class="btn btn-primary btn-sm accept" value="<?php echo $row->reservationID ?>"><span class="bi bi-clipboard-plus"></span></button>
-                        <button type="button" class="btn btn-danger btn-sm cancel" value="<?php echo $row->reservationID ?>"><span class="bi bi-clipboard-x"></span></button>
+                        <button type="button" class="btn btn-primary btn-sm accept" value="<?php echo $row->reservationID ?>"><span class="bi bi-clipboard-plus"></span>&nbsp;Accept</button>
+                        <button type="button" class="btn btn-danger btn-sm cancel" value="<?php echo $row->reservationID ?>"><span class="bi bi-clipboard-x"></span>&nbsp;Cancel</button>
                     <?php } ?>
                 </td>
             </tr>
@@ -428,12 +438,12 @@ class Home extends BaseController
                 </td>
                 <td>
                     <?php if($row->Status==1){ ?>
-                        <button type="button" class="btn btn-primary btn-sm tag" value="<?php echo $row->reservationID ?>"><span class="bi bi-clipboard-check"></span></button>
+                        <button type="button" class="btn btn-primary btn-sm tag" value="<?php echo $row->reservationID ?>"><span class="bi bi-clipboard-check"></span>&nbsp;Done</button>
                     <?php }else if($row->Status==2) { ?>
-                        <button type="button" class="btn btn-primary btn-sm book" value="<?php echo $row->reservationID ?>"><span class="bi bi-arrow-repeat"></span></button>
+                        <button type="button" class="btn btn-primary btn-sm book" value="<?php echo $row->reservationID ?>"><span class="bi bi-arrow-repeat"></span>&nbsp;Re-Book</button>
                     <?php }else if($row->Status==0) { ?>
-                        <button type="button" class="btn btn-primary btn-sm accept" value="<?php echo $row->reservationID ?>"><span class="bi bi-clipboard-plus"></span></button>
-                        <button type="button" class="btn btn-danger btn-sm cancel" value="<?php echo $row->reservationID ?>"><span class="bi bi-clipboard-x"></span></button>
+                        <button type="button" class="btn btn-primary btn-sm accept" value="<?php echo $row->reservationID ?>"><span class="bi bi-clipboard-plus"></span>&nbsp;Accept</button>
+                        <button type="button" class="btn btn-danger btn-sm cancel" value="<?php echo $row->reservationID ?>"><span class="bi bi-clipboard-x"></span>&nbsp;Cancel</button>
                     <?php } ?>
                 </td>
             </tr>

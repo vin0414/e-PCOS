@@ -125,7 +125,7 @@
       <div class="container">
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1"><span class="bi bi-calendar"></span>&nbsp;Calendar</a>
+                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1"><span class="bi bi-calendar3"></span>&nbsp;Calendar</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="tab" href="#tab-2"><span class="bi bi-calendar-plus"></span>&nbsp;Appointment</a>
@@ -225,6 +225,29 @@
     $(document).ready(function()
     {
       loadRecords();
+    });
+    $(document).on('click','.tag',function()
+    {
+      var confirmation = confirm("Do you want to tag this reservation as completed?");
+      if(confirmation)
+      {
+        var val = $(this).val();
+        $.ajax({
+          url:"<?=site_url('complete-reservation')?>",method:"POST",
+          data:{value:val},
+          success:function(response)
+          {
+            if(response==="success")
+            {
+              location.reload();
+            }
+            else
+            {
+              alert(response);
+            }
+          }
+        });
+      }
     });
     $(document).on('click','.accept',function()
     {
