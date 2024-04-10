@@ -224,12 +224,12 @@ class ManageController extends BaseController
         {
             if(empty($originalName))
             {
-                $values = ['Title'=>$title_blog, 'Details'=>$description,];
+                $values = ['Title'=>$title_blog, 'Details'=>$description,'Date'=>date('Y-m-d')];
                 $blogModel->update($id,$values);
             }
             else
             {
-                $values = ['Title'=>$title_blog, 'Details'=>$description,'Image'=>$originalName];
+                $values = ['Title'=>$title_blog, 'Details'=>$description,'Date'=>date('Y-m-d'),'Image'=>$originalName];
                 $blogModel->update($id,$values);
                 $file->move('Blogs/',$originalName);
             }
