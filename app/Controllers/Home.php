@@ -377,6 +377,32 @@ class Home extends BaseController
         return view('admin/rebook',$data);
     }
 
+    public function rebook()
+    {
+        $reservationModel = new \App\Models\reservationModel();
+        $customerID = 0;
+        $reservationID = $this->request->getPost('reservationID');
+        $date = $this->request->getPost('date');
+        $time = $this->request->getPost('time');
+        $type_appointment = $this->request->getPost('type_appointment');
+        $surname = $this->request->getPost('surname');
+        $firstname = $this->request->getPost('firstname');
+        $mi = $this->request->getPost('mi');
+        $suffix = $this->request->getPost('suffix');
+        $bdate  = $this->request->getPost('bdate');
+        $phone = $this->request->getPost('phone');
+        $gender = $this->request->getPost('gender');
+        $address = $this->request->getPost('address');
+        //update
+        $values = ['Date'=>$date, 'Time'=>$time,'Event_Name'=>$type_appointment,
+            'Surname'=>$surname,'Firstname'=>$firstname,'MiddleName'=>$mi,'Suffix'=>$suffix,
+            'Contact'=>$phone,'BirthDate'=>$bdate,'Gender'=>$gender,
+            'Address'=>$address,'Status'=>1,'customerID'=>$customerID];
+            $reservationModel->update($reservationID,$values);
+        session()->setFlashdata('success','Great! Successfully updated');
+        return redirect()->to('admin/manage')->withInput();
+    }
+
     public function acceptReservation()
     {
         $reservationModel = new \App\Models\reservationModel();

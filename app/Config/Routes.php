@@ -57,6 +57,7 @@ $routes->post('complete-reservation','Home::completeReservation');
 $routes->get('view-message','Home::viewMessage');
 $routes->post('deactivate-account','Home::deactivateAccount');
 $routes->post('activate-account','Home::activateAccount');
+$routes->post('rebook','Home::rebook');
 //function
 $routes->post('save-poll','ManageController::savePoll');
 $routes->post('update-poll','ManageController::updatePoll');

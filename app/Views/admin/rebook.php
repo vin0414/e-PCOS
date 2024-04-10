@@ -86,13 +86,19 @@
                     <a href="<?=site_url('admin/manage')?>" class="btn btn-primary btn-sm" style="float:right;">Back</a>
                     </div>
                     <div class="card-body">
-                        <form method="POST" class="row g-3" id="frmPatient">
+                        <?php if(!empty(session()->getFlashdata('fail'))) : ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <?= session()->getFlashdata('fail'); ?>
+                            </div>
+                        <?php endif; ?>
+                        <form method="POST" class="row g-3" id="frmPatient" action="<?=base_url('rebook')?>">
                             <?php if($reservation): ?>
+                            <input type="hidden" name="reservationID" value="<?php echo $reservation['reservationID'] ?>"/>
                             <div class="col-12 form-group">
                                 <div class="row g-3">
                                     <div class="col-lg-4">
                                     <label>Date Appointment</label>
-                                    <input type="date" class="form-control" name="date" id="date" required/>
+                                    <input type="date" class="form-control" name="date" id="date" value="<?php echo $reservation['Date'] ?>" required/>
                                     </div>
                                     <div class="col-lg-4">
                                     <label>Time of Appointment</label>
@@ -104,9 +110,9 @@
                                     <label>Type of Appointment</label>
                                     <select class="form-control" name="type_appointment" style="padding:10px;" required>
                                         <option value="">Choose</option>
-                                        <option>Gynecology</option>
-                                        <option>Obstetrics</option>
-                                        <option>Obstetrics and Gynecology</option>
+                                        <option <?php if($reservation['Event_Name']=="Gynecology") echo 'selected="selected"'; ?>>Gynecology</option>
+                                        <option <?php if($reservation['Event_Name']=="Obstetrics") echo 'selected="selected"'; ?>>Obstetrics</option>
+                                        <option <?php if($reservation['Event_Name']=="Obstetrics and Gynecology") echo 'selected="selected"'; ?>>Obstetrics and Gynecology</option>
                                     </select>
                                     </div>
                                 </div>
@@ -115,19 +121,19 @@
                                 <div class="row g-3">
                                     <div class="col-lg-4">
                                     <label>Surname</label>
-                                    <input type="text" class="form-control" name="surname" required/>
+                                    <input type="text" class="form-control" name="surname" value="<?php echo $reservation['Surname'] ?>" required/>
                                     </div>
                                     <div class="col-lg-4">
                                     <label>First Name</label>
-                                    <input type="text" class="form-control" name="firstname" required/>
+                                    <input type="text" class="form-control" name="firstname" value="<?php echo $reservation['Firstname'] ?>" required/>
                                     </div>
                                     <div class="col-lg-2">
                                     <label>Middle Initial</label>
-                                    <input type="text" class="form-control" name="mi" required/>
+                                    <input type="text" class="form-control" name="mi" value="<?php echo $reservation['MiddleName'] ?>" required/>
                                     </div>
                                     <div class="col-lg-2">
                                     <label>Suffix</label>
-                                    <input type="text" class="form-control" name="suffix" required/>
+                                    <input type="text" class="form-control" name="suffix" value="<?php echo $reservation['Suffix'] ?>"/>
                                     </div>
                                 </div>
                             </div>
@@ -135,25 +141,25 @@
                                 <div class="row g-3">
                                     <div class="col-lg-4">
                                     <label>Date of Birth</label>
-                                    <input type="date" class="form-control" name="bdate" required/>
+                                    <input type="date" class="form-control" name="bdate" value="<?php echo $reservation['BirthDate'] ?>" required/>
                                     </div>
                                     <div class="col-lg-4">
                                     <label>Contact No</label>
-                                    <input type="phone" class="form-control" name="phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="11" minlength="11" required/>
+                                    <input type="phone" class="form-control" name="phone" value="<?php echo $reservation['Contact'] ?>" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="11" minlength="11" required/>
                                     </div>
                                     <div class="col-lg-4">
                                     <label>Gender</label>
                                     <select class="form-control" name="gender" style="padding:10px;" required>
                                         <option value="">Choose</option>
-                                        <option>Male</option>
-                                        <option>Female</option>
+                                        <option <?php if($reservation['Gender']=="Male") echo 'selected="selected"'; ?>>Male</option>
+                                        <option <?php if($reservation['Gender']=="Female") echo 'selected="selected"'; ?>>Female</option>
                                     </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 form-group">
                                 <label>Complete Address</label>
-                                <textarea name="address" class="form-control" style="height:120px;"></textarea>
+                                <textarea name="address" class="form-control" style="height:120px;"><?php echo $reservation['Address'] ?></textarea>
                             </div>
                             <div class="col-12 form-group">
                                 <input type="submit" class="btn btn-primary form-control" id="btnSend" name="btnSend" value="Submit"/>
@@ -186,7 +192,7 @@
   <script>
         $(document).ready(function()
         {
-          today();availableTime();
+          availableTime();
         });
         function availableTime()
         {
@@ -211,20 +217,6 @@
             }
           });
         }
-        function today()
-        {
-          var date = new Date(); // Now
-          date.setDate(date.getDate()+1);
-          $('#date').attr('min',convert(date));
-          document.getElementById('date').value=convert(date);
-        }
-        function convert(str) 
-        {
-          var date = new Date(str),
-          mnth = ("0" + (date.getMonth() + 1)).slice(-2),
-          day = ("0" + date.getDate()).slice(-2);
-          return [date.getFullYear(), mnth, day].join("-");
-        }
         $('#date').change(function()
         {
           $('#time').find('option').not(':first').remove();
@@ -246,39 +238,6 @@
               {
                 $('#time').append(response);
               }
-            }
-          });
-        });
-
-        $('#btnSend').on('click',function(e)
-        {
-          e.preventDefault();
-          $(this).attr("value","Submitting...");
-          var data = $('#frmPatient').serialize();
-          $.ajax({
-            url:"<?=site_url('save')?>",method:"POST",
-            data:data,
-            success:function(response)
-            {
-              if(response==="Success")
-              {
-                Swal.fire({
-                    title: "Great!",
-                    text: "Successfully submitted",
-                    icon: "success"
-                    });
-                $('#frmPatient')[0].reset();
-                today();availableTime();
-              }
-              else
-              {
-                Swal.fire({
-                    title: "Invalid",
-                    text: response,
-                    icon: "warning"
-                });
-              }
-              $('#btnSend').attr("value","Submit");
             }
           });
         });
