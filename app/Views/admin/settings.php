@@ -101,10 +101,13 @@
                         <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Questionnaires</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Doctors</a>
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Choices</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Blogs</a>
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-6">Blogs</a>
                     </li>
                 </ul>
                 <div class="tab-content">
@@ -227,6 +230,11 @@
                         <a href="<?=site_url('admin/create-question')?>" class="btn btn-primary btn-sm"><span class="bi bi-plus"></span>&nbsp;Create Question</a>
                     </div>
                     <div class="tab-pane" id="tab-4">
+                      <br/>
+                      <div class="table-responsive">
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="tab-5">
                         <br/>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered" id="table4">
@@ -264,7 +272,7 @@
                         </div>
                         <a href="<?=site_url('admin/new-physician')?>" class="btn btn-primary btn-sm"><span class="bi bi-plus"></span>&nbsp;New Entry</a>
                     </div>
-                    <div class="tab-pane" id="tab-5">
+                    <div class="tab-pane" id="tab-6">
                         <br/>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered" id="table5">

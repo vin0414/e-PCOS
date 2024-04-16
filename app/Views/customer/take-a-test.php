@@ -74,8 +74,10 @@
                 <center>
                 <img src="../assets/img/logo.png" alt="" class="img-fluid">
                 </center>
-                <h2 class="text-center">PCOS Awareness</h2>
-                <h4 class="text-center">Take A Survey</h4>
+                <h2 class="text-center">Take A Survey</h2>
+                <p class="text-center"><b>Important Notice</b></p>
+                <p class="text-center">Polycystic Ovarian Syndrome (PCOS) Risk Assessment<br/>
+                Please be aware that the PCOS risk assessment questions provided are only a tool for determining the likelihood of the condition and should not be used as a substitute for professional medical advice or diagnosis. Their goal is to help people recognize probable PCOS symptoms therefore, a trained healthcare practitioner should conduct a more thorough examination.  If you believe you have PCOS or notice any symptoms, you should see a doctor for a proper diagnosis and treatment.</p>
                 <center>
                   <button type="button" class="btn btn-primary btn-lg" id="btnStart"><i class="bi bi-arrow-right"></i>&nbsp;START</button>
                 </center>
