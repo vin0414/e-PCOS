@@ -189,54 +189,11 @@
                 </p>
               </div>
             </li>
-            <li data-aos="fade-up" data-aos-delay="300">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Food and Exercise <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
-                </p>
-              </div>
-            </li>
           </ul>
         </div>
 
       </div>
     </section><!-- End Frequently Asked Questions Section -->
-
-    <!-- ======= Doctors Section ======= -->
-    <section id="doctors" class="doctors">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Doctors</h2>
-        </div>
-
-        <div class="row">
-          <?php foreach($doctors as $row): ?>
-          <div class="col-lg-6">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="Doctors/<?php echo $row['Image'] ?>" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4><?php echo $row['Name'] ?></h4>
-                <span><?php echo $row['Specialty'] ?></span>
-                <p><?php echo $row['Contact'] ?></p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <?php endforeach; ?>
-        </div>
-
-      </div>
-    </section><!-- End Doctors Section -->
-
-    
-
     <!-- ======= Testimonials Section ======= -->
     <section id="blogs" class="testimonials">
       <div class="container">
