@@ -67,6 +67,23 @@
     <!-- ======= Contact Section ======= -->
     <section class="why-us">
       <div class="container">
+        <div class="card" id="frmStart">
+          <div class="card-body">
+            <center>
+            <img src="../assets/img/logo.png" alt="" class="img-fluid">
+            </center>
+            <h2 class="text-center">PCOS Awareness</h2>
+            <h4 class="text-center">Take A Survey</h4>
+            <center>
+              <button type="button" class="btn btn-primary btn-lg" id="btnStart"><i class="bi bi-arrow-right"></i>&nbsp;START</button>
+            </center>
+          </div>
+        </div>
+        <div class="card" id="frmQuestion" style="display:none;">
+          <div class="card-body">
+            
+          </div>
+        </div>
       </div>
     </section><!-- End Contact Section -->
 
@@ -82,5 +99,13 @@
 
       <!-- Template Main JS File -->
       <script src="../assets/js/main.js"></script>
+      <script>
+        $('#btnStart').on('click',function(e)
+        {
+          e.preventDefault();
+          document.getElementById('frmStart').style="display:none";
+          document.getElementById('frmQuestion').style="display:block";
+        });
+      </script>
    </body>
 </html>
