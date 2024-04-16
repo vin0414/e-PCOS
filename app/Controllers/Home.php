@@ -237,6 +237,12 @@ class Home extends BaseController
         echo "success";
     }
 
+    public function addAnswer($id)
+    {
+        $data = ['question'=>$id];
+        return view('admin/add-answer',$data);
+    }
+
     public function editAnswer($id)
     {
         $choiceModel = new \App\Models\choiceModel();

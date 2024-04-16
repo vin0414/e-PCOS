@@ -221,6 +221,9 @@
                                         <button type="button" class="btn btn-primary btn-sm delete" value="<?php echo $row->questionID ?>">
                                           <span class="bi bi-trash"></span>&nbsp;Delete
                                         </button>
+                                        <a class="btn btn-primary btn-sm" href="<?=site_url('admin/add-answer/')?><?php echo $row->questionID ?>">
+                                          <span class="fa fa-plus"></span>&nbsp;Add
+                                      </a>
                                       </td>
                                     </tr>
                                   <?php endforeach; ?> 
