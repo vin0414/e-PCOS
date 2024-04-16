@@ -93,6 +93,7 @@ $routes->group('',['filter'=>'AuthCheck'],function($routes)
     $routes->get('admin/edit-blog/(:any)','Home::editBlog/$1');
     $routes->get('admin/new-physician','Home::newDoctor');
     $routes->get('admin/edit-info/(:any)','Home::editInfo/$1');
+    $routes->get('admin/edit-answer/(:any)','Home::editAnswer/$1');
 });
 
 $routes->group('',['filter'=>'customerAuthCheck'],function($routes)

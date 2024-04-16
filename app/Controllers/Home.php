@@ -181,8 +181,13 @@ class Home extends BaseController
         $builder->select('a.*,b.Title,b.Type_Survey');
         $builder->join('tblsurvey b','b.surveyID=a.surveyID','LEFT');
         $list = $builder->get()->getResult();
+        //choices
+        $builder = $this->db->table('tblchoice a');
+        $builder->select('a.Details,a.choiceID,b.Question');
+        $builder->join('tblquestion b','b.questionID=a.questionID','LEFT');
+        $choices = $builder->get()->getResult();
 
-        $data = ['user'=>$user,'survey'=>$survey,'blog'=>$blog,'doctors'=>$doctors,'list'=>$list];
+        $data = ['user'=>$user,'survey'=>$survey,'blog'=>$blog,'doctors'=>$doctors,'list'=>$list,'choices'=>$choices];
         return view('admin/settings',$data);
     }
 
@@ -230,6 +235,14 @@ class Home extends BaseController
         $values = ['Password'=>Hash::make($password)];
         $accountModel->update($id,$values);
         echo "success";
+    }
+
+    public function editAnswer($id)
+    {
+        $choiceModel = new \App\Models\choiceModel();
+        $answer = $choiceModel->WHERE('choiceID',$id)->first();
+        $data = ['answer'=>$answer];
+        return view('admin/edit-answer',$data);
     }
 
     public function editUser($id)

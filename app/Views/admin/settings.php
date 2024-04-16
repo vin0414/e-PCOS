@@ -241,7 +241,13 @@
                             <tbody>
                                 <?php foreach($choices as $row): ?>
                                   <tr>
-                                    
+                                    <td><?php echo $row->Question ?></td> 
+                                    <td><?php echo $row->Details ?></td> 
+                                    <td>
+                                      <a class="btn btn-primary btn-sm" href="<?=site_url('admin/edit-answer/')?><?php echo $row->choiceID ?>">
+                                          <span class="fa fa-edit"></span>&nbsp;Edit
+                                      </a>
+                                    </td>
                                   </tr>
                                 <?php endforeach; ?> 
                             </tbody>
