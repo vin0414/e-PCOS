@@ -232,6 +232,20 @@
                     <div class="tab-pane" id="tab-4">
                       <br/>
                       <div class="table-responsive">
+                        <table class="table table-striped table-bordered" id="table6">
+                            <thead>
+                                <th class="bg-primary text-white">Question</th>
+                                <th class="bg-primary text-white">Details</th>
+                                <th class="bg-primary text-white">Action</th>
+                            </thead>
+                            <tbody>
+                                <?php foreach($choices as $row): ?>
+                                  <tr>
+                                    
+                                  </tr>
+                                <?php endforeach; ?> 
+                            </tbody>
+                        </table>
                       </div>
                     </div>
                     <div class="tab-pane" id="tab-5">
@@ -332,6 +346,7 @@
     new DataTable('#table3');
     new DataTable('#table4');
     new DataTable('#table5');
+    new DataTable('#table6');
   </script>
   <script>
     $(document).on('click','.reset',function()
