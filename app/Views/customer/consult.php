@@ -71,133 +71,137 @@
     <!-- ======= Contact Section ======= -->
     <section class="why-us">
       <div class="container">
-        <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Patient's Information</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">List of Appointment</a>
-            </li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane active show" id="tab-1" style="margin-left:50px;margin-right:50px;">
-              <br/>
-              <form method="POST" class="row g-3" id="frmPatient">
-              <div class="col-12 form-group">
-                  <div class="row g-3">
-                    <div class="col-lg-4">
-                      <label>Date Appointment</label>
-                      <input type="date" class="form-control" name="date" id="date" required/>
+        <div class="card">
+          <div class="card-body">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Patient's Information</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#tab-2">List of Appointment</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active show" id="tab-1">
+                  <br/>
+                  <form method="POST" class="row g-3" id="frmPatient">
+                  <div class="col-12 form-group">
+                      <div class="row g-3">
+                        <div class="col-lg-4">
+                          <label>Date Appointment</label>
+                          <input type="date" class="form-control" name="date" id="date" required/>
+                        </div>
+                        <div class="col-lg-4">
+                          <label>Time of Appointment</label>
+                          <select class="form-control" name="time" id="time" style="padding:10px;" required>
+                            <option value="">Choose</option>
+                          </select>
+                        </div>
+                        <div class="col-lg-4">
+                          <label>Type of Appointment</label>
+                          <select class="form-control" name="type_appointment" style="padding:10px;" required>
+                            <option value="">Choose</option>
+                            <option>Gynecology</option>
+                            <option>Obstetrics</option>
+                            <option>Obstetrics and Gynecology</option>
+                          </select>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-lg-4">
-                      <label>Time of Appointment</label>
-                      <select class="form-control" name="time" id="time" style="padding:10px;" required>
-                        <option value="">Choose</option>
-                      </select>
+                    <div class="col-12 form-group">
+                      <div class="row g-3">
+                        <div class="col-lg-4">
+                          <label>Surname</label>
+                          <input type="text" class="form-control" name="surname" required/>
+                        </div>
+                        <div class="col-lg-4">
+                          <label>First Name</label>
+                          <input type="text" class="form-control" name="firstname" required/>
+                        </div>
+                        <div class="col-lg-2">
+                          <label>Middle Initial</label>
+                          <input type="text" class="form-control" name="mi" required/>
+                        </div>
+                        <div class="col-lg-2">
+                          <label>Suffix</label>
+                          <input type="text" class="form-control" name="suffix" required/>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-lg-4">
-                      <label>Type of Appointment</label>
-                      <select class="form-control" name="type_appointment" style="padding:10px;" required>
-                        <option value="">Choose</option>
-                        <option>Gynecology</option>
-                        <option>Obstetrics</option>
-                        <option>Obstetrics and Gynecology</option>
-                      </select>
+                    <div class="col-12 form-group">
+                      <div class="row g-3">
+                        <div class="col-lg-4">
+                          <label>Date of Birth</label>
+                          <input type="date" class="form-control" name="bdate" required/>
+                        </div>
+                        <div class="col-lg-4">
+                          <label>Contact No</label>
+                          <input type="phone" class="form-control" name="phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="11" minlength="11" required/>
+                        </div>
+                        <div class="col-lg-4">
+                          <label>Gender</label>
+                          <select class="form-control" name="gender" style="padding:10px;" required>
+                            <option value="">Choose</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                          </select>
+                        </div>
+                      </div>
                     </div>
+                    <div class="col-12 form-group">
+                      <label>Complete Address</label>
+                      <textarea name="address" class="form-control" style="height:120px;"></textarea>
+                    </div>
+                    <div class="col-12 form-group">
+                      <input type="submit" class="btn btn-primary form-control" id="btnSend" name="btnSend" value="Submit"/>
+                    </div>
+                  </form>
+                </div>
+                <div class="tab-pane" id="tab-2">
+                  <br/>
+                  <div class="table-responsive">
+                      <table class="table table-striped table-bordered" id="table1">
+                          <thead>
+                              <th class="bg-primary text-white">Date</th>
+                              <th class="bg-primary text-white">Time</th>
+                              <th class="bg-primary text-white">Type of Appointment</th>
+                              <th class="bg-primary text-white">Patient's Name</th>
+                              <th class="bg-primary text-white">Status</th>
+                              <th class="bg-primary text-white">Action</th>
+                          </thead>
+                          <tbody>
+                            <?php foreach($reservation as $row): ?>
+                              <tr>
+                                <td><?php echo $row['Date'] ?></td>
+                                <td><?php echo $row['Time'] ?></td>
+                                <td><?php echo $row['Event_Name'] ?></td>
+                                <td><?php echo $row['Surname'] ?> <?php echo $row['Suffix'] ?>,<?php echo $row['Firstname'] ?> <?php echo $row['MiddleName'] ?></td>
+                                <td>
+                                  <?php if($row['Status']==0){ ?>
+                                    <span class="badge bg-warning">PENDING</span>
+                                  <?php }else if($row['Status']==1){?>
+                                    <span class="badge bg-primary">RESERVED</span>
+                                  <?php }else if($row['Status']==3){?>
+                                    <span class="badge bg-success">COMPLETED</span>
+                                  <?php }else{ ?>
+                                    <span class="badge bg-danger">CANCELLED</span>
+                                  <?php } ?>
+                                </td>
+                                <td>
+                                  <?php if($row['Status']==0){ ?>
+                                    <button type="button" class="btn btn-danger btn-sm cancel" value="<?php echo $row['reservationID'] ?>"><span class="bi bi-x"></span>&nbsp;Cancel</button>
+                                  <?php }else{ ?>
+                                    -
+                                  <?php } ?>  
+                                </td>
+                              </tr>
+                            <?php endforeach; ?>
+                          </tbody>
+                      </table>
                   </div>
                 </div>
-                <div class="col-12 form-group">
-                  <div class="row g-3">
-                    <div class="col-lg-4">
-                      <label>Surname</label>
-                      <input type="text" class="form-control" name="surname" required/>
-                    </div>
-                    <div class="col-lg-4">
-                      <label>First Name</label>
-                      <input type="text" class="form-control" name="firstname" required/>
-                    </div>
-                    <div class="col-lg-2">
-                      <label>Middle Initial</label>
-                      <input type="text" class="form-control" name="mi" required/>
-                    </div>
-                    <div class="col-lg-2">
-                      <label>Suffix</label>
-                      <input type="text" class="form-control" name="suffix" required/>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 form-group">
-                  <div class="row g-3">
-                    <div class="col-lg-4">
-                      <label>Date of Birth</label>
-                      <input type="date" class="form-control" name="bdate" required/>
-                    </div>
-                    <div class="col-lg-4">
-                      <label>Contact No</label>
-                      <input type="phone" class="form-control" name="phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="11" minlength="11" required/>
-                    </div>
-                    <div class="col-lg-4">
-                      <label>Gender</label>
-                      <select class="form-control" name="gender" style="padding:10px;" required>
-                        <option value="">Choose</option>
-                        <option>Male</option>
-                        <option>Female</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 form-group">
-                  <label>Complete Address</label>
-                  <textarea name="address" class="form-control" style="height:120px;"></textarea>
-                </div>
-                <div class="col-12 form-group">
-                  <input type="submit" class="btn btn-primary form-control" id="btnSend" name="btnSend" value="Submit"/>
-                </div>
-              </form>
             </div>
-            <div class="tab-pane" id="tab-2">
-              <br/>
-              <div class="table-responsive">
-                  <table class="table table-striped table-bordered" id="table1">
-                      <thead>
-                          <th class="bg-primary text-white">Date</th>
-                          <th class="bg-primary text-white">Time</th>
-                          <th class="bg-primary text-white">Type of Appointment</th>
-                          <th class="bg-primary text-white">Patient's Name</th>
-                          <th class="bg-primary text-white">Status</th>
-                          <th class="bg-primary text-white">Action</th>
-                      </thead>
-                      <tbody>
-                        <?php foreach($reservation as $row): ?>
-                          <tr>
-                            <td><?php echo $row['Date'] ?></td>
-                            <td><?php echo $row['Time'] ?></td>
-                            <td><?php echo $row['Event_Name'] ?></td>
-                            <td><?php echo $row['Surname'] ?> <?php echo $row['Suffix'] ?>,<?php echo $row['Firstname'] ?> <?php echo $row['MiddleName'] ?></td>
-                            <td>
-                              <?php if($row['Status']==0){ ?>
-                                <span class="badge bg-warning">PENDING</span>
-                              <?php }else if($row['Status']==1){?>
-                                <span class="badge bg-primary">RESERVED</span>
-                              <?php }else if($row['Status']==3){?>
-                                <span class="badge bg-success">COMPLETED</span>
-                              <?php }else{ ?>
-                                <span class="badge bg-danger">CANCELLED</span>
-                              <?php } ?>
-                            </td>
-                            <td>
-                              <?php if($row['Status']==0){ ?>
-                                <button type="button" class="btn btn-danger btn-sm cancel" value="<?php echo $row['reservationID'] ?>"><span class="bi bi-x"></span>&nbsp;Cancel</button>
-                              <?php }else{ ?>
-                                -
-                              <?php } ?>  
-                            </td>
-                          </tr>
-                        <?php endforeach; ?>
-                      </tbody>
-                  </table>
-              </div>
-            </div>
+          </div>
         </div>
       </div>
     </section><!-- End Contact Section -->
