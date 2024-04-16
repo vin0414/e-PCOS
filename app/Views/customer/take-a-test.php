@@ -29,7 +29,6 @@
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope"></i> <a href="mailto:pcos-system2024@gmail.com">pcos-system2024@gmail.com</a>
-        <i class="bi bi-phone"></i> +1 5589 55488 55
       </div>
       <div class="d-none d-lg-flex social-links align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -67,22 +66,28 @@
     <!-- ======= Contact Section ======= -->
     <section class="why-us">
       <div class="container">
-        <div class="card" id="frmStart">
-          <div class="card-body">
-            <center>
-            <img src="../assets/img/logo.png" alt="" class="img-fluid">
-            </center>
-            <h2 class="text-center">PCOS Awareness</h2>
-            <h4 class="text-center">Take A Survey</h4>
-            <center>
-              <button type="button" class="btn btn-primary btn-lg" id="btnStart"><i class="bi bi-arrow-right"></i>&nbsp;START</button>
-            </center>
+        <div class="row g-3">
+          <div class="col-lg-3"></div>
+          <div class="col-lg-6">
+            <div class="card" id="frmStart">
+              <div class="card-body">
+                <center>
+                <img src="../assets/img/logo.png" alt="" class="img-fluid">
+                </center>
+                <h2 class="text-center">PCOS Awareness</h2>
+                <h4 class="text-center">Take A Survey</h4>
+                <center>
+                  <button type="button" class="btn btn-primary btn-lg" id="btnStart"><i class="bi bi-arrow-right"></i>&nbsp;START</button>
+                </center>
+              </div>
+            </div>
+            <div class="card" id="frmQuestion" style="display:none;">
+              <div class="card-body">
+
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card" id="frmQuestion" style="display:none;">
-          <div class="card-body">
-            
-          </div>
+          <div class="col-lg-3"></div>
         </div>
       </div>
     </section><!-- End Contact Section -->
@@ -98,6 +103,7 @@
       <script src="../assets/vendor/php-email-form/validate.js"></script>
 
       <!-- Template Main JS File -->
+      <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
       <script src="../assets/js/main.js"></script>
       <script>
         $('#btnStart').on('click',function(e)
