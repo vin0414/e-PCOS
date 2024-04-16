@@ -82,7 +82,7 @@
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
                 <div class="card">
-                    <div class="card-header"><span class="fa fa-user"></span>&nbsp;Edit Entry
+                    <div class="card-header"><span class="fa fa-edit"></span>&nbsp;Edit Answer
                     <a href="<?=site_url('admin/settings')?>" class="btn btn-primary btn-sm" style="float:right;">Back</a>
                     </div>
                     <div class="card-body">
