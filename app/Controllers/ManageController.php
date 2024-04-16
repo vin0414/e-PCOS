@@ -237,4 +237,30 @@ class ManageController extends BaseController
             return redirect()->to('admin/settings')->withInput();
         }
     }
+
+    public function saveAnswer()
+    {
+        $choiceModel = new \App\Models\choiceModel();
+        //data
+        $id = $this->request->getPost('questionID');
+        $details = $this->request->getPost('details');
+
+        $validation = $this->validate([
+            'questionID'=>'required',
+            'details'=>'required|is_unique[tblchoice.Details]'
+        ]);
+
+        if(!$validation)
+        {
+            session()->setFlashdata('fail','Invalid or Duplicate Entry');
+            return redirect()->to('admin/add-answer/'.$id)->withInput();
+        }
+        else
+        {
+            $values = ['questionID'=>$id,'Details'=>$details];
+            $choiceModel->save($values);
+            session()->setFlashdata('success','Great! Successfully Added');
+            return redirect()->to('admin/settings')->withInput();
+        }
+    }
 }
