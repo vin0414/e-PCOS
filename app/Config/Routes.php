@@ -70,6 +70,7 @@ $routes->post('update-blog','ManageController::updateBlog');
 $routes->post('save-entry','ManageController::saveEntry');
 $routes->post('edit-entry','ManageController::editEntry');
 $routes->post('save-answer','ManageController::saveAnswer');
+$routes->post('edit-answer','ManageController::editAnswer');
 //customer controller
 $routes->post('update-information','Customer::updateInformation');
 $routes->post('cancel-reservation','Customer::cancelReservation');

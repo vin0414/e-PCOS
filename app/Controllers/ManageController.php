@@ -238,6 +238,32 @@ class ManageController extends BaseController
         }
     }
 
+    public function editAnswer()
+    {
+        $choiceModel = new \App\Models\choiceModel();
+        //data
+        $id = $this->request->getPost('questionID');
+        $details = $this->request->getPost('details');
+
+        $validation = $this->validate([
+            'questionID'=>'required',
+            'details'=>'required'
+        ]);
+
+        if(!$validation)
+        {
+            session()->setFlashdata('fail','Invalid! Please fill in the form');
+            return redirect()->to('admin/edit-answer/'.$id)->withInput();
+        }
+        else
+        {
+            $values = ['Details'=>$details];
+            $choiceModel->update($id,$values);
+            session()->setFlashdata('success','Great! Successfully Updated');
+            return redirect()->to('admin/settings')->withInput();
+        }
+    }
+
     public function saveAnswer()
     {
         $choiceModel = new \App\Models\choiceModel();

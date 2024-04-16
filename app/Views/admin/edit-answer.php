@@ -91,8 +91,17 @@
                                 <?= session()->getFlashdata('fail'); ?>
                             </div>
                         <?php endif; ?>
-                        <form method="post" class="row g-3" id="frmEntry" enctype="multipart/form-data" action="<?=base_url('edit-entry')?>">
-                            
+                        <form method="post" class="row g-3" id="frmAnswer" action="<?=base_url('edit-answer')?>">
+                          <?php if($answer): ?>
+                            <input type="hidden" name="questionID" value="<?php echo $answer['questionID'] ?>"/> 
+                            <div class="col-12 form-group">
+                                <label>Details</label>
+                                <textarea class="form-control" style="height:300px;" name="details" required><?php echo $answer['Details'] ?></textarea>
+                            </div>
+                            <div class="col-12 form-group">
+                                <button type="submit" class="btn btn-primary form-control" id="btnSubmit">Save Entry</button>
+                            </div> 
+                            <?php endif; ?>  
                         </form>
                     </div>
                 </div>
