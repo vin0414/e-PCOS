@@ -22,6 +22,7 @@
       <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
       <!-- Template Main CSS File -->
       <link href="../assets/css/style.css" rel="stylesheet">
+      <link href="../assets/css/wizard-form.css" rel="stylesheet">
          
    </head>
    <body>
@@ -85,8 +86,31 @@
             </div>
             <div class="card" id="frmQuestion" style="display:none;">
               <div class="card-body">
-
+                <h4 class="card-title"><i class="bi bi-clipboard-data"></i>&nbsp;PCOS Awareness Survey</h4>
+                <hr/>
+                <form method="POST" class="row g-3" id="frmSurvey">
+                <input type="hidden" name="customer" value="<?php echo session()->get('sess_id') ?>"/>
+                <?php foreach($survey as $row): ?>
+                  <div class="col-12 form-group">
+                    <h6><b><?php echo $row->Question ?></b></h6>
+                      <?php
+                      $db;$this->db = db_connect();
+                      $builder = $this->db->table('tblchoice');
+                      $builder->select('choiceID,Details');
+                      $builder->WHERE('questionID',$row->questionID);
+                      $data = $builder->get();
+                      foreach($data->getResult() as $rows)
+                      {
+                       ?>
+                      <input type="radio" style="width:15px;height:15px;" name="<?php echo $row->questionID ?>" value="<?php echo $rows->choiceID ?>"/>&nbsp;<label><?php echo $rows->Details ?></label><br/>
+                      <?php } ?>
+                  </div>
+                <?php endforeach; ?>
+                <input type="submit" class="form-control btn btn-primary text-white" id="btnSave" value="Submit"/>
+                </form>
               </div>
+            </div>
+            <div class="card" id="successMessage" style="display:none;">
             </div>
           </div>
           <div class="col-lg-3"></div>

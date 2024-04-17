@@ -19,7 +19,16 @@ class Customer extends BaseController
 
     public function takeATest()
     {
-        return view('customer/take-a-test');
+        $builder = $this->db->table('tblquestion a');
+        $builder->select('a.questionID,a.Question');
+        $builder->join('tblsurvey b','b.surveyID=a.surveyID','LEFT');
+        $builder->WHERE('b.Status',1);
+        $builder->groupBy('a.questionID');
+        $survey = $builder->get()->getResult();
+
+        $data = ['survey'=>$survey];
+
+        return view('customer/take-a-test',$data);
     }
 
     public function Consultation()
