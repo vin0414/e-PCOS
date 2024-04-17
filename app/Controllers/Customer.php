@@ -145,4 +145,13 @@ class Customer extends BaseController
             echo "<option>".$object."</option>";
         }
     }
+
+    public function saveRecord()
+    {
+        $recordModel = new \App\Models\recordsModel();
+        //data
+        $customerID = $this->request->getPost('customerID');
+        $question = "";
+        $choices = "";
+    }
 }

@@ -92,7 +92,7 @@
                   <?php foreach($survey as $row): ?>
                   <div class="col-12 form-group">
                     <h6><b><?php echo $row->Question ?></b></h6>
-                    <label for="name"><span>Please select your answer</span></label>
+                    <input type="hidden" name="<?php echo $row->questionID ?>" value="<?php echo $row->questionID ?>"/>
                       <?php
                       $db;$this->db = db_connect();
                       $builder = $this->db->table('tblchoice');
@@ -139,10 +139,6 @@
       <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
       <script src="../assets/js/main.js"></script>
       <script>
-        $(document).ready(function()
-        {
-          $("#frmSurvey").validate();
-        });
         $('#btnStart').on('click',function(e)
         {
           e.preventDefault();
@@ -153,7 +149,22 @@
         {
           e.preventDefault();
           var data = $('#frmSurvey').serialize();
-          alert(data);
+          $.ajax({
+            url:"<?=site_url('save-record')?>",method:"POST",
+            data:data,success:function(response)
+            {
+              if(response==="success")
+              {
+                $('#frmSurvey')[0].reset();
+                document.getElementById('frmQuestion').style="display:none";
+                document.getElementById('successMessage').style="display:block";
+              }
+              else
+              {
+                alert(response);
+              }
+            }
+          });
         });
       </script>
    </body>
