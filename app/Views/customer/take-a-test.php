@@ -22,7 +22,6 @@
       <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
       <!-- Template Main CSS File -->
       <link href="../assets/css/style.css" rel="stylesheet">
-      <link href="../assets/css/wizard-form.css" rel="stylesheet">
          
    </head>
    <body>
@@ -73,7 +72,7 @@
             <div class="card" id="frmStart">
               <div class="card-body">
                 <center>
-                <img src="../assets/img/logo.png" alt="" class="img-fluid">
+                <img src="../assets/img/logo.png" alt="" style="width:100px;" class="img-fluid">
                 </center>
                 <h2 class="text-center">Take A Survey</h2>
                 <p class="text-center"><b>Important Notice</b></p>
@@ -89,10 +88,11 @@
                 <h4 class="card-title"><i class="bi bi-clipboard-data"></i>&nbsp;PCOS Awareness Survey</h4>
                 <hr/>
                 <form method="POST" class="row g-3" id="frmSurvey">
-                <input type="hidden" name="customer" value="<?php echo session()->get('sess_id') ?>"/>
-                <?php foreach($survey as $row): ?>
+                  <input type="hidden" name="customer" value="<?php echo session()->get('sess_id') ?>"/>
+                  <?php foreach($survey as $row): ?>
                   <div class="col-12 form-group">
                     <h6><b><?php echo $row->Question ?></b></h6>
+                    <label for="name"><span>Please select your answer</span></label>
                       <?php
                       $db;$this->db = db_connect();
                       $builder = $this->db->table('tblchoice');
@@ -102,15 +102,22 @@
                       foreach($data->getResult() as $rows)
                       {
                        ?>
-                      <input type="radio" style="width:15px;height:15px;" name="<?php echo $row->questionID ?>" value="<?php echo $rows->choiceID ?>"/>&nbsp;<label><?php echo $rows->Details ?></label><br/>
+                      <input type="radio" style="width:15px;height:15px;" name="<?php echo $row->questionID ?>" id="<?php echo $rows->choiceID ?>" value="<?php echo $rows->choiceID ?>" required/>&nbsp;<label><?php echo $rows->Details ?></label><br/>
                       <?php } ?>
                   </div>
-                <?php endforeach; ?>
+                  <?php endforeach; ?>
                 <input type="submit" class="form-control btn btn-primary text-white" id="btnSave" value="Submit"/>
                 </form>
               </div>
             </div>
-            <div class="card" id="successMessage" style="display:none;">
+            <div class="card bg-success text-white" id="successMessage" style="display:none;">
+              <br/>
+              <center><span class="bi bi-check-circle" style="font-size:100px;"></span></center>
+              <h1 class="text-center">Successfully submitted</h1>
+              <center>
+                <button type="button" class="btn btn-primary">View Result</button>
+              </center>
+              <br/>
             </div>
           </div>
           <div class="col-lg-3"></div>
@@ -132,11 +139,21 @@
       <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
       <script src="../assets/js/main.js"></script>
       <script>
+        $(document).ready(function()
+        {
+          $("#frmSurvey").validate();
+        });
         $('#btnStart').on('click',function(e)
         {
           e.preventDefault();
           document.getElementById('frmStart').style="display:none";
           document.getElementById('frmQuestion').style="display:block";
+        });
+        $('#btnSave').on('click',function(e)
+        {
+          e.preventDefault();
+          var data = $('#frmSurvey').serialize();
+          alert(data);
         });
       </script>
    </body>
