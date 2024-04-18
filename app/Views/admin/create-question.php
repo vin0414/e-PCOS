@@ -102,6 +102,22 @@
                                 </select>
                             </div>
                             <div class="col-12 form-group">
+                              <label>Sequence</label>
+                              <select class="form-control" name="sequence" required>
+                                <option value="">Choose</option>
+                                <option>Question 1</option>
+                                <option>Question 2</option>
+                                <option>Question 3</option>
+                                <option>Question 4</option>
+                                <option>Question 5</option>
+                                <option>Question 6</option>
+                                <option>Question 7</option>
+                                <option>Question 8</option>
+                                <option>Question 9</option>
+                                <option>Question 10</option>
+                              </select>
+                            </div>
+                            <div class="col-12 form-group">
                               <label>Question</label>
                               <textarea class="form-control" name="question" style="height:250px;" required></textarea>
                             </div>

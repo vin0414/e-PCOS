@@ -186,7 +186,7 @@ class Customer extends BaseController
         }
         else
         {
-
+            $values = ['customerID', 'questionID','choiceID','surveyID','Date'];
         }
     }
 }

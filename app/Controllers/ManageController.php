@@ -79,9 +79,11 @@ class ManageController extends BaseController
         $questionModel = new \App\Models\questionModel();
         //data
         $category = $this->request->getPost('category');
+        $sequence = $this->request->getPost('sequence');
         $question = $this->request->getPost('question');
         $validation = $this->validate([
             'category'=>'required',
+            'sequence'=>'required',
             'question'=>'required|is_unique[tblquestion.Question]'
         ]);
 
@@ -92,7 +94,7 @@ class ManageController extends BaseController
         }
         else
         {
-            $values = ['surveyID'=>$category,'Question'=>$question,'Date'=>date('Y-m-d')];
+            $values = ['surveyID'=>$category,'Sequence'=>$sequence,'Question'=>$question,'Date'=>date('Y-m-d')];
             $questionModel->save($values);
             session()->setFlashdata('success','Great! Successfully added');
             return redirect()->to('admin/settings')->withInput();
