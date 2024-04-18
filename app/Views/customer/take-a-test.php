@@ -90,6 +90,7 @@
                 <form method="POST" class="row g-3" id="frmSurvey">
                   <input type="hidden" name="customer" value="<?php echo session()->get('sess_id') ?>"/>
                   <?php foreach($survey as $rows):?>
+                    <input type="hidden" name="survey" value="<?php echo $rows->surveyID ?>"/>
                     <?php
                       $db;$this->db = db_connect();
                       $builder = $this->db->table('tblquestion');
@@ -366,10 +367,10 @@
                 </form>
               </div>
             </div>
-            <div class="card bg-success text-white" id="successMessage" style="display:none;">
+            <div class="card" id="successMessage" style="display:none;">
               <br/>
-              <center><span class="bi bi-check-circle" style="font-size:100px;"></span></center>
-              <h1 class="text-center">Successfully submitted</h1>
+              <center><span class="bi bi-check-circle text-success" style="font-size:100px;"></span></center>
+              <h1 class="text-center text-success">Successfully submitted</h1>
               <center>
                 <button type="button" class="btn btn-primary">View Result</button>
               </center>

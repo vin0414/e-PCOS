@@ -148,7 +148,8 @@ class Customer extends BaseController
     {
         $recordModel = new \App\Models\recordsModel();
         //data
-        $customerID = $this->request->getPost('customerID');
+        $customerID = $this->request->getPost('customer');
+        $survey = $this->request->getPost('survey');
         $question1 = $this->request->getPost('question1');
         $answer1 = $this->request->getPost('answer1');
 
@@ -186,7 +187,97 @@ class Customer extends BaseController
         }
         else
         {
-            $values = ['customerID', 'questionID','choiceID','surveyID','Date'];
+            if(empty($answer1))
+            {
+                //do nothing
+            }
+            else
+            {
+                $values = ['customerID'=>$customerID, 'questionID'=>$question1,'choiceID'=>$answer1,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                $recordModel->save($values);
+            }
+            if(empty($answer2))
+            {
+                //do nothing
+            }
+            else
+            {
+                $values = ['customerID'=>$customerID, 'questionID'=>$question2,'choiceID'=>$answer2,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                $recordModel->save($values);
+            }
+            if(empty($answer3))
+            {
+                //do nothing
+            }
+            else
+            {
+                $values = ['customerID'=>$customerID, 'questionID'=>$question3,'choiceID'=>$answer3,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                $recordModel->save($values);
+            }
+            if(empty($answer4))
+            {
+                //do nothing
+            }
+            else
+            {
+                $values = ['customerID'=>$customerID, 'questionID'=>$question4,'choiceID'=>$answer4,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                $recordModel->save($values);
+            }
+            if(empty($answer5))
+            {
+                //do nothing
+            }
+            else
+            {
+                $values = ['customerID'=>$customerID, 'questionID'=>$question5,'choiceID'=>$answer5,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                $recordModel->save($values);
+            }
+            if(empty($answer6))
+            {
+                //do nothing
+            }
+            else
+            {
+                $values = ['customerID'=>$customerID, 'questionID'=>$question6,'choiceID'=>$answer6,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                $recordModel->save($values);
+            }
+            if(empty($answer7))
+            {
+                //do nothing
+            }
+            else
+            {
+                $values = ['customerID'=>$customerID, 'questionID'=>$question7,'choiceID'=>$answer7,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                $recordModel->save($values);
+            }
+            if(empty($answer8))
+            {
+                //do nothing
+            }
+            else
+            {
+                $values = ['customerID'=>$customerID, 'questionID'=>$question8,'choiceID'=>$answer8,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                $recordModel->save($values);
+            }
+            if(empty($answer9))
+            {
+                //do nothing
+            }
+            else
+            {
+                $values = ['customerID'=>$customerID, 'questionID'=>$question9,'choiceID'=>$answer9,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                $recordModel->save($values);
+            }
+            if(empty($answer10))
+            {
+                //do nothing
+            }
+            else
+            {
+                $values = ['customerID'=>$customerID, 'questionID'=>$question10,'choiceID'=>$answer10,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                $recordModel->save($values);
+            }
+            echo "success";
         }
     }
 }
