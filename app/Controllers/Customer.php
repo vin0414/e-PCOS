@@ -161,5 +161,32 @@ class Customer extends BaseController
         $question4 = $this->request->getPost('question4');
         $answer4 = $this->request->getPost('answer4');
 
+        $question5 = $this->request->getPost('question5');
+        $answer5 = $this->request->getPost('answer5');
+
+        $question6 = $this->request->getPost('question6');
+        $answer6 = $this->request->getPost('answer6');
+
+        $question7 = $this->request->getPost('question7');
+        $answer7 = $this->request->getPost('answer7');
+
+        $question8 = $this->request->getPost('question8');
+        $answer8 = $this->request->getPost('answer8');
+
+        $question9 = $this->request->getPost('question9');
+        $answer9 = $this->request->getPost('answer9');
+
+        $question10 = $this->request->getPost('question10');
+        $answer10 = $this->request->getPost('answer10');
+
+        if(empty($answer1)&&empty($answer2)&&empty($answer3)&&empty($answer4)&&empty($answer5)
+        &&empty($answer6)&&empty($answer7)&&empty($answer8)&&empty($answer9)&&empty($answer10))
+        {
+            echo "Invalid! Please select your answer";
+        }
+        else
+        {
+
+        }
     }
 }
