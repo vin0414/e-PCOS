@@ -14,7 +14,7 @@ class questionModel extends Model
     protected $returnType = 'array';
     protected $userSoftDelete = false;
     protected $protectFields = true;
-    protected $allowedFields = ['surveyID','Question','Date'];
+    protected $allowedFields = ['surveyID','Sequence','Question','Date'];
 
     protected $validationRules = [];
     protected $validationMessages = [];

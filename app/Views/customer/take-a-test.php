@@ -89,22 +89,278 @@
                 <hr/>
                 <form method="POST" class="row g-3" id="frmSurvey">
                   <input type="hidden" name="customer" value="<?php echo session()->get('sess_id') ?>"/>
-                  <?php foreach($survey as $row): ?>
-                  <div class="col-12 form-group">
-                    <h6><b><?php echo $row->Question ?></b></h6>
-                    <input type="hidden" name="<?php echo $row->questionID ?>" value="<?php echo $row->questionID ?>"/>
-                      <?php
+                  <?php foreach($survey as $rows):?>
+                    <?php
                       $db;$this->db = db_connect();
-                      $builder = $this->db->table('tblchoice');
-                      $builder->select('choiceID,Details');
-                      $builder->WHERE('questionID',$row->questionID);
+                      $builder = $this->db->table('tblquestion');
+                      $builder->select('Question,questionID');
+                      $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 1');
                       $data = $builder->get();
-                      foreach($data->getResult() as $rows)
+                      if($row = $data->getRow())
                       {
-                       ?>
-                      <input type="radio" style="width:15px;height:15px;" name="<?php echo $row->questionID ?>" id="<?php echo $rows->choiceID ?>" value="<?php echo $rows->choiceID ?>" required/>&nbsp;<label><?php echo $rows->Details ?></label><br/>
-                      <?php } ?>
-                  </div>
+                        ?>
+                        <input type="hidden" name="question1" value="<?php echo $row->questionID ?>"/>
+                        <h6><?php echo $row->Question ?></h6>
+                        <?php
+                        $builder = $this->db->table('tblchoice');
+                        $builder->select('choiceID,Details');
+                        $builder->WHERE('questionID',$row->questionID);
+                        $data = $builder->get();
+                        foreach($data->getResult() as $answer)
+                        {
+                          ?>
+                          <div>
+                          <input type="radio" class="form-check-input" name="answer1" id="<?php echo $answer->choiceID ?>" value="<?php echo $answer->choiceID ?>"/>&nbsp;<?php echo $answer->Details ?>
+                          </div>
+                          <?php
+                        }
+                         ?>
+                        <?php
+                      }
+                    ?>
+                    <?php
+                      $builder = $this->db->table('tblquestion');
+                      $builder->select('Question,questionID');
+                      $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 2');
+                      $data = $builder->get();
+                      if($row = $data->getRow())
+                      {
+                        ?>
+                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <h6><?php echo $row->Question ?></h6>
+                        <?php
+                        $builder = $this->db->table('tblchoice');
+                        $builder->select('choiceID,Details');
+                        $builder->WHERE('questionID',$row->questionID);
+                        $data = $builder->get();
+                        foreach($data->getResult() as $answer)
+                        {
+                          ?>
+                          <div>
+                          <input type="radio" class="form-check-input" name="answer2" id="<?php echo $answer->choiceID ?>" value="<?php echo $answer->choiceID ?>"/>&nbsp;<?php echo $answer->Details ?>
+                          </div>
+                          <?php
+                        }
+                         ?>
+                        <?php
+                      }
+                    ?>
+                    <?php
+                      $builder = $this->db->table('tblquestion');
+                      $builder->select('Question,questionID');
+                      $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 3');
+                      $data = $builder->get();
+                      if($row = $data->getRow())
+                      {
+                        ?>
+                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <h6><?php echo $row->Question ?></h6>
+                        <?php
+                        $builder = $this->db->table('tblchoice');
+                        $builder->select('choiceID,Details');
+                        $builder->WHERE('questionID',$row->questionID);
+                        $data = $builder->get();
+                        foreach($data->getResult() as $answer)
+                        {
+                          ?>
+                          <div>
+                          <input type="radio" class="form-check-input" name="answer3" id="<?php echo $answer->choiceID ?>" value="<?php echo $answer->choiceID ?>"/>&nbsp;<?php echo $answer->Details ?>
+                          </div>
+                          <?php
+                        }
+                         ?>
+                        <?php
+                      }
+                    ?>
+                    <?php
+                      $builder = $this->db->table('tblquestion');
+                      $builder->select('Question,questionID');
+                      $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 4');
+                      $data = $builder->get();
+                      if($row = $data->getRow())
+                      {
+                        ?>
+                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <h6><?php echo $row->Question ?></h6>
+                        <?php
+                        $builder = $this->db->table('tblchoice');
+                        $builder->select('choiceID,Details');
+                        $builder->WHERE('questionID',$row->questionID);
+                        $data = $builder->get();
+                        foreach($data->getResult() as $answer)
+                        {
+                          ?>
+                          <div>
+                          <input type="radio" class="form-check-input" name="answer4" id="<?php echo $answer->choiceID ?>" value="<?php echo $answer->choiceID ?>"/>&nbsp;<?php echo $answer->Details ?>
+                          </div>
+                          <?php
+                        }
+                         ?>
+                        <?php
+                      }
+                      ?>
+                      <?php
+                      $builder = $this->db->table('tblquestion');
+                      $builder->select('Question,questionID');
+                      $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 5');
+                      $data = $builder->get();
+                      if($row = $data->getRow())
+                      {
+                        ?>
+                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <h6><?php echo $row->Question ?></h6>
+                        <?php
+                        $builder = $this->db->table('tblchoice');
+                        $builder->select('choiceID,Details');
+                        $builder->WHERE('questionID',$row->questionID);
+                        $data = $builder->get();
+                        foreach($data->getResult() as $answer)
+                        {
+                          ?>
+                          <div>
+                          <input type="radio" class="form-check-input" name="answer5" id="<?php echo $answer->choiceID ?>" value="<?php echo $answer->choiceID ?>"/>&nbsp;<?php echo $answer->Details ?>
+                          </div>
+                          <?php
+                        }
+                         ?>
+                        <?php
+                      }
+                    ?>
+                    <?php
+                      $builder = $this->db->table('tblquestion');
+                      $builder->select('Question,questionID');
+                      $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 6');
+                      $data = $builder->get();
+                      if($row = $data->getRow())
+                      {
+                        ?>
+                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <h6><?php echo $row->Question ?></h6>
+                        <?php
+                        $builder = $this->db->table('tblchoice');
+                        $builder->select('choiceID,Details');
+                        $builder->WHERE('questionID',$row->questionID);
+                        $data = $builder->get();
+                        foreach($data->getResult() as $answer)
+                        {
+                          ?>
+                          <div>
+                          <input type="radio" class="form-check-input" name="answer6" id="<?php echo $answer->choiceID ?>" value="<?php echo $answer->choiceID ?>"/>&nbsp;<?php echo $answer->Details ?>
+                          </div>
+                          <?php
+                        }
+                         ?>
+                        <?php
+                      }
+                    ?>
+                    <?php
+                      $builder = $this->db->table('tblquestion');
+                      $builder->select('Question,questionID');
+                      $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 7');
+                      $data = $builder->get();
+                      if($row = $data->getRow())
+                      {
+                        ?>
+                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <h6><?php echo $row->Question ?></h6>
+                        <?php
+                        $builder = $this->db->table('tblchoice');
+                        $builder->select('choiceID,Details');
+                        $builder->WHERE('questionID',$row->questionID);
+                        $data = $builder->get();
+                        foreach($data->getResult() as $answer)
+                        {
+                          ?>
+                          <div>
+                          <input type="radio" class="form-check-input" name="answer7" id="<?php echo $answer->choiceID ?>" value="<?php echo $answer->choiceID ?>"/>&nbsp;<?php echo $answer->Details ?>
+                          </div>
+                          <?php
+                        }
+                         ?>
+                        <?php
+                      }
+                    ?>
+                    <?php
+                      $builder = $this->db->table('tblquestion');
+                      $builder->select('Question,questionID');
+                      $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 8');
+                      $data = $builder->get();
+                      if($row = $data->getRow())
+                      {
+                        ?>
+                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <h6><?php echo $row->Question ?></h6>
+                        <?php
+                        $builder = $this->db->table('tblchoice');
+                        $builder->select('choiceID,Details');
+                        $builder->WHERE('questionID',$row->questionID);
+                        $data = $builder->get();
+                        foreach($data->getResult() as $answer)
+                        {
+                          ?>
+                          <div>
+                          <input type="radio" class="form-check-input" name="answer8" id="<?php echo $answer->choiceID ?>" value="<?php echo $answer->choiceID ?>"/>&nbsp;<?php echo $answer->Details ?>
+                          </div>
+                          <?php
+                        }
+                         ?>
+                        <?php
+                      }
+                    ?>
+                    <?php
+                      $builder = $this->db->table('tblquestion');
+                      $builder->select('Question,questionID');
+                      $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 9');
+                      $data = $builder->get();
+                      if($row = $data->getRow())
+                      {
+                        ?>
+                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <h6><?php echo $row->Question ?></h6>
+                        <?php
+                        $builder = $this->db->table('tblchoice');
+                        $builder->select('choiceID,Details');
+                        $builder->WHERE('questionID',$row->questionID);
+                        $data = $builder->get();
+                        foreach($data->getResult() as $answer)
+                        {
+                          ?>
+                          <div>
+                          <input type="radio" class="form-check-input" name="answer9" id="<?php echo $answer->choiceID ?>" value="<?php echo $answer->choiceID ?>"/>&nbsp;<?php echo $answer->Details ?>
+                          </div>
+                          <?php
+                        }
+                         ?>
+                        <?php
+                      }
+                    ?>
+                    <?php
+                      $builder = $this->db->table('tblquestion');
+                      $builder->select('Question,questionID');
+                      $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 10');
+                      $data = $builder->get();
+                      if($row = $data->getRow())
+                      {
+                        ?>
+                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <h6><?php echo $row->Question ?></h6>
+                        <?php
+                        $builder = $this->db->table('tblchoice');
+                        $builder->select('choiceID,Details');
+                        $builder->WHERE('questionID',$row->questionID);
+                        $data = $builder->get();
+                        foreach($data->getResult() as $answer)
+                        {
+                          ?>
+                          <div>
+                          <input type="radio" class="form-check-input" name="answer10" id="<?php echo $answer->choiceID ?>" value="<?php echo $answer->choiceID ?>"/>&nbsp;<?php echo $answer->Details ?>
+                          </div>
+                          <?php
+                        }
+                         ?>
+                        <?php
+                      }
+                    ?>
                   <?php endforeach; ?>
                 <input type="submit" class="form-control btn btn-primary text-white" id="btnSave" value="Submit"/>
                 </form>

@@ -19,11 +19,9 @@ class Customer extends BaseController
 
     public function takeATest()
     {
-        $builder = $this->db->table('tblquestion a');
-        $builder->select('a.questionID,a.Question');
-        $builder->join('tblsurvey b','b.surveyID=a.surveyID','LEFT');
-        $builder->WHERE('b.Status',1);
-        $builder->groupBy('a.questionID');
+        $builder = $this->db->table('tblsurvey');
+        $builder->select('surveyID');
+        $builder->WHERE('Status',1);;
         $survey = $builder->get()->getResult();
 
         $data = ['survey'=>$survey];
@@ -151,7 +149,17 @@ class Customer extends BaseController
         $recordModel = new \App\Models\recordsModel();
         //data
         $customerID = $this->request->getPost('customerID');
-        $question = "";
-        $choices = "";
+        $question1 = $this->request->getPost('question1');
+        $answer1 = $this->request->getPost('answer1');
+
+        $question2 = $this->request->getPost('question2');
+        $answer2 = $this->request->getPost('answer2');
+
+        $question3 = $this->request->getPost('question3');
+        $answer3 = $this->request->getPost('answer3');
+
+        $question4 = $this->request->getPost('question4');
+        $answer4 = $this->request->getPost('answer4');
+
     }
 }

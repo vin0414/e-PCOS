@@ -1,0 +1,307 @@
+INFO - 2024-04-18 01:33:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-18 01:34:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-18 01:34:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-18 01:34:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 01:34:08 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\index.php on line 30.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\index.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/index', [], true)
+ 4 APPPATH\Controllers\Customer.php(17): view('customer/index')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->Index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 01:34:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 01:34:17 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 97.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(31): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-04-18 01:34:20 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+in APPPATH\Controllers\Customer.php on line 158.
+ 1 APPPATH\Controllers\Customer.php(158): count(null)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->saveRecord()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-04-18 01:35:02 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+in APPPATH\Controllers\Customer.php on line 158.
+ 1 APPPATH\Controllers\Customer.php(158): count(null)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->saveRecord()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-04-18 01:42:34 --> Array to string conversion
+in APPPATH\Controllers\Customer.php on line 158.
+ 1 APPPATH\Controllers\Customer.php(158): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Controllers\\Customer.php', 158)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->saveRecord()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-04-18 01:42:40 --> Array to string conversion
+in APPPATH\Controllers\Customer.php on line 158.
+ 1 APPPATH\Controllers\Customer.php(158): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Controllers\\Customer.php', 158)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->saveRecord()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 01:56:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-04-18 01:56:15 --> Undefined property: stdClass::$Sequence
+in APPPATH\Views\customer\take-a-test.php on line 95.
+ 1 APPPATH\Views\customer\take-a-test.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$Sequence', 'APPPATH\\Views\\customer\\take-a-test.php', 95)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 5 APPPATH\Controllers\Customer.php(31): view('customer/take-a-test', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 01:56:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 01:56:54 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 97.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(31): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:02:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:02:00 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-04-18 02:02:00 --> Undefined array key "surveyID"
+in APPPATH\Views\customer\take-a-test.php on line 97.
+ 1 APPPATH\Views\customer\take-a-test.php(97): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "surveyID"', 'APPPATH\\Views\\customer\\take-a-test.php', 97)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 5 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:02:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:02:30 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-04-18 02:02:30 --> Cannot use object of type stdClass as array
+in APPPATH\Views\customer\take-a-test.php on line 97.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:03:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:03:00 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:03:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:03:15 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:06:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:06:26 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:07:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:07:31 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-04-18 02:07:38 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+in APPPATH\Controllers\Customer.php on line 154.
+ 1 APPPATH\Controllers\Customer.php(154): count(null)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->saveRecord()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+CRITICAL - 2024-04-18 02:07:47 --> count(): Argument #1 ($value) must be of type Countable|array, null given
+in APPPATH\Controllers\Customer.php on line 154.
+ 1 APPPATH\Controllers\Customer.php(154): count(null)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->saveRecord()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:08:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:08:13 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:08:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:08:32 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:09:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:09:09 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:09:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:09:42 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:10:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:10:28 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:11:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:11:28 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:12:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:12:29 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:24:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:24:19 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:40:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:40:04 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:40:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:40:13 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\index.php on line 30.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\index.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/index', [], true)
+ 4 APPPATH\Controllers\Customer.php(17): view('customer/index')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->Index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-18 02:40:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-18 02:40:16 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\customer\take-a-test.php on line 94.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\customer\\take-a-test.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('customer/take-a-test', [], true)
+ 4 APPPATH\Controllers\Customer.php(29): view('customer/take-a-test', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Customer->takeATest()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Customer))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
