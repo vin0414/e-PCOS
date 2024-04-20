@@ -70,6 +70,7 @@
           <li><a class="nav-link" href="<?=site_url('admin/members')?>">Members</a></li>
           <li><a class="nav-link active" href="<?=site_url('admin/report')?>">Report</a></li>
           <li><a class="nav-link" href="<?=site_url('admin/settings')?>">Settings</a></li>
+          <li><a class="nav-link" href="<?=site_url('admin/maintenance')?>">Maintenance</a></li>
           <li class="dropdown"><a href="#"><span><?php echo session()->get('sess_fullname'); ?></span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="<?=site_url('admin/profile')?>">Account Settings</a></li>
@@ -119,6 +120,13 @@
                   <div class="card-body">
                     <h6 class="card-title">Total Respondents</h6>
                     <h1 id="totalRespondent">0</h1>
+                  </div>
+                </div>
+                <br/>
+                <div class="card">
+                  <div class="card-body">
+                    <h6 class="card-title">Locations</h6>
+                    <div id="locations" style="height:160px;"></div>
                   </div>
                 </div>
               </div>

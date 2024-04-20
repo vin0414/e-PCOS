@@ -98,6 +98,7 @@ $routes->group('',['filter'=>'AuthCheck'],function($routes)
     $routes->get('admin/edit-info/(:any)','Home::editInfo/$1');
     $routes->get('admin/edit-answer/(:any)','Home::editAnswer/$1');
     $routes->get('admin/add-answer/(:any)','Home::addAnswer/$1');
+    $routes->get('admin/maintenance','Home::Maintenance');
 });
 
 $routes->group('',['filter'=>'customerAuthCheck'],function($routes)

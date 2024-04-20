@@ -62,6 +62,7 @@
           <li><a class="nav-link" href="<?=site_url('admin/members')?>">Members</a></li>
           <li><a class="nav-link" href="<?=site_url('admin/report')?>">Report</a></li>
           <li><a class="nav-link active" href="javascript:void(0);">Create Blog</a></li>
+          <li><a class="nav-link" href="<?=site_url('admin/maintenance')?>">Maintenance</a></li>
           <li class="dropdown"><a href="#"><span><?php echo session()->get('sess_fullname'); ?></span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="<?=site_url('admin/profile')?>">Account Settings</a></li>

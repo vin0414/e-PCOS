@@ -196,6 +196,11 @@ class Home extends BaseController
         return view('admin/settings',$data);
     }
 
+    public function Maintenance()
+    {
+        return view('admin/maintenance');
+    }
+
     public function newAccount()
     {
         return view('admin/new-account');
