@@ -173,6 +173,7 @@
   <!-- Template Main JS File -->
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   <script src="<?php echo base_url('assets/js/main.js')?>"></script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <script>
     $('#btnGenerate').on('click',function(e)
     {
@@ -185,6 +186,33 @@
         {
           $('#totalRespondent').html(response);
         }
+      });
+
+      $.ajax({
+          url:"<?=site_url('age-chart')?>",method:"GET",
+          dataType:"JSON",
+          data:data,
+          success:function(data)
+          {
+              var chart = new CanvasJS.Chart("ageContainer", {
+                animationEnabled: true,
+                exportEnabled: false,
+                theme: "light1",
+                title:{
+                  text: "",
+                },
+                data: [{
+                  type: "splineArea",
+                  indexLabel: "{label} ({y})",
+                  indexLabelPlacement: "inside",
+                  indexLabelFontColor: "#36454F",
+                  indexLabelFontSize: 10,
+                  indexLabelFontWeight: "bolder",
+                  dataPoints: data
+                }]
+              });
+              chart.render();  
+          }
       });
 
       $.ajax({
