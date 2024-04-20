@@ -155,7 +155,30 @@
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
   <script>
+    google.charts.setOnLoadCallback(surveyChart);
     google.charts.setOnLoadCallback(patientChart);
+    function surveyChart() 
+			{
+	
+				/* Define the chart to be drawn.*/
+				var data = google.visualization.arrayToDataTable([
+					["Date", "Total"],
+					<?php 
+					foreach ($survey as $row){
+					echo "['".$row->Date."',".$row->total."],";
+					}
+					?>
+				]);
+
+				var options = {
+				title: '',
+				curveType: 'function',
+				legend: { position: 'bottom' }
+				};
+				/* Instantiate and draw the chart.*/
+				var chart = new google.visualization.ColumnChart(document.getElementById('chartContainer'));
+				chart.draw(data, options);
+			}
     function patientChart() 
 			{
 	
@@ -175,7 +198,7 @@
 				legend: { position: 'bottom' }
 				};
 				/* Instantiate and draw the chart.*/
-				var chart = new google.visualization.LineChart(document.getElementById('patientContainer'));
+				var chart = new google.visualization.ColumnChart(document.getElementById('patientContainer'));
 				chart.draw(data, options);
 			}
   </script>

@@ -157,8 +157,13 @@ class Home extends BaseController
         $builder->WHERE('Status<>',2);
         $builder->groupBy('Date')->orderBy('Date','ASC');
         $query = $builder->get()->getResult();
+        //survey
+        $builder = $this->db->table('tblrecords');
+        $builder->select('Date,count(recordID)total');
+        $builder->groupBy('Date')->groupBy('customerID')->orderBy('Date','ASC');
+        $survey = $builder->get()->getResult();
 
-        $data = ['customer'=>$customer,'patient'=>$patient,'appointment'=>$appointment,'query'=>$query];
+        $data = ['customer'=>$customer,'patient'=>$patient,'appointment'=>$appointment,'query'=>$query,'survey'=>$survey];
         return view('admin/index',$data);
     }
 
