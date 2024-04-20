@@ -148,18 +148,8 @@
                   <div class="col-12 form-group">
                     <div class="card">
                       <div class="card-body">
-                        <div class="card-title">Questionnaire</div>
-                        <table class="table-responsive table-bordered table-striped">
-                          <thead>
-                            <th class="bg-primary text-white">Questions</th>
-                            <th class="bg-primary text-white">Option A</th>
-                            <th class="bg-primary text-white">Option B</th>
-                            <th class="bg-primary text-white">Option C</th>
-                          </thead>
-                          <tbody>
-
-                          </tbody>
-                        </table>
+                        <div class="card-title">Survey</div>
+                        <div id="results"></div>
                       </div>
                     </div>
                   </div>
@@ -235,6 +225,14 @@
               });
               chart.render();  
           }
+      });
+
+      $.ajax({
+        url:"<?=site_url('respondents-answer')?>",method:"GET",
+        data:data,success:function(response)
+        {
+          $('#results').html(response);
+        }
       });
 
       $.ajax({

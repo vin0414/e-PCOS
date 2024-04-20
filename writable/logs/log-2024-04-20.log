@@ -518,3 +518,164 @@ INFO - 2024-04-20 05:04:28 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-04-20 05:04:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-04-20 05:04:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-04-20 05:04:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-20 05:06:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-20 05:13:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-04-20 05:18:34 --> mysqli_sql_exception: Unknown column 'a.choiceID' in 'on clause' in C:\xampp\htdocs\e-PCOS\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\e-PCOS\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `a`.`Que...', 0)
+#1 C:\xampp\htdocs\e-PCOS\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `a`.`Que...')
+#2 C:\xampp\htdocs\e-PCOS\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `a`.`Que...')
+#3 C:\xampp\htdocs\e-PCOS\system\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`Que...', Array, false)
+#4 C:\xampp\htdocs\e-PCOS\app\Controllers\Report.php(81): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\e-PCOS\system\CodeIgniter.php(934): App\Controllers\Report->answers()
+#6 C:\xampp\htdocs\e-PCOS\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Report))
+#7 C:\xampp\htdocs\e-PCOS\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\e-PCOS\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\e-PCOS\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-04-20 05:18:34 --> Unknown column 'a.choiceID' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`Question`, `b`.`Details`, COUNT(c.customerID)total
+FROM `tblquestion` `a`
+LEFT JOIN `tblchoice` `b` ON `b`.`questionID`=`a`.`questionID`
+LEFT JOIN `tblrecords` `c` ON `c`.`choiceID`=`a`.`choiceID`
+WHERE `c`.`Date` >= :c.Date:
+AND `c`.`Date` <= :c.Date.1:
+GROUP BY `b`.`choiceID`', [...], false)
+ 2 APPPATH\Controllers\Report.php(81): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Report->answers()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Report))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2024-04-20 05:18:49 --> mysqli_sql_exception: Unknown column 'a.choiceID' in 'on clause' in C:\xampp\htdocs\e-PCOS\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\e-PCOS\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `a`.`Que...', 0)
+#1 C:\xampp\htdocs\e-PCOS\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `a`.`Que...')
+#2 C:\xampp\htdocs\e-PCOS\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `a`.`Que...')
+#3 C:\xampp\htdocs\e-PCOS\system\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`Que...', Array, false)
+#4 C:\xampp\htdocs\e-PCOS\app\Controllers\Report.php(81): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\e-PCOS\system\CodeIgniter.php(934): App\Controllers\Report->answers()
+#6 C:\xampp\htdocs\e-PCOS\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Report))
+#7 C:\xampp\htdocs\e-PCOS\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\e-PCOS\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\e-PCOS\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-04-20 05:18:49 --> Unknown column 'a.choiceID' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`Question`, `b`.`Details`, COUNT(c.customerID)total
+FROM `tblquestion` `a`
+LEFT JOIN `tblchoice` `b` ON `b`.`questionID`=`a`.`questionID`
+LEFT JOIN `tblrecords` `c` ON `c`.`choiceID`=`a`.`choiceID`
+WHERE `c`.`Date` >= :c.Date:
+AND `c`.`Date` <= :c.Date.1:
+GROUP BY `b`.`choiceID`', [...], false)
+ 2 APPPATH\Controllers\Report.php(81): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Report->answers()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Report))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2024-04-20 05:21:31 --> mysqli_sql_exception: Unknown column 'c.customerID' in 'field list' in C:\xampp\htdocs\e-PCOS\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\e-PCOS\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `a`.`Que...', 0)
+#1 C:\xampp\htdocs\e-PCOS\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `a`.`Que...')
+#2 C:\xampp\htdocs\e-PCOS\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `a`.`Que...')
+#3 C:\xampp\htdocs\e-PCOS\system\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`Que...', Array, false)
+#4 C:\xampp\htdocs\e-PCOS\app\Controllers\Report.php(81): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\e-PCOS\system\CodeIgniter.php(934): App\Controllers\Report->answers()
+#6 C:\xampp\htdocs\e-PCOS\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Report))
+#7 C:\xampp\htdocs\e-PCOS\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\e-PCOS\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\e-PCOS\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-04-20 05:21:31 --> Unknown column 'c.customerID' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`Question`, `b`.`Details`, `c`.`total`
+FROM `tblquestion` `a`
+LEFT JOIN `tblchoice` `b` ON `b`.`questionID`=`a`.`questionID`
+LEFT JOIN (Select choiceID,COUNT(c.customerID)total from tblrecords group by choiceID) c ON `c`.`choiceID`=`b`.`choiceID`
+WHERE `c`.`Date` >= :c.Date:
+AND `c`.`Date` <= :c.Date.1:
+GROUP BY `b`.`choiceID`', [...], false)
+ 2 APPPATH\Controllers\Report.php(81): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Report->answers()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Report))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2024-04-20 05:21:45 --> mysqli_sql_exception: Unknown column 'c.customerID' in 'field list' in C:\xampp\htdocs\e-PCOS\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\e-PCOS\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `a`.`Que...', 0)
+#1 C:\xampp\htdocs\e-PCOS\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `a`.`Que...')
+#2 C:\xampp\htdocs\e-PCOS\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `a`.`Que...')
+#3 C:\xampp\htdocs\e-PCOS\system\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`Que...', Array, false)
+#4 C:\xampp\htdocs\e-PCOS\app\Controllers\Report.php(81): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\e-PCOS\system\CodeIgniter.php(934): App\Controllers\Report->answers()
+#6 C:\xampp\htdocs\e-PCOS\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Report))
+#7 C:\xampp\htdocs\e-PCOS\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\e-PCOS\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\e-PCOS\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-04-20 05:21:45 --> Unknown column 'c.customerID' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`Question`, `b`.`Details`, `c`.`total`
+FROM `tblquestion` `a`
+LEFT JOIN `tblchoice` `b` ON `b`.`questionID`=`a`.`questionID`
+LEFT JOIN (Select choiceID,COUNT(c.customerID)total from tblrecords group by choiceID) c ON `c`.`choiceID`=`b`.`choiceID`
+WHERE `c`.`Date` >= :c.Date:
+AND `c`.`Date` <= :c.Date.1:
+GROUP BY `b`.`choiceID`', [...], false)
+ 2 APPPATH\Controllers\Report.php(81): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Report->answers()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Report))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+ERROR - 2024-04-20 05:22:00 --> mysqli_sql_exception: Unknown column 'c.Date' in 'where clause' in C:\xampp\htdocs\e-PCOS\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\e-PCOS\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT `a`.`Que...', 0)
+#1 C:\xampp\htdocs\e-PCOS\system\Database\BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `a`.`Que...')
+#2 C:\xampp\htdocs\e-PCOS\system\Database\BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `a`.`Que...')
+#3 C:\xampp\htdocs\e-PCOS\system\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`Que...', Array, false)
+#4 C:\xampp\htdocs\e-PCOS\app\Controllers\Report.php(81): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\e-PCOS\system\CodeIgniter.php(934): App\Controllers\Report->answers()
+#6 C:\xampp\htdocs\e-PCOS\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Report))
+#7 C:\xampp\htdocs\e-PCOS\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\e-PCOS\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\e-PCOS\system\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2024-04-20 05:22:00 --> Unknown column 'c.Date' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 645.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`Question`, `b`.`Details`, `c`.`total`
+FROM `tblquestion` `a`
+LEFT JOIN `tblchoice` `b` ON `b`.`questionID`=`a`.`questionID`
+LEFT JOIN (Select choiceID,COUNT(customerID)total from tblrecords group by choiceID) c ON `c`.`choiceID`=`b`.`choiceID`
+WHERE `c`.`Date` >= :c.Date:
+AND `c`.`Date` <= :c.Date.1:
+GROUP BY `b`.`choiceID`', [...], false)
+ 2 APPPATH\Controllers\Report.php(81): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Report->answers()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Report))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-20 05:24:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-20 05:24:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-20 05:24:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-04-20 05:24:17 --> [DEPRECATED] Creation of dynamic property CodeIgniter\View\View::$db is deprecated in APPPATH\Views\admin\manage.php on line 48.
+ 1 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\manage.php')
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1177): CodeIgniter\View\View->render('admin/manage', [], true)
+ 4 APPPATH\Controllers\Home.php(308): view('admin/manage', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->Manage()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2024-04-20 05:24:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-20 05:24:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-20 05:24:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-20 05:24:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-20 05:24:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-04-20 05:24:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

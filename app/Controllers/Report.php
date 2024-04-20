@@ -64,4 +64,43 @@ class Report extends BaseController
         }
         echo json_encode($dataPoints,JSON_NUMERIC_CHECK);
     }
+
+
+    public function answers()
+    {
+        $fromdate = $this->request->getGet('fromdate');
+        $todate = $this->request->getGet('todate');
+
+        $builder = $this->db->table('tblquestion a');
+        $builder->select('a.Question,b.Details,COUNT(c.customerID)total');
+        $builder->join('tblchoice b','b.questionID=a.questionID','LEFT');
+        $builder->join('tblrecords c','c.choiceID=b.choiceID','LEFT');
+        $builder->WHERE('c.Date >=',$fromdate);
+        $builder->WHERE('c.Date <=',$todate);
+        $builder->groupBy('b.choiceID');
+        $data = $builder->get();
+        ?>
+        <table class="table-responsive table-bordered table-striped">
+            <thead>
+                <th class="bg-primary text-white">Question</th>
+                <th class="bg-primary text-white">Answers</th>
+                <th class="bg-primary text-white">Total</th>
+            </thead>
+            <tbody>
+        <?php
+        foreach($data->getResult() as $row)
+        {
+            ?>
+            <tr>
+                <td><?php echo $row->Question ?></td>
+                <td><?php echo $row->Details ?></td>
+                <td><?php echo $row->total ?></td>
+            </tr>
+            <?php
+        }
+        ?>
+            </tbody>
+        </table>
+        <?php
+    }
 }

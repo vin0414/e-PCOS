@@ -74,6 +74,7 @@ $routes->post('edit-answer','ManageController::editAnswer');
 $routes->get('generate-reports','Report::generateReport');
 $routes->get('respondents-location','Report::generateLocation');
 $routes->get('age-chart','Report::ageChart');
+$routes->get('respondents-answer','Report::answers');
 //customer controller
 $routes->post('update-information','Customer::updateInformation');
 $routes->post('cancel-reservation','Customer::cancelReservation');
