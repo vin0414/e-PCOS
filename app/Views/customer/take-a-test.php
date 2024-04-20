@@ -103,20 +103,20 @@
                       </div>
                     </div>
                   </div>
-                  <h6><b>Questions</b></h6>
+                  <h6><b>Survey</b></h6>
                   <?php foreach($survey as $rows):?>
                     <input type="hidden" name="survey" value="<?php echo $rows->surveyID ?>"/>
                     <?php
                       $db;$this->db = db_connect();
                       $builder = $this->db->table('tblquestion');
-                      $builder->select('Question,questionID');
+                      $builder->select('Question,questionID,Sequence');
                       $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 1');
                       $data = $builder->get();
                       if($row = $data->getRow())
                       {
                         ?>
                         <input type="hidden" name="question1" value="<?php echo $row->questionID ?>"/>
-                        <h6><?php echo $row->Question ?></h6>
+                        <h6><?php echo $row->Sequence ?>.&nbsp;<?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
                         $builder->select('choiceID,Details');
@@ -136,14 +136,14 @@
                     ?>
                     <?php
                       $builder = $this->db->table('tblquestion');
-                      $builder->select('Question,questionID');
+                      $builder->select('Question,questionID,Sequence');
                       $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 2');
                       $data = $builder->get();
                       if($row = $data->getRow())
                       {
                         ?>
                         <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
-                        <h6><?php echo $row->Question ?></h6>
+                        <h6><?php echo $row->Sequence ?>.&nbsp;<?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
                         $builder->select('choiceID,Details');
@@ -163,14 +163,14 @@
                     ?>
                     <?php
                       $builder = $this->db->table('tblquestion');
-                      $builder->select('Question,questionID');
+                      $builder->select('Question,questionID,Sequence');
                       $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 3');
                       $data = $builder->get();
                       if($row = $data->getRow())
                       {
                         ?>
                         <input type="hidden" name="question3" value="<?php echo $row->questionID ?>"/>
-                        <h6><?php echo $row->Question ?></h6>
+                        <h6><?php echo $row->Sequence ?>.&nbsp;<?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
                         $builder->select('choiceID,Details');
@@ -190,14 +190,14 @@
                     ?>
                     <?php
                       $builder = $this->db->table('tblquestion');
-                      $builder->select('Question,questionID');
+                      $builder->select('Question,questionID,Sequence');
                       $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 4');
                       $data = $builder->get();
                       if($row = $data->getRow())
                       {
                         ?>
                         <input type="hidden" name="question4" value="<?php echo $row->questionID ?>"/>
-                        <h6><?php echo $row->Question ?></h6>
+                        <h6><?php echo $row->Sequence ?>.&nbsp;<?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
                         $builder->select('choiceID,Details');
@@ -217,14 +217,14 @@
                       ?>
                       <?php
                       $builder = $this->db->table('tblquestion');
-                      $builder->select('Question,questionID');
+                      $builder->select('Question,questionID,Sequence');
                       $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 5');
                       $data = $builder->get();
                       if($row = $data->getRow())
                       {
                         ?>
                         <input type="hidden" name="question5" value="<?php echo $row->questionID ?>"/>
-                        <h6><?php echo $row->Question ?></h6>
+                        <h6><?php echo $row->Sequence ?>.&nbsp;<?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
                         $builder->select('choiceID,Details');
@@ -244,14 +244,14 @@
                     ?>
                     <?php
                       $builder = $this->db->table('tblquestion');
-                      $builder->select('Question,questionID');
+                      $builder->select('Question,questionID,Sequence');
                       $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 6');
                       $data = $builder->get();
                       if($row = $data->getRow())
                       {
                         ?>
                         <input type="hidden" name="question6" value="<?php echo $row->questionID ?>"/>
-                        <h6><?php echo $row->Question ?></h6>
+                        <h6><?php echo $row->Sequence ?>.&nbsp;<?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
                         $builder->select('choiceID,Details');
@@ -271,14 +271,14 @@
                     ?>
                     <?php
                       $builder = $this->db->table('tblquestion');
-                      $builder->select('Question,questionID');
+                      $builder->select('Question,questionID,Sequence');
                       $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 7');
                       $data = $builder->get();
                       if($row = $data->getRow())
                       {
                         ?>
                         <input type="hidden" name="question7" value="<?php echo $row->questionID ?>"/>
-                        <h6><?php echo $row->Question ?></h6>
+                        <h6><?php echo $row->Sequence ?>.&nbsp;<?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
                         $builder->select('choiceID,Details');
@@ -298,14 +298,14 @@
                     ?>
                     <?php
                       $builder = $this->db->table('tblquestion');
-                      $builder->select('Question,questionID');
+                      $builder->select('Question,questionID,Sequence');
                       $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 8');
                       $data = $builder->get();
                       if($row = $data->getRow())
                       {
                         ?>
                         <input type="hidden" name="question8" value="<?php echo $row->questionID ?>"/>
-                        <h6><?php echo $row->Question ?></h6>
+                        <h6><?php echo $row->Sequence ?>.&nbsp;<?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
                         $builder->select('choiceID,Details');
@@ -325,14 +325,14 @@
                     ?>
                     <?php
                       $builder = $this->db->table('tblquestion');
-                      $builder->select('Question,questionID');
+                      $builder->select('Question,questionID,Sequence');
                       $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 9');
                       $data = $builder->get();
                       if($row = $data->getRow())
                       {
                         ?>
                         <input type="hidden" name="question9" value="<?php echo $row->questionID ?>"/>
-                        <h6><?php echo $row->Question ?></h6>
+                        <h6><?php echo $row->Sequence ?>.&nbsp;<?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
                         $builder->select('choiceID,Details');
@@ -352,14 +352,14 @@
                     ?>
                     <?php
                       $builder = $this->db->table('tblquestion');
-                      $builder->select('Question,questionID');
+                      $builder->select('Question,questionID,Sequence');
                       $builder->WHERE('surveyID',$rows->surveyID)->WHERE('Sequence','Question 10');
                       $data = $builder->get();
                       if($row = $data->getRow())
                       {
                         ?>
                         <input type="hidden" name="question10" value="<?php echo $row->questionID ?>"/>
-                        <h6><?php echo $row->Question ?></h6>
+                        <h6><?php echo $row->Sequence ?>.&nbsp;<?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
                         $builder->select('choiceID,Details');

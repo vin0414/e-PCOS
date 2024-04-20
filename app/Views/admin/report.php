@@ -120,6 +120,7 @@
                   <div class="card-body">
                     <h6 class="card-title">Total Respondents</h6>
                     <h1 id="totalRespondent">0</h1>
+                    <small><a href="" class="btn btn-link btn-sm">View Response</a></small>
                   </div>
                 </div>
                 <br/>

@@ -94,8 +94,52 @@
             </ul>
             <div class="tab-content">
               <div class="tab-pane active show" id="tab-1">
+                <br/>
+                <div class="table-responsive">
+                  <table class="table table-striped table-bordered" id="table1">
+                    <thead>
+                        <th class="bg-primary text-white">Date</th>
+                        <th class="bg-primary text-white">Time</th>
+                        <th class="bg-primary text-white">Fullname</th>
+                        <th class="bg-primary text-white">Activities</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <div class="tab-pane show" id="tab-2">
+                <br/>
+                <form method="POST" class="row g-3" enctype="multipart/form-data">
+                  <div class="col-12 form-group">
+                    <div class="row g-3">
+                      <div class="col-lg-4">
+                        <label>Server</label>
+                        <input type="text" class="form-control" name="server" value="localhost" required/>
+                      </div>
+                      <div class="col-lg-4">
+                        <label>Username</label>
+                        <input type="text" class="form-control" name="username" value="root" required/>
+                      </div>
+                      <div class="col-lg-4">
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="password" value="Fastcat_01" required/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 form-group">
+                    <label>Database Name</label>
+                    <input type="text" class="form-control" name="database" value="db_poll_survey" required/>
+                  </div>
+                  <div class="col-12 form-group">
+                    <label>File</label>
+                    <input type="file" class="form-control" name="file" required/>
+                  </div>
+                  <div class="col-12 form-group">
+                    <button type="submit" class="btn btn-primary" id="btnUpload" name="restore"><span class="fa fa-upload"></span>&nbsp;Restore</button>
+                    <a href="<?=site_url('download')?>" class="btn btn-primary"><span class="fa fa-download"></span>&nbsp;Back-Up</a>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -119,6 +163,9 @@
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+  <script>
+    new DataTable('#table1');
+  </script>
 </body>
 
 </html>
