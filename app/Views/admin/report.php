@@ -136,10 +136,32 @@
                 </div>
               </div>
               <div class="col-lg-9">
-                <div class="card">
-                  <div class="card-body">
-                    <h6 class="card-title">Age Bracket</h6>
-                    <div id="ageContainer" style="height:300px;"></div>
+                <div class="row g-3">
+                  <div class="col-12 form-group">
+                    <div class="card">
+                      <div class="card-body">
+                        <h6 class="card-title">Age Bracket</h6>
+                        <div id="ageContainer" style="height:300px;"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 form-group">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-title">Questionnaire</div>
+                        <table class="table-responsive table-bordered table-striped">
+                          <thead>
+                            <th class="bg-primary text-white">Questions</th>
+                            <th class="bg-primary text-white">Option A</th>
+                            <th class="bg-primary text-white">Option B</th>
+                            <th class="bg-primary text-white">Option C</th>
+                          </thead>
+                          <tbody>
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

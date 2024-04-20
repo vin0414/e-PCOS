@@ -169,7 +169,7 @@
                       if($row = $data->getRow())
                       {
                         ?>
-                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <input type="hidden" name="question3" value="<?php echo $row->questionID ?>"/>
                         <h6><?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
@@ -196,7 +196,7 @@
                       if($row = $data->getRow())
                       {
                         ?>
-                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <input type="hidden" name="question4" value="<?php echo $row->questionID ?>"/>
                         <h6><?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
@@ -223,7 +223,7 @@
                       if($row = $data->getRow())
                       {
                         ?>
-                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <input type="hidden" name="question5" value="<?php echo $row->questionID ?>"/>
                         <h6><?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
@@ -250,7 +250,7 @@
                       if($row = $data->getRow())
                       {
                         ?>
-                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <input type="hidden" name="question6" value="<?php echo $row->questionID ?>"/>
                         <h6><?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
@@ -277,7 +277,7 @@
                       if($row = $data->getRow())
                       {
                         ?>
-                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <input type="hidden" name="question7" value="<?php echo $row->questionID ?>"/>
                         <h6><?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
@@ -304,7 +304,7 @@
                       if($row = $data->getRow())
                       {
                         ?>
-                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <input type="hidden" name="question8" value="<?php echo $row->questionID ?>"/>
                         <h6><?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
@@ -331,7 +331,7 @@
                       if($row = $data->getRow())
                       {
                         ?>
-                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <input type="hidden" name="question9" value="<?php echo $row->questionID ?>"/>
                         <h6><?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
@@ -358,7 +358,7 @@
                       if($row = $data->getRow())
                       {
                         ?>
-                        <input type="hidden" name="question2" value="<?php echo $row->questionID ?>"/>
+                        <input type="hidden" name="question10" value="<?php echo $row->questionID ?>"/>
                         <h6><?php echo $row->Question ?></h6>
                         <?php
                         $builder = $this->db->table('tblchoice');
