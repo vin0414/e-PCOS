@@ -147,6 +147,7 @@ class Customer extends BaseController
     public function saveRecord()
     {
         $recordModel = new \App\Models\recordsModel();
+        $customerInfoModel = new \App\Models\customerInfoModel();
         //data
         $customerID = $this->request->getPost('customer');
         $location = $this->request->getPost('location');
@@ -183,7 +184,7 @@ class Customer extends BaseController
         $answer10 = $this->request->getPost('answer10');
         $date = date('Y-m-d');
 
-        $builder = $this->db->table('tblrecords');
+        $builder = $this->db->table('tblcustomerinfo');
         $builder->select('customerID');
         $builder->WHERE('customerID',$customerID)->WHERE('Date',$date);
         $data = $builder->get();
@@ -200,6 +201,9 @@ class Customer extends BaseController
             }
             else
             {
+
+                $values = ['customerID'=>$customerID, 'Age'=>$age,'Location'=>$location,'Date'=>date('Y-m-d')];
+                $customerInfoModel->save($values);
                 if(empty($answer1))
                 {
                     //do nothing

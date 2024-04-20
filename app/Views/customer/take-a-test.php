@@ -90,6 +90,20 @@
                 <form method="POST" class="row g-3" id="frmSurvey">
                   <input type="hidden" name="customer" value="<?php echo session()->get('sess_id') ?>"/>
                   <input type="hidden" name="location" id="location"/>
+                  <div class="col-12 form-group">
+                    <h6><b>Respondent's Information</b></h6>
+                    <div class="row g-3">
+                      <div class="col-lg-8">
+                        <label>Complete Name</label>
+                        <input type="text" class="form-control" value="<?php echo session()->get('sess_fullname'); ?>"/>
+                      </div>
+                      <div class="col-lg-4">
+                        <label>Age</label>
+                        <input type="number" class="form-control" name="age" required/>
+                      </div>
+                    </div>
+                  </div>
+                  <h6><b>Questions</b></h6>
                   <?php foreach($survey as $rows):?>
                     <input type="hidden" name="survey" value="<?php echo $rows->surveyID ?>"/>
                     <?php

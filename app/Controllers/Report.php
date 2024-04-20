@@ -16,8 +16,8 @@ class Report extends BaseController
         $fromdate = $this->request->getGet('fromdate');
         $todate = $this->request->getGet('todate');
 
-        $builder = $this->db->table('tblrecords');
-        $builder->select('COUNT(DISTINCT customerID)total');
+        $builder = $this->db->table('tblcustomerinfo');
+        $builder->select('COUNT(customerID)total');
         $builder->WHERE('Date>=',$fromdate)->WHERE('Date<=',$todate);
         $builder->groupBy('customerID');
         $data = $builder->get();
@@ -32,10 +32,10 @@ class Report extends BaseController
         $fromdate = $this->request->getGet('fromdate');
         $todate = $this->request->getGet('todate');
 
-        $builder = $this->db->table('tblrecords');
-        $builder->select('Location,COUNT(DISTINCT customerID)total');
+        $builder = $this->db->table('tblcustomerinfo');
+        $builder->select('Location,COUNT(customerID)total');
         $builder->WHERE('Date>=',$fromdate)->WHERE('Date<=',$todate);
-        $builder->groupBy('Location')->groupBy('customerID');
+        $builder->groupBy('Location');
         $data = $builder->get();
         foreach($data->getResult() as $row)
         {
