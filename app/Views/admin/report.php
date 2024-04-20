@@ -126,6 +126,13 @@
                 <br/>
                 <div class="card">
                   <div class="card-body">
+                    <h6 class="card-title">Percentage (High Risk)</h6>
+                    <h1 id="totalPercentage">0%</h1>
+                  </div>
+                </div>
+                <br/>
+                <div class="card">
+                  <div class="card-body">
                     <table class="table-responsive table-bordered table-striped">
                       <thead>
                           <th class="bg-primary text-white">Location</th>
