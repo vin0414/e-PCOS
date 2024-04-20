@@ -5,7 +5,7 @@
 <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Members</title>
+  <title>Maintenance</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -82,8 +82,22 @@
     <section class="why-us">
       <div class="container">
         <div class="card">
-          <div class="card-header"><span class="bi bi-people"></span>&nbsp;Maintenance</div>
+          <div class="card-header"><span class="bi bi-gear"></span>&nbsp;Maintenance</div>
           <div class="card-body">
+            <ul class="nav nav-pills">
+              <li class="nav-item">
+                  <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Audit Trail</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Back-up and Restore</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active show" id="tab-1">
+              </div>
+              <div class="tab-pane show" id="tab-2">
+              </div>
+            </div>
           </div>
         </div>
       </div>
