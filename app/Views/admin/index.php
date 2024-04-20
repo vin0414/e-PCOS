@@ -176,7 +176,7 @@
 				legend: { position: 'bottom' }
 				};
 				/* Instantiate and draw the chart.*/
-				var chart = new google.visualization.ColumnChart(document.getElementById('chartContainer'));
+				var chart = new google.visualization.LineChart(document.getElementById('chartContainer'));
 				chart.draw(data, options);
 			}
     function patientChart() 
@@ -198,7 +198,7 @@
 				legend: { position: 'bottom' }
 				};
 				/* Instantiate and draw the chart.*/
-				var chart = new google.visualization.ColumnChart(document.getElementById('patientContainer'));
+				var chart = new google.visualization.LineChart(document.getElementById('patientContainer'));
 				chart.draw(data, options);
 			}
   </script>

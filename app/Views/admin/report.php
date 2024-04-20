@@ -104,7 +104,31 @@
                     <label>&nbsp;</label>
                     <input type="submit" class="btn btn-primary text-white form-control" value="Generate" id="btnGenerate"/>
                   </div>
+                  <div class="col-lg-2 form-group">
+                    <label>&nbsp;</label>
+                    <a href="" class="btn btn-outline-primary form-control" id="btnPrint">Print</a>
+                  </div>
                 </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 form-group">
+            <div class="row g-3">
+              <div class="col-lg-3">
+                <div class="card">
+                  <div class="card-body">
+                    <h6 class="card-title">Total Respondents</h6>
+                    <h1 id="totalRespondent">0</h1>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-9">
+                <div class="card">
+                  <div class="card-body">
+                    <h6 class="card-title">Age Bracket</h6>
+                    <div id="ageContainer" style="height:300px;"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
