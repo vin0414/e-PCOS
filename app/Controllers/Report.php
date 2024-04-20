@@ -17,8 +17,9 @@ class Report extends BaseController
         $todate = $this->request->getGet('todate');
 
         $builder = $this->db->table('tblrecords');
-        $builder->select('COUNT(recordID)total');
+        $builder->select('COUNT(DISTINCT customerID)total');
         $builder->WHERE('Date>=',$fromdate)->WHERE('Date<=',$todate);
+        $builder->groupBy('customerID');
         $data = $builder->get();
         if($row = $data->getRow())
         {
@@ -28,6 +29,22 @@ class Report extends BaseController
 
     public function generateLocation()
     {
-        
+        $fromdate = $this->request->getGet('fromdate');
+        $todate = $this->request->getGet('todate');
+
+        $builder = $this->db->table('tblrecords');
+        $builder->select('Location,COUNT(DISTINCT customerID)total');
+        $builder->WHERE('Date>=',$fromdate)->WHERE('Date<=',$todate);
+        $builder->groupBy('Location')->groupBy('customerID');
+        $data = $builder->get();
+        foreach($data->getResult() as $row)
+        {
+            ?>
+            <tr>
+                <td><?php echo $row->Location ?></td>
+                <td><?php echo $row->total ?></td>
+            </tr>
+            <?php
+        }
     }
 }

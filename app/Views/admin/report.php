@@ -125,8 +125,13 @@
                 <br/>
                 <div class="card">
                   <div class="card-body">
-                    <h6 class="card-title">Locations</h6>
-                    <div id="locations" style="height:160px;"></div>
+                    <table class="table-responsive table-bordered table-striped">
+                      <thead>
+                          <th class="bg-primary text-white">Location</th>
+                          <th class="bg-primary text-white">Volume</th>
+                      </thead>
+                      <tbody id="locations"></tbody>
+                    </table>
                   </div>
                 </div>
               </div>
@@ -187,7 +192,7 @@
         data:data,success:function(response)
         {
           $('#modal-loading').modal('hide');
-          $('#location').html(response);
+          $('#locations').html(response);
         }
       });
     });
