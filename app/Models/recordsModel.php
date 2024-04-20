@@ -14,7 +14,7 @@ class recordsModel extends Model
     protected $returnType = 'array';
     protected $userSoftDelete = false;
     protected $protectFields = true;
-    protected $allowedFields = ['customerID', 'questionID','choiceID','surveyID','Date'];
+    protected $allowedFields = ['customerID', 'questionID','choiceID','surveyID','Date','Location'];
 
     protected $validationRules = [];
     protected $validationMessages = [];

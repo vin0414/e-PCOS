@@ -89,6 +89,7 @@
                 <hr/>
                 <form method="POST" class="row g-3" id="frmSurvey">
                   <input type="hidden" name="customer" value="<?php echo session()->get('sess_id') ?>"/>
+                  <input type="hidden" name="location" id="location"/>
                   <?php foreach($survey as $rows):?>
                     <input type="hidden" name="survey" value="<?php echo $rows->surveyID ?>"/>
                     <?php
@@ -396,6 +397,48 @@
       <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
       <script src="../assets/js/main.js"></script>
       <script>
+        $(document).ready(function()
+        {
+          let patientLatitude="";
+          let patientLongitude="";
+          if(navigator.geolocation){
+            navigator.geolocation.watchPosition(function(position) {
+                console.log("Tracking Patients");
+                patientLatitude = position.coords.latitude;
+                patientLongitude = position.coords.longitude;
+                const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${patientLatitude}&longitude=${patientLongitude}&localityLanguage=en`;
+                let location = '';
+                let road, quarter, quarter2, locality, city, city2 = '';
+                fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                  quarter2 = data.localityInfo.administrative[data.localityInfo.administrative.length - 1].name;
+                  locality = data.locality;
+                  city2 = data.city;
+                  
+                  $('#log').html($('#log').html() + '</br>' + 'url: ' + quarter2 + ' ' + locality + ' ' + city2);
+                  
+                  if(quarter == '' || city == '' || quarter == undefined || city == undefined){
+                      location = 'near ' + quarter2 + ', ' + locality + ', ' + city2;
+                  }
+                  else if(quarter == quarter2){
+                      location = 'near ' + road + ', ' + quarter + ', ' + city;
+                  }
+                  else{
+                      location = 'near ' + road + ', ' + quarter + ', ' + city + ' and ' + quarter2 + ', ' + locality + ', ' + city2;
+                  }
+                  $('#location').attr("value",location);
+                })
+                .catch(() => {
+                });   
+              },
+              function(error) {
+                if (error.code == error.PERMISSION_DENIED);
+              });
+          }else{ 
+              alert("Geolocation is not supported by this browser.");
+          }
+        });
         $('#btnStart').on('click',function(e)
         {
           e.preventDefault();
@@ -419,6 +462,8 @@
               else
               {
                 alert(response);
+                document.getElementById('frmStart').style="display:block";
+                document.getElementById('frmQuestion').style="display:none";
               }
             }
           });

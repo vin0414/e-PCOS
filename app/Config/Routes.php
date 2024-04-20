@@ -71,6 +71,8 @@ $routes->post('save-entry','ManageController::saveEntry');
 $routes->post('edit-entry','ManageController::editEntry');
 $routes->post('save-answer','ManageController::saveAnswer');
 $routes->post('edit-answer','ManageController::editAnswer');
+$routes->get('generate-reports','Report::generateReport');
+$routes->get('respondents-location','Report::generateLocation');
 //customer controller
 $routes->post('update-information','Customer::updateInformation');
 $routes->post('cancel-reservation','Customer::cancelReservation');

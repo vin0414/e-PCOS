@@ -145,6 +145,16 @@
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
+  <div class="modal" id="modal-loading" data-backdrop="static">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+				<div class="modal-body text-center">
+					<div class="spinner-border"></div>
+					<div>Loading</div>
+				</div>
+				</div>
+			</div>
+		</div>
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -156,7 +166,32 @@
   <script src="<?php echo base_url('assets/vendor/php-email-form/validate.js')?>"></script>
 
   <!-- Template Main JS File -->
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   <script src="<?php echo base_url('assets/js/main.js')?>"></script>
+  <script>
+    $('#btnGenerate').on('click',function(e)
+    {
+      e.preventDefault();
+      var data = $('#frmReport').serialize();
+      $('#modal-loading').modal('show');
+      $.ajax({
+        url:"<?=site_url('generate-reports')?>",method:"GET",
+        data:data,success:function(response)
+        {
+          $('#totalRespondent').html(response);
+        }
+      });
+
+      $.ajax({
+        url:"<?=site_url('respondents-location')?>",method:"GET",
+        data:data,success:function(response)
+        {
+          $('#modal-loading').modal('hide');
+          $('#location').html(response);
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

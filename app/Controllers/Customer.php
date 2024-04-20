@@ -149,6 +149,7 @@ class Customer extends BaseController
         $recordModel = new \App\Models\recordsModel();
         //data
         $customerID = $this->request->getPost('customer');
+        $location = $this->request->getPost('location');
         $survey = $this->request->getPost('survey');
         $question1 = $this->request->getPost('question1');
         $answer1 = $this->request->getPost('answer1');
@@ -204,7 +205,7 @@ class Customer extends BaseController
                 }
                 else
                 {
-                    $values = ['customerID'=>$customerID, 'questionID'=>$question1,'choiceID'=>$answer1,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                    $values = ['customerID'=>$customerID, 'questionID'=>$question1,'choiceID'=>$answer1,'surveyID'=>$survey,'Date'=>date('Y-m-d'),'Location'=>$location];
                     $recordModel->save($values);
                 }
                 if(empty($answer2))
@@ -213,7 +214,7 @@ class Customer extends BaseController
                 }
                 else
                 {
-                    $values = ['customerID'=>$customerID, 'questionID'=>$question2,'choiceID'=>$answer2,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                    $values = ['customerID'=>$customerID, 'questionID'=>$question2,'choiceID'=>$answer2,'surveyID'=>$survey,'Date'=>date('Y-m-d'),'Location'=>$location];
                     $recordModel->save($values);
                 }
                 if(empty($answer3))
@@ -222,7 +223,7 @@ class Customer extends BaseController
                 }
                 else
                 {
-                    $values = ['customerID'=>$customerID, 'questionID'=>$question3,'choiceID'=>$answer3,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                    $values = ['customerID'=>$customerID, 'questionID'=>$question3,'choiceID'=>$answer3,'surveyID'=>$survey,'Date'=>date('Y-m-d'),'Location'=>$location];
                     $recordModel->save($values);
                 }
                 if(empty($answer4))
@@ -231,7 +232,7 @@ class Customer extends BaseController
                 }
                 else
                 {
-                    $values = ['customerID'=>$customerID, 'questionID'=>$question4,'choiceID'=>$answer4,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                    $values = ['customerID'=>$customerID, 'questionID'=>$question4,'choiceID'=>$answer4,'surveyID'=>$survey,'Date'=>date('Y-m-d'),'Location'=>$location];
                     $recordModel->save($values);
                 }
                 if(empty($answer5))
@@ -240,7 +241,7 @@ class Customer extends BaseController
                 }
                 else
                 {
-                    $values = ['customerID'=>$customerID, 'questionID'=>$question5,'choiceID'=>$answer5,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                    $values = ['customerID'=>$customerID, 'questionID'=>$question5,'choiceID'=>$answer5,'surveyID'=>$survey,'Date'=>date('Y-m-d'),'Location'=>$location];
                     $recordModel->save($values);
                 }
                 if(empty($answer6))
@@ -249,7 +250,7 @@ class Customer extends BaseController
                 }
                 else
                 {
-                    $values = ['customerID'=>$customerID, 'questionID'=>$question6,'choiceID'=>$answer6,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                    $values = ['customerID'=>$customerID, 'questionID'=>$question6,'choiceID'=>$answer6,'surveyID'=>$survey,'Date'=>date('Y-m-d'),'Location'=>$location];
                     $recordModel->save($values);
                 }
                 if(empty($answer7))
@@ -258,7 +259,7 @@ class Customer extends BaseController
                 }
                 else
                 {
-                    $values = ['customerID'=>$customerID, 'questionID'=>$question7,'choiceID'=>$answer7,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                    $values = ['customerID'=>$customerID, 'questionID'=>$question7,'choiceID'=>$answer7,'surveyID'=>$survey,'Date'=>date('Y-m-d'),'Location'=>$location];
                     $recordModel->save($values);
                 }
                 if(empty($answer8))
@@ -267,7 +268,7 @@ class Customer extends BaseController
                 }
                 else
                 {
-                    $values = ['customerID'=>$customerID, 'questionID'=>$question8,'choiceID'=>$answer8,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                    $values = ['customerID'=>$customerID, 'questionID'=>$question8,'choiceID'=>$answer8,'surveyID'=>$survey,'Date'=>date('Y-m-d'),'Location'=>$location];
                     $recordModel->save($values);
                 }
                 if(empty($answer9))
@@ -276,7 +277,7 @@ class Customer extends BaseController
                 }
                 else
                 {
-                    $values = ['customerID'=>$customerID, 'questionID'=>$question9,'choiceID'=>$answer9,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                    $values = ['customerID'=>$customerID, 'questionID'=>$question9,'choiceID'=>$answer9,'surveyID'=>$survey,'Date'=>date('Y-m-d'),'Location'=>$location];
                     $recordModel->save($values);
                 }
                 if(empty($answer10))
@@ -285,7 +286,7 @@ class Customer extends BaseController
                 }
                 else
                 {
-                    $values = ['customerID'=>$customerID, 'questionID'=>$question10,'choiceID'=>$answer10,'surveyID'=>$survey,'Date'=>date('Y-m-d')];
+                    $values = ['customerID'=>$customerID, 'questionID'=>$question10,'choiceID'=>$answer10,'surveyID'=>$survey,'Date'=>date('Y-m-d'),'Location'=>$location];
                     $recordModel->save($values);
                 }
                 echo "success";
