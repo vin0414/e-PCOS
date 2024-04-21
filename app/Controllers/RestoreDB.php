@@ -12,6 +12,7 @@ class RestoreDB extends BaseController
 		$password = $this->request->getPost('password');
 		$dbname = $this->request->getPost('database');
         $conn = mysqli_connect($server, $username, $password, $dbname);
+        $conn->set_charset("utf8");
  
 		//moving the uploaded sql file
 		$filename = $_FILES['file']['name'];
@@ -24,9 +25,7 @@ class RestoreDB extends BaseController
         //get our sql file
         $lines = file($file_location);
      
-        //return message
         $output = array('error'=>false);
-     
         //loop each line of our sql file
         foreach ($lines as $line){
      
@@ -43,7 +42,9 @@ class RestoreDB extends BaseController
                 //perform our query
                 $query = $conn->query($sql);
                 if(!$query){
-                    session()->setFlashdata('fail','Opps! Something went wrong.');
+                    $output['error'] = true;
+                    $output['message'] = $conn->error;
+                    session()->setFlashdata('fail',$output);
                     return redirect()->to('admin/maintenance')->withInput();
                 }
                 else{
