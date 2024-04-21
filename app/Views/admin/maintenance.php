@@ -118,7 +118,7 @@
               </div>
               <div class="tab-pane show" id="tab-2">
                 <br/>
-                <form method="POST" class="row g-3" enctype="multipart/form-data">
+                <form method="POST" class="row g-3" enctype="multipart/form-data" action="<?=base_url('restore')?>">
                   <div class="col-12 form-group">
                     <div class="row g-3">
                       <div class="col-lg-4">

@@ -76,6 +76,7 @@ $routes->get('respondents-location','Report::generateLocation');
 $routes->get('age-chart','Report::ageChart');
 $routes->get('respondents-answer','Report::answers');
 $routes->get('download','Download::downloadFile');
+$routes->post('restore','RestoreDB::RestoreData');
 //customer controller
 $routes->post('update-information','Customer::updateInformation');
 $routes->post('cancel-reservation','Customer::cancelReservation');
