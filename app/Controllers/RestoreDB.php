@@ -3,14 +3,8 @@
 namespace App\Controllers;
 use Config\App;
 
-class Download extends BaseController
+class RestoreDB extends BaseController
 {    
-    private $db;
-    public function __construct()
-    {
-        $this->db = db_connect();
-    }
-
     public function RestoreData()
     {
         $server = $this->request->getPost('server');
@@ -18,7 +12,6 @@ class Download extends BaseController
 		$password = $this->request->getPost('password');
 		$dbname = $this->request->getPost('database');
         $conn = mysqli_connect($server, $username, $password, $dbname);
-        $conn->set_charset("utf8");
  
 		//moving the uploaded sql file
 		$filename = $_FILES['file']['name'];

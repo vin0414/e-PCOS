@@ -84,6 +84,16 @@
         <div class="card">
           <div class="card-header"><span class="bi bi-gear"></span>&nbsp;Maintenance</div>
           <div class="card-body">
+          <?php if(!empty(session()->getFlashdata('fail'))) : ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <?= session()->getFlashdata('fail'); ?>
+            </div>
+          <?php endif; ?>
+          <?php if(!empty(session()->getFlashdata('success'))) : ?>
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <?= session()->getFlashdata('success'); ?>
+              </div>
+          <?php endif; ?>
             <ul class="nav nav-pills">
               <li class="nav-item">
                   <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Audit Trail</a>
