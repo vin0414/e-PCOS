@@ -78,6 +78,8 @@ class Home extends BaseController
 
     public function check()
     {
+        date_default_timezone_set('Asia/Manila');
+        $systemLogsModel = new \App\Models\systemLogsModel();
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
@@ -110,10 +112,8 @@ class Home extends BaseController
                     session()->set('sess_fullname', $row->Fullname);
                     session()->set('sess_role',$row->Role);
                     //save the logs
-                    // $values = [
-                    //     'Date'=>date('Y-m-d'),'Time'=>date('h:i:s a'),'accountID'=>$row->accountID,'Activity'=>'Logged In'
-                    // ];
-                    // $logsModel->save($values);
+                    $values = ['accountID'=>$row->accountID,'Date'=>date('Y-m-d'),'Time'=>date('h:m:s a'),'Activities'=>'Logged On'];
+                    $systemLogsModel->save($values);
                     return redirect()->to('admin/dashboard');
                 }
             }
@@ -127,8 +127,12 @@ class Home extends BaseController
 
     public function logout()
     {
+        date_default_timezone_set('Asia/Manila');
+        $systemLogsModel = new \App\Models\systemLogsModel();
         if(session()->has('loggedUser'))
         {
+            $values = ['accountID'=>session()->get('loggedUser'),'Date'=>date('Y-m-d'),'Time'=>date('h:m:s a'),'Activities'=>'Logged Out'];
+            $systemLogsModel->save($values);
             session()->remove('loggedUser');
             session()->destroy();
             return redirect()->to('/auth?access=out')->with('fail', 'You are logged out!');
@@ -198,7 +202,12 @@ class Home extends BaseController
 
     public function Maintenance()
     {
-        return view('admin/maintenance');
+        $builder = $this->db->table('tbllogs a');
+        $builder->select('a.*,b.Fullname');
+        $builder->join('tblaccount b','b.accountID=a.accountID','LEFT');
+        $logs = $builder->get()->getResult();
+        $data = ['logs'=>$logs];
+        return view('admin/maintenance',$data);
     }
 
     public function newAccount()
@@ -208,6 +217,8 @@ class Home extends BaseController
 
     public function saveAccount()
     {
+        date_default_timezone_set('Asia/Manila');
+        $systemLogsModel = new \App\Models\systemLogsModel();
         $accountModel = new \App\Models\accountModel();
         //data
         $fullname = $this->request->getPost('fullname');
@@ -232,6 +243,9 @@ class Home extends BaseController
         {
             $values = ['EmailAddress'=>$email,'Password'=>Hash::make($password),'Fullname'=>$fullname,'Status'=>$status,'Role'=>$role];
             $accountModel->save($values);
+            //logs
+            $values = ['accountID'=>session()->get('loggedUser'),'Date'=>date('Y-m-d'),'Time'=>date('h:m:s a'),'Activities'=>'Register new account for '.$fullname];
+            $systemLogsModel->save($values);
             session()->setFlashdata('success','Great! Successfully updated');
             return redirect()->to('admin/settings')->withInput();
         }
@@ -239,11 +253,16 @@ class Home extends BaseController
 
     public function resetAccount()
     {
+        date_default_timezone_set('Asia/Manila');
+        $systemLogsModel = new \App\Models\systemLogsModel();
         $accountModel = new \App\Models\accountModel();
         $id = $this->request->getPost('value');
         $password = "Qwerty1234";
         $values = ['Password'=>Hash::make($password)];
         $accountModel->update($id,$values);
+        //logs
+        $values = ['accountID'=>session()->get('loggedUser'),'Date'=>date('Y-m-d'),'Time'=>date('h:m:s a'),'Activities'=>'Reset password'];
+        $systemLogsModel->save($values);
         echo "success";
     }
 
@@ -271,6 +290,8 @@ class Home extends BaseController
 
     public function updateAccount()
     {
+        date_default_timezone_set('Asia/Manila');
+        $systemLogsModel = new \App\Models\systemLogsModel();
         $accountModel = new \App\Models\accountModel();
         //data
         $id = $this->request->getPost('accountID');
@@ -295,6 +316,9 @@ class Home extends BaseController
         {
             $values = ['EmailAddress'=>$email,'Fullname'=>$fullname,'Status'=>$status,'Role'=>$role];
             $accountModel->update($id,$values);
+            //logs
+            $values = ['accountID'=>session()->get('loggedUser'),'Date'=>date('Y-m-d'),'Time'=>date('h:m:s a'),'Activities'=>'Update the account of '.$fullname];
+            $systemLogsModel->save($values);
             session()->setFlashdata('success','Great! Successfully updated');
             return redirect()->to('admin/settings')->withInput();
         }
@@ -318,19 +342,29 @@ class Home extends BaseController
 
     public function activateAccount()
     {
+        date_default_timezone_set('Asia/Manila');
+        $systemLogsModel = new \App\Models\systemLogsModel();
         $customerModel = new \App\Models\customerModel();
         $val = $this->request->getPost('value');
         $values = ['Status'=>1];
         $customerModel->update($val,$values);
+        //logs
+        $values = ['accountID'=>session()->get('loggedUser'),'Date'=>date('Y-m-d'),'Time'=>date('h:m:s a'),'Activities'=>'Activated selected account'];
+        $systemLogsModel->save($values);
         echo "success";
     }
 
     public function deactivateAccount()
     {
+        date_default_timezone_set('Asia/Manila');
+        $systemLogsModel = new \App\Models\systemLogsModel();
         $customerModel = new \App\Models\customerModel();
         $val = $this->request->getPost('value');
         $values = ['Status'=>0];
         $customerModel->update($val,$values);
+        //logs
+        $values = ['accountID'=>session()->get('loggedUser'),'Date'=>date('Y-m-d'),'Time'=>date('h:m:s a'),'Activities'=>'Deactivated selected account'];
+        $systemLogsModel->save($values);
         echo "success";
     }
 
@@ -408,6 +442,8 @@ class Home extends BaseController
 
     public function rebook()
     {
+        date_default_timezone_set('Asia/Manila');
+        $systemLogsModel = new \App\Models\systemLogsModel();
         $reservationModel = new \App\Models\reservationModel();
         $customerID = 0;
         $reservationID = $this->request->getPost('reservationID');
@@ -427,28 +463,41 @@ class Home extends BaseController
             'Surname'=>$surname,'Firstname'=>$firstname,'MiddleName'=>$mi,'Suffix'=>$suffix,
             'Contact'=>$phone,'BirthDate'=>$bdate,'Gender'=>$gender,
             'Address'=>$address,'Status'=>1,'customerID'=>$customerID];
-            $reservationModel->update($reservationID,$values);
+        $reservationModel->update($reservationID,$values);
+        //logs
+        $values = ['accountID'=>session()->get('loggedUser'),'Date'=>date('Y-m-d'),'Time'=>date('h:m:s a'),'Activities'=>'Re-booked selected appointment'];
+        $systemLogsModel->save($values);
         session()->setFlashdata('success','Great! Successfully updated');
         return redirect()->to('admin/manage')->withInput();
     }
 
     public function acceptReservation()
     {
+        date_default_timezone_set('Asia/Manila');
+        $systemLogsModel = new \App\Models\systemLogsModel();
         $reservationModel = new \App\Models\reservationModel();
         //data
         $val = $this->request->getPost('value');
         $values = ['Status'=>1];
         $reservationModel->update($val,$values);
+        //logs
+        $values = ['accountID'=>session()->get('loggedUser'),'Date'=>date('Y-m-d'),'Time'=>date('h:m:s a'),'Activities'=>'Accepted the reservation'];
+        $systemLogsModel->save($values);
         echo "success";
     }
 
     public function completeReservation()
     {
+        date_default_timezone_set('Asia/Manila');
+        $systemLogsModel = new \App\Models\systemLogsModel();
         $reservationModel = new \App\Models\reservationModel();
         //data
         $val = $this->request->getPost('value');
         $values = ['Status'=>3];
         $reservationModel->update($val,$values);
+        //logs
+        $values = ['accountID'=>session()->get('loggedUser'),'Date'=>date('Y-m-d'),'Time'=>date('h:m:s a'),'Activities'=>'Tag as Done/Completed'];
+        $systemLogsModel->save($values);
         echo "success";
     }
 
@@ -589,6 +638,8 @@ class Home extends BaseController
 
     public function updatePassword()
     {
+        date_default_timezone_set('Asia/Manila');
+        $systemLogsModel = new \App\Models\systemLogsModel();
         $accountModel = new \App\Models\accountModel();
         $user = session()->get('loggedUser');
         $new_pass = $this->request->getPost('new_password');
@@ -616,7 +667,9 @@ class Home extends BaseController
                 $defaultPassword = Hash::make($new_pass);
                 $values = ['Password'=>$defaultPassword,];
                 $accountModel->update($user,$values);
-
+                //logs
+                $values = ['accountID'=>session()->get('loggedUser'),'Date'=>date('Y-m-d'),'Time'=>date('h:m:s a'),'Activities'=>'Change the password'];
+                $systemLogsModel->save($values);
                 session()->setFlashdata('success','Great! Password has successfully updated');
                 return redirect()->to('admin/profile')->withInput();
             }

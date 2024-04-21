@@ -104,6 +104,14 @@
                         <th class="bg-primary text-white">Activities</th>
                     </thead>
                     <tbody>
+                      <?php foreach($logs as $row): ?>
+                        <tr>
+                          <td><?php echo $row->Date ?></td>
+                          <td><?php echo $row->Time ?></td>
+                          <td><?php echo $row->Fullname ?></td>
+                          <td><?php echo $row->Activities ?></td>
+                        </tr>
+                      <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>
