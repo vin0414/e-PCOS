@@ -280,10 +280,10 @@ class ManageController extends BaseController
                 $values = ['Title'=>$title_blog, 'Details'=>$description,'Date'=>date('Y-m-d'),'Image'=>$originalName];
                 $blogModel->update($id,$values);
                 $file->move('Blogs/',$originalName);
-                //logs
-                $values = ['accountID'=>session()->get('loggedUser'),'Date'=>date('Y-m-d'),'Time'=>date('h:m:s a'),'Activities'=>'Update the selected Blog'];
-                $systemLogsModel->save($values);
             }
+            //logs
+            $values = ['accountID'=>session()->get('loggedUser'),'Date'=>date('Y-m-d'),'Time'=>date('h:m:s a'),'Activities'=>'Update the selected Blog'];
+            $systemLogsModel->save($values);
             session()->setFlashdata('success','Great! Successfully updated');
             return redirect()->to('admin/settings')->withInput();
         }
