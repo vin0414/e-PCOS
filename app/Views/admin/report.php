@@ -95,11 +95,11 @@
                 <form method="GET" class="row g-3" id="frmReport">
                   <div class="col-lg-3 form-group">
                     <label>From</label>
-                    <input type="date" class="form-control" name="fromdate"/>
+                    <input type="date" class="form-control" name="fromdate" id="fromdate"/>
                   </div>
                   <div class="col-lg-3 form-group">
                     <label>To</label>
-                    <input type="date" class="form-control" name="todate"/>
+                    <input type="date" class="form-control" name="todate" id="todate"/>
                   </div>
                   <div class="col-lg-2 form-group">
                     <label>&nbsp;</label>
@@ -120,7 +120,7 @@
                   <div class="card-body">
                     <h6 class="card-title">Total Respondents</h6>
                     <h1 id="totalRespondent">0</h1>
-                    <small><a href="" class="btn btn-link btn-sm">View Response</a></small>
+                    <small><button type="button" id="btnView" class="btn btn-link btn-sm">View Response</button></small>
                   </div>
                 </div>
                 <br/>
@@ -206,6 +206,14 @@
         {
           $('#totalRespondent').html(response);
         }
+      });
+
+      $('#btnView').on('click',function(e)
+      {
+        e.preventDefault();
+        var fromdate = $('#fromdate').val();
+        var todate = $('#todate').val();
+        window.location.href="view-response?fromdate="+fromdate+"&todate="+todate;
       });
 
       $.ajax({

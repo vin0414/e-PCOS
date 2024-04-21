@@ -676,6 +676,11 @@ class Home extends BaseController
         }
     }
 
+    public function viewResponse()
+    {
+        return view('admin/response');
+    }
+
     //customer
 
     public function login()
