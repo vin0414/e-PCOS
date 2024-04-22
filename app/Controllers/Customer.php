@@ -339,7 +339,7 @@ class Customer extends BaseController
                     <ol>
                     <li>Visit our website at <a href='https://pcos-system.online/'>https://pcos-system.online/</a>.</li>
                     <li>Log in to your account.</li>
-                    <li>Navigate to the \"My Profile\" section.</li>
+                    <li>Navigate to the \"Account Settings\" section.</li>
                     <li>Enter your new password and confirm it.</li>
                     <li>Save the changes.</li>
                     </ol>
