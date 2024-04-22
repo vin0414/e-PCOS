@@ -297,6 +297,7 @@ class ManageController extends BaseController
         //data
         $id = $this->request->getPost('questionID');
         $details = $this->request->getPost('details');
+        $score = $this->request->getPost('score');
 
         $validation = $this->validate([
             'questionID'=>'required',
@@ -310,7 +311,7 @@ class ManageController extends BaseController
         }
         else
         {
-            $values = ['Details'=>$details];
+            $values = ['Details'=>$details,'Score'=>$score];
             $choiceModel->update($id,$values);
             //logs
             $values = ['accountID'=>session()->get('loggedUser'),'Date'=>date('Y-m-d'),'Time'=>date('h:m:s a'),'Activities'=>'Update the selected answer'];
@@ -328,6 +329,7 @@ class ManageController extends BaseController
         //data
         $id = $this->request->getPost('questionID');
         $details = $this->request->getPost('details');
+        $score = $this->request->getPost('score');
 
         $validation = $this->validate([
             'questionID'=>'required',
@@ -341,7 +343,7 @@ class ManageController extends BaseController
         }
         else
         {
-            $values = ['questionID'=>$id,'Details'=>$details];
+            $values = ['questionID'=>$id,'Details'=>$details,'Score'=>$score];
             $choiceModel->save($values);
             $choiceModel->update($id,$values);
             //logs

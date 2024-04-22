@@ -14,7 +14,7 @@ class choiceModel extends Model
     protected $returnType = 'array';
     protected $userSoftDelete = false;
     protected $protectFields = true;
-    protected $allowedFields = ['questionID','Details'];
+    protected $allowedFields = ['questionID','Details','Score'];
 
     protected $validationRules = [];
     protected $validationMessages = [];

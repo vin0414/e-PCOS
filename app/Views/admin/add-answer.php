@@ -96,7 +96,11 @@
                             <input type="hidden" name="questionID" value="<?=$question?>"/> 
                             <div class="col-12 form-group">
                                 <label>Details</label>
-                                <textarea class="form-control" style="height:300px;" name="details" required></textarea>
+                                <textarea class="form-control" style="height:200px;" name="details" required></textarea>
+                            </div>
+                            <div class="col-12 form-group">
+                              <label>Score/Level</label>
+                              <input type="number" class="form-control" name="Score" required/>
                             </div>
                             <div class="col-12 form-group">
                                 <button type="submit" class="btn btn-primary form-control" id="btnSubmit">Save Entry</button>

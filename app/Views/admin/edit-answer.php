@@ -97,10 +97,14 @@
                             <input type="hidden" name="questionID" value="<?php echo $answer['questionID'] ?>"/> 
                             <div class="col-12 form-group">
                                 <label>Details</label>
-                                <textarea class="form-control" style="height:300px;" name="details" required><?php echo $answer['Details'] ?></textarea>
+                                <textarea class="form-control" style="height:200px;" name="details" required><?php echo $answer['Details'] ?></textarea>
                             </div>
                             <div class="col-12 form-group">
-                                <button type="submit" class="btn btn-primary form-control" id="btnSubmit">Save Entry</button>
+                              <label>Score/Level</label>
+                              <input type="number" class="form-control" name="Score" value="<?php echo $answer['Score'] ?>" required/>
+                            </div>
+                            <div class="col-12 form-group">
+                                <button type="submit" class="btn btn-primary form-control" id="btnSubmit">Save Changes</button>
                             </div> 
                             <?php endif; ?>  
                         </form>
