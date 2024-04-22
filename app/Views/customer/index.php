@@ -108,7 +108,7 @@
                 <div class="card">
                   <div class="card-body">
                     <div class="card-title">Total Appointment</div>
-                    <h1>0</h1>
+                    <h1><?php foreach($total as $row): ?><?php echo $row->total ?><?php endforeach; ?></h1>
                   </div>
                 </div>
               </div>
@@ -116,7 +116,7 @@
                 <div class="card">
                   <div class="card-body">
                     <div class="card-title">Pending Appointment</div>
-                    <h1>0</h1>
+                    <h1><?php foreach($pending as $row): ?><?php echo $row->total ?><?php endforeach; ?></h1>
                   </div>
                 </div>
               </div>
@@ -124,7 +124,7 @@
                 <div class="card">
                   <div class="card-body">
                     <div class="card-title">Reservations</div>
-                    <h1>0</h1>
+                    <h1><?php foreach($reserved as $row): ?><?php echo $row->total ?><?php endforeach; ?></h1>
                   </div>
                 </div>
               </div>
@@ -132,7 +132,7 @@
                 <div class="card">
                   <div class="card-body">
                     <div class="card-title">Total Survey</div>
-                    <h1>0</h1>
+                    <h1><?php foreach($survey as $row): ?><?php echo $row->total ?><?php endforeach; ?></h1>
                   </div>
                 </div>
               </div>

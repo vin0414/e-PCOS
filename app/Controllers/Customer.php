@@ -14,7 +14,28 @@ class Customer extends BaseController
 
     public function Index()
     {
-        return view('customer/index');
+        $user =  session()->get('sess_id');
+        $builder = $this->db->table('tblreservation');
+        $builder->select('COUNT(reservationID)total');
+        $builder->WHERE('customerID',$user);
+        $total = $builder->get()->getResult();
+        //pending
+        $builder = $this->db->table('tblreservation');
+        $builder->select('COUNT(reservationID)total');
+        $builder->WHERE('customerID',$user)->WHERE('Status',0);
+        $pending = $builder->get()->getResult();
+        //reserved
+        $builder = $this->db->table('tblreservation');
+        $builder->select('COUNT(reservationID)total');
+        $builder->WHERE('customerID',$user)->WHERE('Status',1);
+        $reserved = $builder->get()->getResult();
+        //survey
+        $builder = $this->db->table('tblcustomerinfo');
+        $builder->select('COUNT(infoID)total');
+        $builder->WHERE('customerID',$user);
+        $survey = $builder->get()->getResult();
+        $data = ['total'=>$total,'pending'=>$pending,'reserved'=>$reserved,'survey'=>$survey];
+        return view('customer/index',$data);
     }
 
     public function takeATest()
