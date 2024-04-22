@@ -78,7 +78,7 @@
 
       <!-- <h1 class="logo me-auto"><a href="/">e-PCOS</a></h1> -->
       <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="/" class="logo me-auto"><img src="../assets/img/logo.png" alt="" class="img-fluid"> e-PCOS</a>
+      <a href="/" class="logo me-auto"><img src="../assets/img/logo.png" alt="" class="img-fluid"> PCOSPhil</a>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
@@ -101,7 +101,47 @@
     <!-- ======= Contact Section ======= -->
     <section class="why-us">
       <div class="container">
-      <div id="calendar"></div>
+        <div class="row g-3">
+          <div class="col-12 form-group">
+            <div class="row g-3">
+              <div class="col-lg-3 form-group">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Total Appointment</div>
+                    <h1>0</h1>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 form-group">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Pending Appointment</div>
+                    <h1>0</h1>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 form-group">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Reservations</div>
+                    <h1>0</h1>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 form-group">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-title">Total Survey</div>
+                    <h1>0</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 form-group">
+            <div id="calendar"></div>
+          </div>
+        </div>
       </div>
     </section><!-- End Contact Section -->
 

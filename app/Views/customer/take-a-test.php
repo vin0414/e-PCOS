@@ -43,7 +43,7 @@
 
       <!-- <h1 class="logo me-auto"><a href="/">e-PCOS</a></h1> -->
       <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="/" class="logo me-auto"><img src="../assets/img/logo.png" alt="" class="img-fluid"> e-PCOS</a>
+      <a href="/" class="logo me-auto"><img src="../assets/img/logo.png" alt="" class="img-fluid"> PCOSPhil</a>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
@@ -74,7 +74,7 @@
                 <center>
                 <img src="../assets/img/logo.png" alt="" style="width:100px;" class="img-fluid">
                 </center>
-                <h3 class="text-center">Polycystic Ovarian Syndrome (PCOS) Risk Assessment</h3>
+                <h3 class="text-center">Polycystic Ovarian Syndrome (PCOS)<br/> Risk Assessment</h3>
                 <br/>
                 <div class="text-center">Important Notice</div>
                 <p class="text-center" style="font-size:12px;">Please be aware that the PCOS risk assessment questions provided are only a tool for determining the likelihood of the condition and should not be used as a substitute for professional medical advice or diagnosis. Their goal is to help people recognize probable PCOS symptoms therefore, a trained healthcare practitioner should conduct a more thorough examination.  If you believe you have PCOS or notice any symptoms, you should see a doctor for a proper diagnosis and treatment.</p>
@@ -94,16 +94,16 @@
                     <h6><b>Respondent's Information</b></h6>
                     <div class="row g-3">
                       <div class="col-lg-10">
-                        <label>Complete Name</label>
+                        <label><b>Complete Name</b></label>
                         <input type="text" class="form-control" value="<?php echo session()->get('sess_fullname'); ?>"/>
                       </div>
                       <div class="col-lg-2">
-                        <label>Age</label>
+                        <label><b>Age</b></label>
                         <input type="number" class="form-control" name="age" required/>
                       </div>
                     </div>
                   </div>
-                  <h6><b>Questions/Survey</b></h6>
+                  <h6><b><center>Questions/Survey</center></b></h6>
                   <?php foreach($survey as $rows):?>
                     <input type="hidden" name="survey" value="<?php echo $rows->surveyID ?>"/>
                     <?php
