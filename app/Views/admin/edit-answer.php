@@ -94,14 +94,14 @@
                         <?php endif; ?>
                         <form method="post" class="row g-3" id="frmAnswer" action="<?=base_url('edit-answer')?>">
                           <?php if($answer): ?>
-                            <input type="hidden" name="questionID" value="<?php echo $answer['questionID'] ?>"/> 
+                            <input type="hidden" name="questionID" value="<?php echo $answer['choiceID'] ?>"/> 
                             <div class="col-12 form-group">
                                 <label>Details</label>
                                 <textarea class="form-control" style="height:200px;" name="details" required><?php echo $answer['Details'] ?></textarea>
                             </div>
                             <div class="col-12 form-group">
                               <label>Score/Level</label>
-                              <input type="number" class="form-control" name="Score" value="<?php echo $answer['Score'] ?>" required/>
+                              <input type="number" class="form-control" name="score" value="<?php echo $answer['Score'] ?>" required/>
                             </div>
                             <div class="col-12 form-group">
                                 <button type="submit" class="btn btn-primary form-control" id="btnSubmit">Save Changes</button>

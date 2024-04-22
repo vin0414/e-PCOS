@@ -240,6 +240,7 @@
                             <thead>
                                 <th class="bg-primary text-white">Question</th>
                                 <th class="bg-primary text-white">Details</th>
+                                <th class="bg-primary text-white">Score</th>
                                 <th class="bg-primary text-white">Action</th>
                             </thead>
                             <tbody>
@@ -247,6 +248,7 @@
                                   <tr>
                                     <td><?php echo $row->Question ?></td> 
                                     <td><?php echo $row->Details ?></td> 
+                                    <td><?php echo $row->Score ?></td>
                                     <td>
                                       <a class="btn btn-primary btn-sm" href="<?=site_url('admin/edit-answer/')?><?php echo $row->choiceID ?>">
                                           <span class="fa fa-edit"></span>&nbsp;Edit

@@ -127,7 +127,14 @@
                 <div class="card">
                   <div class="card-body">
                     <h6 class="card-title">Percentage (High Risk)</h6>
-                    <h1 id="totalPercentage">0%</h1>
+                    <h1 id="totalHigh">0%</h1>
+                  </div>
+                </div>
+                <br/>
+                <div class="card">
+                  <div class="card-body">
+                    <h6 class="card-title">Percentage (Low Risk)</h6>
+                    <h1 id="totalLow">0%</h1>
                   </div>
                 </div>
                 <br/>

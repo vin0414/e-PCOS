@@ -192,7 +192,7 @@ class Home extends BaseController
         $list = $builder->get()->getResult();
         //choices
         $builder = $this->db->table('tblchoice a');
-        $builder->select('a.Details,a.choiceID,b.Question');
+        $builder->select('a.Details,a.choiceID,b.Question,a.Score');
         $builder->join('tblquestion b','b.questionID=a.questionID','LEFT');
         $choices = $builder->get()->getResult();
 
