@@ -387,7 +387,7 @@
               <center><span class="bi bi-check-circle text-success" style="font-size:100px;"></span></center>
               <h1 class="text-center text-success">Successfully submitted</h1>
               <center>
-                <button type="button" class="btn btn-primary">View Result</button>
+                <a href="<?=site_url('customer/history')?>" class="btn btn-primary">View Result</a>
               </center>
               <br/>
             </div>

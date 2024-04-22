@@ -38,6 +38,11 @@ class Customer extends BaseController
         return view('customer/index',$data);
     }
 
+    public function History()
+    {
+        return view('customer/history');
+    }
+
     public function takeATest()
     {
         $builder = $this->db->table('tblsurvey');
