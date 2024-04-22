@@ -107,7 +107,8 @@
                         Change Password
                     </div>
                     <div class="card-body">
-                        <form method="POST" class="row g-3" id="frmChange" action="<?=base_url('update-password')?>">
+                        <form method="POST" class="row g-3" id="frmChange" action="<?=base_url('change-pass')?>">
+                            <input type="hidden" name="userID" value="<?php echo session()->get('sess_id') ?>"/>
                             <div class="col-12">
                                 <label>New Password *</label>
                                 <input type="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  name="new_password" required/>

@@ -84,6 +84,7 @@ $routes->post('cancel-reservation','Customer::cancelReservation');
 $routes->get('get-available-time','Customer::getTime');
 $routes->post('save-record','Customer::saveRecord');
 $routes->post('reset-password','Customer::resetPassword');
+$routes->post('change-pass','Customer::changePassword');
 
 $routes->group('',['filter'=>'AuthCheck'],function($routes)
 {
