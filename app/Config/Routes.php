@@ -75,6 +75,7 @@ $routes->get('generate-reports','Report::generateReport');
 $routes->get('respondents-location','Report::generateLocation');
 $routes->get('age-chart','Report::ageChart');
 $routes->get('respondents-answer','Report::answers');
+$routes->get('high-risk','Report::highRisk');
 $routes->get('download','Download::downloadFile');
 $routes->post('restore','RestoreDB::RestoreData');
 //customer controller

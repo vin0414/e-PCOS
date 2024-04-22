@@ -133,13 +133,6 @@
                 <br/>
                 <div class="card">
                   <div class="card-body">
-                    <h6 class="card-title">Percentage (Low Risk)</h6>
-                    <h1 id="totalLow">0%</h1>
-                  </div>
-                </div>
-                <br/>
-                <div class="card">
-                  <div class="card-body">
                     <table class="table-responsive table-bordered table-striped">
                       <thead>
                           <th class="bg-primary text-white">Location</th>
@@ -202,6 +195,13 @@
   <script src="<?php echo base_url('assets/js/main.js')?>"></script>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <script>
+    $('#btnView').on('click',function(e)
+    {
+      e.preventDefault();
+      var fromdate = $('#fromdate').val();
+      var todate = $('#todate').val();
+      window.location.href="view-response?fromdate="+fromdate+"&todate="+todate;
+    });
     $('#btnGenerate').on('click',function(e)
     {
       e.preventDefault();
@@ -214,15 +214,13 @@
           $('#totalRespondent').html(response);
         }
       });
-
-      $('#btnView').on('click',function(e)
-      {
-        e.preventDefault();
-        var fromdate = $('#fromdate').val();
-        var todate = $('#todate').val();
-        window.location.href="view-response?fromdate="+fromdate+"&todate="+todate;
+      $.ajax({
+        url:"<?=site_url('high-risk')?>",method:"GET",
+        data:data,success:function(response)
+        {
+          $('#totalHigh').html(response);
+        }
       });
-
       $.ajax({
           url:"<?=site_url('age-chart')?>",method:"GET",
           dataType:"JSON",

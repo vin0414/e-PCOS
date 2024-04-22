@@ -28,9 +28,6 @@
 
   <!-- Template Main CSS File -->
   <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
-  <style>
-    input[type='text'],input[type='email'],input[type='password']{padding:10px;}
-  </style>
 </head>
 
 <body>
@@ -80,6 +77,30 @@
     <!-- ======= Contact Section ======= -->
     <section class="why-us">
       <div class="container">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <th class="bg-primary text-white">Patient's Name</th>
+              <th class="bg-primary text-white">Q1</th>
+              <th class="bg-primary text-white">Q2</th>
+              <th class="bg-primary text-white">Q3</th>
+              <th class="bg-primary text-white">Q4</th>
+              <th class="bg-primary text-white">Q5</th>
+            </thead>
+            <tbody>
+              <?php foreach($info as $row): ?>
+                <tr>
+                  <td><?php echo $row->Fullname ?></td>
+                  <td><?php echo $row->Q1 ?></td>
+                  <td><?php echo $row->Q2 ?></td>
+                  <td><?php echo $row->Q3 ?></td>
+                  <td><?php echo $row->Q4 ?></td>
+                  <td><?php echo $row->Q4 ?></td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section><!-- End Contact Section -->
 
@@ -96,7 +117,6 @@
 
   <!-- Template Main JS File -->
   <script src="<?php echo base_url('assets/js/main.js')?>"></script>
-
 </body>
 
 </html>

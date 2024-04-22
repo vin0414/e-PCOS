@@ -678,7 +678,23 @@ class Home extends BaseController
 
     public function viewResponse()
     {
-        return view('admin/response');
+        $fromdate = $this->request->getGet('fromdate');
+        $todate = $this->request->getGet('todate');
+
+        $builder = $this->db->table('tblcustomerinfo a');
+        $builder->select("b.Fullname,
+        (CASE WHEN d.Sequence='Question 1' THEN e.Details END)Q1,(CASE WHEN d.Sequence='Question 2' THEN e.Details END)Q2,
+        (CASE WHEN d.Sequence='Question 3' THEN e.Details END)Q3,(CASE WHEN d.Sequence='Question 4' THEN e.Details END)Q4,
+        (CASE WHEN d.Sequence='Question 5' THEN e.Details ELSE 0 END)Q5");
+        $builder->join('tblcustomer b','b.customerID=a.customerID','LEFT');
+        $builder->join('tblrecords c','c.customerID=b.customerID','LEFT');
+        $builder->join('tblquestion d','d.questionID=c.questionID','LEFT');
+        $builder->join('tblchoice e','e.choiceID=c.choiceID','LEFT');
+        $builder->WHERE('a.Date>=',$fromdate)->WHERE('a.Date<=',$todate);
+        $builder->groupBy('a.customerID')->groupBy('a.Date');
+        $info = $builder->get()->getResult();
+        $data = ['info'=>$info];
+        return view('admin/response',$data);
     }
 
     //customer

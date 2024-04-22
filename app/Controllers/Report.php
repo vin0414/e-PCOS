@@ -11,6 +11,31 @@ class Report extends BaseController
         $this->db = db_connect();
     }
 
+    public function highRisk()
+    {
+        $fromdate = $this->request->getGet('fromdate');
+        $todate = $this->request->getGet('todate');
+        $total = 0;$count = 0;$percentage=0;
+        $sql = "Select COUNT(DISTINCT b.customerID)total from tblchoice a
+        LEFT JOIN tblrecords b ON b.choiceID=a.choiceID
+        WHERE a.Score IN (2,3) AND b.Date BETWEEN :from: AND :to:";
+        $query = $this->db->query($sql,['from'=>$fromdate,'to'=>$todate]);
+        if($row = $query->getRow())
+        {
+            $count = $row->total;
+        }
+
+        $builder = $this->db->table('tblcustomerinfo');
+        $builder->select('COUNT(customerID)total');
+        $builder->WHERE('Date>=',$fromdate)->WHERE('Date<=',$todate);
+        $data = $builder->get();
+        if($row = $data->getRow())
+        {
+            $total = $row->total;
+        }
+        $percentage = ($count/$total)*100;
+        echo number_format($percentage,2)."%";
+    }
     public function generateReport()
     {
         $fromdate = $this->request->getGet('fromdate');
