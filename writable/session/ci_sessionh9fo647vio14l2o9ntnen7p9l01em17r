@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1713776219;_ci_previous_url|s:37:"http://localhost:8080/forgot-password";success|s:41:"Password Successfully reset. Please login";__ci_vars|a:2:{s:7:"success";s:3:"old";s:13:"_ci_old_input";s:3:"old";}_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:1:{s:5:"email";s:19:"vinmogate@gmail.com";}}

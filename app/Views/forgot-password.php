@@ -39,7 +39,7 @@
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">contact@example.com</a>
+        <i class="bi bi-envelope"></i> <a href="mailto:pcos-system2024@gmail.com">pcos-system2024@gmail.com</a>
         <i class="bi bi-phone"></i> +1 5589 55488 55
       </div>
       <div class="d-none d-lg-flex social-links align-items-center">
@@ -84,6 +84,11 @@
               <?php if(!empty(session()->getFlashdata('fail'))) : ?>
                   <div class="alert alert-danger" role="alert">
                       <?= session()->getFlashdata('fail'); ?>
+                  </div>
+              <?php endif; ?>
+              <?php if(!empty(session()->getFlashdata('success'))) : ?>
+                  <div class="alert alert-success" role="alert">
+                      <?= session()->getFlashdata('success'); ?>
                   </div>
               <?php endif; ?>
               <h4 class="text-center">Forgot Password</h4>
