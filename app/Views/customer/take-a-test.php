@@ -81,6 +81,10 @@
                 <center>
                   <button type="button" class="btn btn-primary btn-lg" id="btnStart"><i class="bi bi-arrow-right"></i>&nbsp;START</button>
                 </center>
+                <br/>
+                <center id="btnResult" style="display:none;">
+                  <a href="<?=site_url('customer/history')?>" class="btn btn-link btn-sm">View Result</a>
+                </center>
               </div>
             </div>
             <div class="card" id="frmQuestion" style="display:none;">
@@ -478,6 +482,7 @@
                 alert(response);
                 document.getElementById('frmStart').style="display:block";
                 document.getElementById('frmQuestion').style="display:none";
+                document.getElementById('btnResult').style="display:block";
               }
             }
           });

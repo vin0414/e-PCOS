@@ -3,7 +3,7 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>Take A Test</title>
+      <title>History</title>
       <!-- Favicons -->
       <link href="../assets/img/logo.png" rel="icon">
       <link href="../assets/img/logo.png" rel="apple-touch-icon">
@@ -67,7 +67,23 @@
     <!-- ======= Contact Section ======= -->
     <section class="why-us">
       <div class="container">
-        
+        <div class="row g-3">
+          <div class="col-lg-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">Recent Result</div>
+                <h1>0</h1>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">History</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section><!-- End Contact Section -->
 
