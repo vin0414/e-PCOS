@@ -22,7 +22,17 @@
       <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
       <!-- Template Main CSS File -->
       <link href="../assets/css/style.css" rel="stylesheet">
-         
+      <style>
+        .tableFixHead thead th { position: sticky; top: 0; z-index: 1;color:#fff;background-color: #0275d8;}
+
+        /* Just common table stuff. Really. */
+        table  { border-collapse: collapse; width: 100%; }
+        th, td { padding: 8px 16px;color:#000; }
+        tbody{color:#000;}
+        tr:nth-child(even) {
+          background-color: #f2f2f2;
+        }
+      </style>  
    </head>
    <body>
    <div id="topbar" class="d-flex align-items-center fixed-top">
@@ -72,14 +82,41 @@
             <div class="card">
               <div class="card-body">
                 <div class="card-title">Recent Result</div>
-                <h1>0</h1>
+                <h1><?=$score?></h1>
+              </div>
+            </div>
+            <br/>
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">Previous Result</div>
+                <h1><?=$previous_score?></h1>
+                <?php $date = date('Y-m-d'); ?>
+                <label><i>Survey Date : <?php echo date('Y-m-d', strtotime($date . ' - 1 day')) ?></i></label>
               </div>
             </div>
           </div>
           <div class="col-lg-9">
             <div class="card">
               <div class="card-body">
-                <div class="card-title">History</div>
+                <div class="card-title">Personal Records as of <?php echo date('Y-m-d') ?></div>
+                <div class="tableFixHead" style="height:500px;overflow-y:auto;">
+                  <table class="table-bordered">
+                    <thead>
+                      <th>Questions</th>
+                      <th>Answers</th>
+                      <th>Score</th>
+                    </thead>
+                    <tbody>
+                      <?php foreach($list as $row): ?>
+                        <tr>
+                          <td><?php echo $row->Question ?></td>
+                          <td><?php echo $row->Details ?></td>
+                          <td class="text-center"><?php echo $row->Score ?></td>
+                        </tr>
+                      <?php endforeach; ?>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>

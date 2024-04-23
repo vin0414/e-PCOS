@@ -40,7 +40,39 @@ class Customer extends BaseController
 
     public function History()
     {
-        return view('customer/history');
+        $date = date('Y-m-d');
+        $customerID = session()->get('sess_id');
+        $newDate = date('Y-m-d', strtotime($date . ' - 1 day')); 
+        //recent score
+        $sql = "Select (COUNT(b.recordID)/9)*100 total from tblchoice a
+        LEFT JOIN tblrecords b ON b.choiceID=a.choiceID
+        WHERE a.Score IN (2,3) AND b.customerID=:user: AND b.Date=:date:";
+        $query = $this->db->query($sql,['user'=>$customerID,'date'=>$date]);
+        $score = "";
+        if($row = $query->getRow())
+        {
+            $score = number_format($row->total,2)."%";
+        }
+        //recent answer
+        $sql = "Select c.Question,b.Details,b.Score from tblrecords a 
+        LEFT JOIN tblchoice b ON b.choiceID=a.choiceID
+        LEFT JOIN tblquestion c ON c.questionID=a.questionID
+        WHERE a.customerID=:user: AND a.Date=:date:
+        GROUP BY c.questionID";
+        $query = $this->db->query($sql,['user'=>$customerID,'date'=>$date]);
+        $list = $query->getResult();
+        //previous
+        $sql = "Select (COUNT(b.recordID)/9)*100 total from tblchoice a
+        LEFT JOIN tblrecords b ON b.choiceID=a.choiceID
+        WHERE a.Score IN (2,3) AND b.customerID=:user: AND b.Date=:date:";
+        $query = $this->db->query($sql,['user'=>$customerID,'date'=>$newDate]);
+        $score_previous = "";
+        if($row = $query->getRow())
+        {
+            $score_previous = number_format($row->total,2)."%";
+        }
+        $data = ['score'=>$score,'list'=>$list,'previous_score'=>$score_previous];
+        return view('customer/history',$data);
     }
 
     public function takeATest()
@@ -255,8 +287,8 @@ class Customer extends BaseController
         }
         else
         {
-            if(empty($answer1)&&empty($answer2)&&empty($answer3)&&empty($answer4)&&empty($answer5)
-            &&empty($answer6)&&empty($answer7)&&empty($answer8)&&empty($answer9)&&empty($answer10))
+            if(empty($answer1)||empty($answer2)||empty($answer3)||empty($answer4)||empty($answer5)
+            ||empty($answer6)||empty($answer7)||empty($answer8)||empty($answer9)||empty($answer10))
             {
                 echo "Invalid! Please select your answer";
             }
