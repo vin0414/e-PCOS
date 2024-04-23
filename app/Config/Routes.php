@@ -39,6 +39,7 @@ $routes->post('sign-in','Home::customerLogin');
 $routes->post('create-account','Home::createAccount');
 $routes->get('activate/(:any)','Home::activate/$1');
 $routes->get('forgot-password','Home::forgotPassword');
+$routes->get('authentication-new-password','Home::newAuthPassword');
 $routes->get('sign-out','Home::signOut');
 $routes->post('update-password','Home::updatePassword');
 $routes->post('save','Customer::Save');
@@ -85,6 +86,7 @@ $routes->get('get-available-time','Customer::getTime');
 $routes->post('save-record','Customer::saveRecord');
 $routes->post('reset-password','Customer::resetPassword');
 $routes->post('change-pass','Customer::changePassword');
+$routes->post('request-new-password','Home::requestNewPassword');
 
 $routes->group('',['filter'=>'AuthCheck'],function($routes)
 {

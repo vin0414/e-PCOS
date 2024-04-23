@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Administrator Login Portal</title>
+  <title>Forgot Password</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -39,7 +39,7 @@
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">contact@example.com</a>
+        <i class="bi bi-envelope"></i> <a href="mailto:pcos-system2024@gmail.com">pcos-system2024@gmail.com</a>
         <i class="bi bi-phone"></i> +1 5589 55488 55
       </div>
       <div class="d-none d-lg-flex social-links align-items-center">
@@ -62,7 +62,7 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link" href="/">Home</a></li>
-          <li><a class="nav-link active" href="<?=site_url('login')?>">Administrator Login Portal</a></li>
+          <li><a class="nav-link active" href="<?=site_url('forgot-password')?>">Forgot Password</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -86,18 +86,21 @@
                       <?= session()->getFlashdata('fail'); ?>
                   </div>
               <?php endif; ?>
-              <form method="POST" class="row mt-3" role="form" action="<?=base_url('check')?>">
+              <?php if(!empty(session()->getFlashdata('success'))) : ?>
+                  <div class="alert alert-success" role="alert">
+                      <?= session()->getFlashdata('success'); ?>
+                  </div>
+              <?php endif; ?>
+              <h4 class="text-center">Forgot Password</h4>
+              <h6 class="text-center">Enter the email address associated with your account to reset your password.</h6>
+              <form method="POST" class="row mt-3" role="form" action="<?=base_url('request-new-password')?>">
                 <div class="form-group mt-3">
                   <input type="email" name="email" class="form-control" placeholder="Email Address" required/>
                 </div>
                 <div class="form-group mt-3">
-                  <input type="password" name="password" class="form-control" placeholder="Password" required/>
-                </div>
-                <div class="form-group mt-3">
-                  <button type="submit" class="form-control btn btn-primary">Sign-In</button>
+                  <button type="submit" class="form-control btn btn-primary">Submit</button>
                 </div>
               </form>
-              <p><small>Forgot Password? Click <a href="<?=site_url('authentication-new-password')?>">here</a></small></p>
             </div>
           </div>
         </div>
