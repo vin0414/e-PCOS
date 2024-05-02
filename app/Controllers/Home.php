@@ -681,18 +681,25 @@ class Home extends BaseController
         $fromdate = $this->request->getGet('fromdate');
         $todate = $this->request->getGet('todate');
 
-        $builder = $this->db->table('tblcustomerinfo a');
-        $builder->select("b.Fullname,
-        (CASE WHEN d.Sequence='Question 1' THEN e.Details END)Q1,(CASE WHEN d.Sequence='Question 2' THEN e.Details END)Q2,
-        (CASE WHEN d.Sequence='Question 3' THEN e.Details END)Q3,(CASE WHEN d.Sequence='Question 4' THEN e.Details END)Q4,
-        (CASE WHEN d.Sequence='Question 5' THEN e.Details ELSE 0 END)Q5");
-        $builder->join('tblcustomer b','b.customerID=a.customerID','LEFT');
-        $builder->join('tblrecords c','c.customerID=b.customerID','LEFT');
-        $builder->join('tblquestion d','d.questionID=c.questionID','LEFT');
-        $builder->join('tblchoice e','e.choiceID=c.choiceID','LEFT');
-        $builder->WHERE('a.Date>=',$fromdate)->WHERE('a.Date<=',$todate);
-        $builder->groupBy('a.customerID')->groupBy('a.Date');
-        $info = $builder->get()->getResult();
+        $sql = "Select a.Date,b.Fullname,
+        SUM(CASE WHEN d.Sequence='Question 1' THEN c.Score END)Q1,
+        SUM(CASE WHEN d.Sequence='Question 2' THEN c.Score END)Q2,
+        SUM(CASE WHEN d.Sequence='Question 3' THEN c.Score END)Q3,
+        SUM(CASE WHEN d.Sequence='Question 4' THEN c.Score END)Q4,
+        SUM(CASE WHEN d.Sequence='Question 5' THEN c.Score END)Q5,
+        SUM(CASE WHEN d.Sequence='Question 6' THEN c.Score END)Q6,
+        SUM(CASE WHEN d.Sequence='Question 7' THEN c.Score END)Q7,
+        SUM(CASE WHEN d.Sequence='Question 8' THEN c.Score END)Q8,
+        SUM(CASE WHEN d.Sequence='Question 9' THEN c.Score END)Q9,
+        SUM(CASE WHEN d.Sequence='Question 10' THEN c.Score END)Q10
+        from tblrecords a 
+        LEFT JOIN tblcustomer b ON b.customerID=a.customerID 
+        LEFT JOIN tblchoice c ON c.choiceID=a.choiceID
+        LEFT JOIN tblquestion d ON c.questionID=d.questionID
+        WHERE a.Date BETWEEN :from: AND :to:
+        group by b.customerID,a.Date";
+        $query = $this->db->query($sql,['from'=>$fromdate,'to'=>$todate]);
+        $info = $query->getResult();
         $data = ['info'=>$info];
         return view('admin/response',$data);
     }

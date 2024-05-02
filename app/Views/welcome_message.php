@@ -60,7 +60,6 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#faq">About</a></li>
-          <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
           <li><a class="nav-link scrollto" href="#blogs">Blogs</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <?php if(empty(session()->get('sess_fullname'))){?>

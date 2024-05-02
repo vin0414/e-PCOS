@@ -44,7 +44,7 @@ class Customer extends BaseController
         $customerID = session()->get('sess_id');
         $newDate = date('Y-m-d', strtotime($date . ' - 1 day')); 
         //recent score
-        $sql = "Select (COUNT(b.recordID)/9)*100 total from tblchoice a
+        $sql = "Select (COUNT(b.recordID)/10)*100 total from tblchoice a
         LEFT JOIN tblrecords b ON b.choiceID=a.choiceID
         WHERE a.Score IN (2,3) AND b.customerID=:user: AND b.Date=:date:";
         $query = $this->db->query($sql,['user'=>$customerID,'date'=>$date]);
@@ -62,7 +62,7 @@ class Customer extends BaseController
         $query = $this->db->query($sql,['user'=>$customerID,'date'=>$date]);
         $list = $query->getResult();
         //previous
-        $sql = "Select (COUNT(b.recordID)/9)*100 total from tblchoice a
+        $sql = "Select (COUNT(b.recordID)/10)*100 total from tblchoice a
         LEFT JOIN tblrecords b ON b.choiceID=a.choiceID
         WHERE a.Score IN (2,3) AND b.customerID=:user: AND b.Date=:date:";
         $query = $this->db->query($sql,['user'=>$customerID,'date'=>$newDate]);

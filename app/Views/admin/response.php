@@ -80,22 +80,34 @@
         <div class="table-responsive">
           <table class="table table-bordered table-striped">
             <thead>
+              <th class="bg-primary text-white">Date</th>
               <th class="bg-primary text-white">Patient's Name</th>
               <th class="bg-primary text-white">Q1</th>
               <th class="bg-primary text-white">Q2</th>
               <th class="bg-primary text-white">Q3</th>
               <th class="bg-primary text-white">Q4</th>
               <th class="bg-primary text-white">Q5</th>
+              <th class="bg-primary text-white">Q6</th>
+              <th class="bg-primary text-white">Q7</th>
+              <th class="bg-primary text-white">Q8</th>
+              <th class="bg-primary text-white">Q9</th>
+              <th class="bg-primary text-white">Q10</th>
             </thead>
             <tbody>
               <?php foreach($info as $row): ?>
                 <tr>
+                  <td><?php echo $row->Date ?></td>
                   <td><?php echo $row->Fullname ?></td>
                   <td><?php echo $row->Q1 ?></td>
                   <td><?php echo $row->Q2 ?></td>
                   <td><?php echo $row->Q3 ?></td>
                   <td><?php echo $row->Q4 ?></td>
-                  <td><?php echo $row->Q4 ?></td>
+                  <td><?php echo $row->Q5 ?></td>
+                  <td><?php echo $row->Q6 ?></td>
+                  <td><?php echo $row->Q7 ?></td>
+                  <td><?php echo $row->Q8 ?></td>
+                  <td><?php echo $row->Q9 ?></td>
+                  <td><?php echo $row->Q10 ?></td>
                 </tr>
               <?php endforeach; ?>
             </tbody>
