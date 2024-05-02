@@ -48,10 +48,24 @@ class Customer extends BaseController
         LEFT JOIN tblrecords b ON b.choiceID=a.choiceID
         WHERE a.Score IN (2,3) AND b.customerID=:user: AND b.Date=:date:";
         $query = $this->db->query($sql,['user'=>$customerID,'date'=>$date]);
-        $score = "";
+        $score = "";$comment="";
         if($row = $query->getRow())
         {
             $score = number_format($row->total,2)."%";
+            if($row->total<="59")
+            {
+                $comment = "<p>Congratulations on completing the  PCOS test! While the results suggest a possible low risk of PCOS (Polycystic Ovarian Syndrome), 
+                it's important to remember that this test is not a substitute for professional medical advice. If you have any health concerns or suspect PCOS, 
+                it's recommended that you consult with a qualified healthcare provider. Each person's situation is unique, and expert guidance is essential for a thorough assessment.</p><br/>
+                <p>For more information and resources on PCOS, visit our website. Educate yourself about PCOS and empower yourself with knowledge to make informed decisions about your health.</p>";
+            }
+            else
+            {
+                $comment = "<p>We understand that receiving a high-risk result can be concerning, but it's important to remember that this is just an indication based on the test. 
+                Experiencing multiple symptoms of PCOS is a signal to seek professional medical advice. A qualified healthcare provider can provide a thorough evaluation and formal diagnosis of PCOS.</p><br/>
+                <p>You're not alone in this journey. Remember, knowledge is power. By seeking help, you're taking the first step towards managing your health effectively.</p><br/>
+                <p>For support and further information on PCOS, visit our website. Take control of your health and access resources to navigate this journey with confidence.</p>";
+            }
         }
         //recent answer
         $sql = "Select c.Question,b.Details,b.Score from tblrecords a 
@@ -71,7 +85,7 @@ class Customer extends BaseController
         {
             $score_previous = number_format($row->total,2)."%";
         }
-        $data = ['score'=>$score,'list'=>$list,'previous_score'=>$score_previous];
+        $data = ['score'=>$score,'list'=>$list,'previous_score'=>$score_previous,'comment'=>$comment];
         return view('customer/history',$data);
     }
 

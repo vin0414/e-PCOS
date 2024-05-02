@@ -96,6 +96,9 @@
             </div>
           </div>
           <div class="col-lg-9">
+            <div class="alert alert-success">
+                <?=$comment?>
+            </div>
             <div class="card">
               <div class="card-body">
                 <div class="card-title">Personal Records as of <?php echo date('Y-m-d') ?></div>
