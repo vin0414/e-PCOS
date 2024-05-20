@@ -112,7 +112,7 @@
                 <div class="card bg-primary text-white">
                   <div class="card-body">
                     <div class="card-title">Inquiries</div>
-                    <h1>0</h1>
+                    <h1><?=$inquire?></h1>
                   </div>
                 </div>
               </div>

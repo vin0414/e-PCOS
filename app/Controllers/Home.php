@@ -162,12 +162,22 @@ class Home extends BaseController
         $builder->groupBy('Date')->orderBy('Date','ASC');
         $query = $builder->get()->getResult();
         //survey
-        $builder = $this->db->table('tblrecords');
-        $builder->select('Date,count(recordID)total');
+        $builder = $this->db->table('tblcustomerinfo');
+        $builder->select('Date,count(customerID)total');
         $builder->groupBy('Date')->groupBy('customerID')->orderBy('Date','ASC');
         $survey = $builder->get()->getResult();
+        //inquiry
+        $inquire=0;
+        $builder = $this->db->table('tblinquiry');
+        $builder->select('COUNT(*)total');
+        $builder->WHERE('Status',0);
+        $data = $builder->get();
+        if($row = $data->getRow())
+        {
+            $inquire = $row->total;
+        }
 
-        $data = ['customer'=>$customer,'patient'=>$patient,'appointment'=>$appointment,'query'=>$query,'survey'=>$survey];
+        $data = ['customer'=>$customer,'patient'=>$patient,'appointment'=>$appointment,'query'=>$query,'survey'=>$survey,'inquire'=>$inquire];
         return view('admin/index',$data);
     }
 
@@ -805,7 +815,7 @@ class Home extends BaseController
                     $accountModel->update($row->accountID,$values);
                 
                     $email = \Config\Services::email();
-                    $email->setTo($emailAddress,$row->Fullname);
+                    $email->setTo($emailAddress);
                     $email->setFrom("pcos.system2024@gmail.com","PCOSPhil");
                     $template = "
                     <p>Dear " . $row->Fullname . ",</p>
@@ -877,7 +887,7 @@ class Home extends BaseController
                 ];
                 $customerModel->save($values);
                 $email = \Config\Services::email();
-                $email->setTo($emailadd,$fullname);
+                $email->setTo($emailadd);
                 $email->setFrom("pcos.system2024@gmail.com","e-PCOS");
                 $imgURL = "assets/img/logo.png";
                 $email->attach($imgURL);
