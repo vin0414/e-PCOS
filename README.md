@@ -1,5 +1,5 @@
 # e-PCOS - PCOS Awareness and Online Survey
-# Features
+## Features
 * Blog Management
 * Calendar
 * Scheduling of Appointment
@@ -9,7 +9,7 @@
 * User Management
 * Back-up and Restore
 
-# Languages
+## Languages
 * PHP/CodeIgniter 4
 * MySQL/MariaDB
 * Ajax-jQuery
@@ -17,7 +17,7 @@
 * HTML/CSS
 * SweetAlert
   
-# Security
+## Security
 * Password Hash - Password B_CRYPT
 * Tokenization
 * Session Management
